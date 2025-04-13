@@ -29,3 +29,22 @@ pub fn create_vuln_entry(connection: &mut PgConnection, cve_id: String, name : S
         .get_result(connection)
         .expect("Error creating new Vulnerability")
 }
+
+pub fn update_vuln_entry(connection: &mut PgConnection, cve_id: Option<String>, name : Option<String>, inst_version: Option<String>, severity_grade: Option<String> ){
+
+}
+
+
+
+pub fn fetch_all_vuln_entries(connection: &mut PgConnection){
+    use self::schema::vulnerability::dsl::vulnerability;
+    
+    let all_vulns = vulnerability
+        .load::<Vulnerability>(connection)
+        .expect("Error");
+
+    for vuln in all_vulns {
+        print!("{}, {}, {}, {}", vuln.vuln_id, vuln.installed_version, vuln.pkg_name, vuln.id);
+    }
+        
+}
