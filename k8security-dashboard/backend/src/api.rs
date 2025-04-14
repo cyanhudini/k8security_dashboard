@@ -5,8 +5,7 @@ use backend::fetch_all_vuln_entries;
 use crate::DbPool;
 
 
-#[get("/vulns")]
-async fn get_all_vulns(req: HttpRequest, pool: web::Data<DbPool>) -> actix_web::Result<impl Responder>{
+pub(crate) async fn get_all_vulns(req: HttpRequest, pool: web::Data<DbPool>) -> actix_web::Result<impl Responder>{
     let pool = pool.clone();
 
     let all_vulns = web::block(move || {
@@ -19,3 +18,6 @@ async fn get_all_vulns(req: HttpRequest, pool: web::Data<DbPool>) -> actix_web::
     Ok(web::Json(all_vulns))
 }
 
+pub(crate) async fn index(pool: web::Data<DbPool>) -> &'static str {
+    "<p>Hello</p>"
+}

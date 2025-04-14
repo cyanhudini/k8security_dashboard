@@ -15,13 +15,20 @@ export default function Dashboard() {
                     <thead className="bg-gray-100 text-left text-sm font-semibold text-gray-700">
                         <tr>
                             <th className="p-3">CVE</th>
-                            <th className="p-3"> Severity</th>
-                            <th className="p-3">Package</th>
                             <th className="p-3">Title</th>
+                            <th className="p-3">installed version</th>
+                            <th className="p-3">Severity</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y">
-                        {vulns.map()}
+                        {vulns.map((vulns) => (
+                            <tr>
+                                <td className="p-3">{vulns.vuln_id}</td>
+                                <td className="p-3">{vulns.pkg_name}</td>
+                                <td className="p-3">{vulns.installed_version}</td>
+                                <td className="p-3">{vulns.severity}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
