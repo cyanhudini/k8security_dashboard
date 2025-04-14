@@ -59,4 +59,8 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection){
     
 }
 
-pub fn serialze_into_json(){}
+pub fn deserialze_into_json(){}
+
+
+pub fn process_json(){
+}
