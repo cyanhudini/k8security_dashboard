@@ -13,18 +13,8 @@ type DbPool = r2d2::Pool<diesel::r2d2::ConnectionManager<PgConnection>>;
 async fn main() -> io::Result<()> {
     // TODO: while Loop, serialize into json
     // Endpoints GET 1, GET all, FILTER POST vuln, DELETE vuln,
-    // 
+    // add to Docker Container
 
-    
-    let connection = &mut establish_connection();
-    let mut cve_id = String::from("CVE-2022-1");
-    let mut pkg_name = String::from("R");
-    let mut installed_verison = String::from("1.0.0");
-    let mut severity = String::from("HIGH");
-    let vuln = create_vuln_entry(connection, cve_id, pkg_name, installed_verison, severity);
-    fetch_all_vuln_entries(connection);
-    filter_vuln_entries_by_severity(connection);
-    println!("Added to Database");
 
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
     let manager = diesel::r2d2::ConnectionManager::<PgConnection>::new(database_url);
