@@ -59,8 +59,7 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection){
     
 }
 
-pub fn deserialze_into_json(){}
+pub fn process_trivy_report_to_db_json(){}
 
-
-pub fn process_json(){
+pub fn filter_out_duplicates_from_json(){
 }
