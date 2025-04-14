@@ -2,7 +2,7 @@ use diesel::prelude::*;
 use serde::{Deserialize, Serialize};
 
 
-#[derive(Queryable, Selectable)]
+#[derive(Queryable, Selectable, Deserialize, Serialize)]
 #[diesel(table_name = crate::schema::vulnerability)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Vulnerability{

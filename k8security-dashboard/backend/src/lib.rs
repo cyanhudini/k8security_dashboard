@@ -4,7 +4,7 @@ pub mod schema;
 use diesel::prelude::*;
 use dotenv::dotenv;
 use models::{NewVulnerability, Vulnerability};
-use schema::vulnerability::{pkg_name, vuln_id};
+use schema::vulnerability::{pkg_name, severity, vuln_id};
 use std::env;
 
 pub fn establish_connection() -> PgConnection {
@@ -36,15 +36,27 @@ pub fn update_vuln_entry(connection: &mut PgConnection, cve_id: Option<String>, 
 
 
 
-pub fn fetch_all_vuln_entries(connection: &mut PgConnection){
+pub fn fetch_all_vuln_entries(connection: &mut PgConnection) -> Vec<Vulnerability>{
     use self::schema::vulnerability::dsl::vulnerability;
     
-    let all_vulns = vulnerability
-        .load::<Vulnerability>(connection)
-        .expect("Error");
-
-    for vuln in all_vulns {
-        print!("{}, {}, {}, {}", vuln.vuln_id, vuln.installed_version, vuln.pkg_name, vuln.id);
-    }
+    vulnerability.load::<Vulnerability>(connection).unwrap()
+        
         
 }
+
+pub fn delete_vuln_entry(){}
+
+pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection){
+    use self::schema::vulnerability::dsl::vulnerability;
+    let vulns = vulnerability
+        .filter(severity.eq_any(["HIGH"]))
+        .load::<Vulnerability>(connection)
+        .expect("Etwas ist schiefgelaufen.");
+
+    for vuln in vulns {
+        println!("{:?} {:?} {:?} {:?}", vuln.vuln_id, vuln.installed_version, vuln.pkg_name, vuln.id);
+    }  
+    
+}
+
+pub fn serialze_into_json(){}
