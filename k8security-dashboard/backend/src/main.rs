@@ -1,6 +1,6 @@
 use actix_web::{web, App, HttpServer};
 use actix_cors::Cors;
-use api::{get_all_vulns, index};
+use api::{get_all_vulns, index, post_new_vulns};
 use backend::{create_vuln_entry, establish_connection, fetch_all_vuln_entries, filter_vuln_entries_by_severity};
 use diesel::PgConnection;
 use std::{io, env};
@@ -13,7 +13,6 @@ type DbPool = r2d2::Pool<diesel::r2d2::ConnectionManager<PgConnection>>;
 
 #[actix_web::main]
 async fn main() -> io::Result<()> {
-    // TODO: while Loop, serialize into json
     // Endpoints GET 1, GET all, FILTER POST vuln, DELETE vuln,
     // add to Docker Container
 
@@ -34,6 +33,7 @@ async fn main() -> io::Result<()> {
             .app_data(web::Data::new(pool.clone()))
             .route("/", web::get().to(index))
             .route("/vulns", web::get().to(get_all_vulns))
+            .route("/add_vulns_bulk", web::get().to(post_new_vulns))
     })
     .bind(("127.0.0.1", 8080))?
     .run()

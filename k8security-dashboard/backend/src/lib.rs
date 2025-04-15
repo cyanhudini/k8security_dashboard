@@ -3,9 +3,11 @@ pub mod schema;
 
 use diesel::prelude::*;
 use dotenv::dotenv;
-use models::{NewVulnerability, Vulnerability};
-use schema::vulnerability::{pkg_name, severity, vuln_id};
+use models::{NewVulnerability, Vulnerability, VulnerabilityReport};
+use schema::vulnerability::{installed_version, pkg_name, severity, vuln_id};
 use std::env;
+use std::fs::File;
+use std::io::BufReader;
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
@@ -34,14 +36,10 @@ pub fn update_vuln_entry(connection: &mut PgConnection, cve_id: Option<String>, 
 
 }
 
-
-
 pub fn fetch_all_vuln_entries(connection: &mut PgConnection) -> Vec<Vulnerability>{
     use self::schema::vulnerability::dsl::vulnerability;
     
     vulnerability.load::<Vulnerability>(connection).unwrap()
-        
-        
 }
 
 pub fn delete_vuln_entry(){}
@@ -58,8 +56,53 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection){
     }  
     
 }
+// check for malformed json
 
-pub fn process_trivy_report_to_db_json(){}
+pub fn process_trivy_report_to_db_json(){
+    /*
+    extra json oder nur als Struct 
+    */
+
+}
 
 pub fn filter_out_duplicates_from_json(){
+}
+
+pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::error::Error>> {
+    use self::schema::vulnerability::dsl::vulnerability;
+
+    print!("DDD");
+    let file = File::open("report.json")?;
+    let reader = BufReader::new(file);
+
+    let report: VulnerabilityReport = serde_json::from_reader(reader).expect("msg");
+    print!("add in bulk");
+
+    let mut new_vulns: Vec<NewVulnerability> = Vec::new();
+    for resource in report.Resources {
+        for result in resource.Results {
+            if let Some(vulns) = result.Vulnerabilities {
+                for v in vulns {
+                    new_vulns.push(NewVulnerability {
+                        vuln_id: v.vuln_id,
+                        pkg_name: v.pkg_name,
+                        installed_version: v.installed_version,
+                        severity: v.severity,
+                    });
+                }
+            }
+        }
+    }
+
+    let res = diesel::insert_into(vulnerability)
+        .values(&new_vulns)
+        .on_conflict((vuln_id, pkg_name, installed_version))
+        .do_nothing()
+        .execute(connection)
+        .expect("Error inserting new vulnerabilities");
+    println!("Inserted {} new vulnerabilities", res);
+
+    Ok(())
+
+
 }
