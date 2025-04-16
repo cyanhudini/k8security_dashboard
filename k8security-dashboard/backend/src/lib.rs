@@ -118,3 +118,5 @@ pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std:
 
 
 }
+
+
