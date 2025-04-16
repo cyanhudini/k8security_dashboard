@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Emails {
     pub id: i32,
-    pub email_address : String,
+    pub email_adress : String,
 }
 
 #[derive(Queryable, Selectable, Deserialize, Serialize)]

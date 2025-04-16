@@ -5,7 +5,7 @@ use diesel::prelude::*;
 use dotenv::dotenv;
 use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails};
 use schema::vulnerability::{installed_version, pkg_name, severity, vuln_id};
-use schema::emails::email_address;
+use schema::emails::email_adress;
 use std::env;
 use std::fs::File;
 use std::io::BufReader;
