@@ -3,7 +3,7 @@ pub mod schema;
 
 use diesel::prelude::*;
 use dotenv::dotenv;
-use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails};
+use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails, NewEmail};
 use schema::vulnerability::{installed_version, pkg_name, severity, vuln_id};
 use schema::emails::email_adress;
 use std::env;
@@ -17,7 +17,6 @@ pub fn establish_connection() -> PgConnection {
     PgConnection::establish(&database_url)
         .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
 }
-
 
 pub fn create_vuln_entry(connection: &mut PgConnection, cve_id: String, name : String, inst_version: String, severity_grade: String)-> Vulnerability{
     use crate::schema::vulnerability;
@@ -33,10 +32,8 @@ pub fn create_vuln_entry(connection: &mut PgConnection, cve_id: String, name : S
         .expect("Error creating new Vulnerability")
 }
 
-
 pub fn fetch_all_vuln_entries(connection: &mut PgConnection) -> Vec<Vulnerability>{
-    use self::schema::vulnerability::dsl::vulnerability;
-    
+    use self::schema::vulnerability::dsl::vulnerability; 
     vulnerability.load::<Vulnerability>(connection).unwrap()
 }
 
@@ -52,6 +49,18 @@ pub fn delete_vuln_entry(connection: &mut PgConnection, to_delete : Vec<String>)
         .execute(connection)
         .expect("Unable to delete");
     Ok(())
+}
+
+pub fn create_email_entry(connection: &mut PgConnection, email_adr : String) -> Emails {
+    use crate::schema::emails;
+
+    let new_email = NewEmail { email_adress: email_adr};
+
+    diesel::insert_into(emails::table)
+        .values(&new_email)
+        .returning(Emails::as_returning())
+        .get_result(connection)
+        .expect("Error creating Email")
 }
 
 pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection){

@@ -9,6 +9,13 @@ pub struct Emails {
     pub email_adress : String,
 }
 
+#[derive(Queryable, Insertable, Serialize,Deserialize, Debug)]
+#[diesel(table_name = crate::schema::emails)]
+pub struct NewEmail{
+    pub email_adress: String,
+}
+
+
 #[derive(Queryable, Selectable, Deserialize, Serialize)]
 #[diesel(table_name = crate::schema::vulnerability)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
