@@ -1,6 +1,13 @@
 use diesel::prelude::*;
 use serde::{Deserialize, Serialize};
 
+#[derive(Queryable, Selectable, Deserialize, Serialize)]
+#[diesel(table_name = crate::schema::emails)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
+pub struct Emails {
+    pub id: i32,
+    pub email_address : String,
+}
 
 #[derive(Queryable, Selectable, Deserialize, Serialize)]
 #[diesel(table_name = crate::schema::vulnerability)]
@@ -48,4 +55,3 @@ pub struct ResultEntry {
     pub Vulnerabilities: Option<Vec<TrivyVulnerability>>,
     // Add other fields as needed
 }
-

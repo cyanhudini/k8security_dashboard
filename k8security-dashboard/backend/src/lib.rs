@@ -3,8 +3,9 @@ pub mod schema;
 
 use diesel::prelude::*;
 use dotenv::dotenv;
-use models::{NewVulnerability, Vulnerability, VulnerabilityReport};
+use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails};
 use schema::vulnerability::{installed_version, pkg_name, severity, vuln_id};
+use schema::emails::email_address;
 use std::env;
 use std::fs::File;
 use std::io::BufReader;
@@ -42,7 +43,19 @@ pub fn fetch_all_vuln_entries(connection: &mut PgConnection) -> Vec<Vulnerabilit
     vulnerability.load::<Vulnerability>(connection).unwrap()
 }
 
-pub fn delete_vuln_entry(){}
+pub fn fetch_receiver_emails(connection: &mut PgConnection) -> Vec<Emails> {
+    use self::schema::emails::dsl::emails;
+    emails.load::<Emails>(connection).unwrap()
+}
+
+pub fn delete_vuln_entry(connection: &mut PgConnection, to_delete : Vec<String>) -> Result<(), Box<dyn std::error::Error>>{
+    use self::schema::vulnerability::dsl::vulnerability;
+    diesel::delete(vulnerability.filter(vuln_id
+        .eq_any(to_delete)))
+        .execute(connection)
+        .expect("Unable to delete");
+    Ok(())
+}
 
 pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection){
     use self::schema::vulnerability::dsl::vulnerability;
@@ -94,13 +107,12 @@ pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std:
         }
     }
 
-    let res = diesel::insert_into(vulnerability)
+    diesel::insert_into(vulnerability)
         .values(&new_vulns)
         .on_conflict((vuln_id, pkg_name, installed_version))
         .do_nothing()
         .execute(connection)
         .expect("Error inserting new vulnerabilities");
-    println!("Inserted {} new vulnerabilities", res);
 
     Ok(())
 

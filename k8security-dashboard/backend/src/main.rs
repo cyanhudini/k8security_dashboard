@@ -1,7 +1,6 @@
 use actix_web::{web, App, HttpServer};
 use actix_cors::Cors;
-use api::{get_all_vulns, index, post_new_vulns};
-use backend::{create_vuln_entry, establish_connection, fetch_all_vuln_entries, filter_vuln_entries_by_severity};
+use api::{get_all_receiver_emails, get_all_vulns, index, post_new_vulns};
 use diesel::PgConnection;
 use std::{io, env};
 use dotenv::dotenv;
@@ -34,6 +33,7 @@ async fn main() -> io::Result<()> {
             .route("/", web::get().to(index))
             .route("/vulns", web::get().to(get_all_vulns))
             .route("/add_vulns_bulk", web::get().to(post_new_vulns))
+            .route("/receiver_emails", web::get().to(get_all_receiver_emails))
     })
     .bind(("127.0.0.1", 8080))?
     .run()

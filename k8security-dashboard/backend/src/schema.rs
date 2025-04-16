@@ -8,3 +8,10 @@ diesel::table! {
     }
     
 }
+
+diesel::table! {
+    emails (id) {
+        id -> Int4,
+        email_address -> Varchar,
+    }
+}
