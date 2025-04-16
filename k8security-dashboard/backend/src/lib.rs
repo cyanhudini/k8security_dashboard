@@ -33,9 +33,6 @@ pub fn create_vuln_entry(connection: &mut PgConnection, cve_id: String, name : S
         .expect("Error creating new Vulnerability")
 }
 
-pub fn update_vuln_entry(connection: &mut PgConnection, cve_id: Option<String>, name : Option<String>, inst_version: Option<String>, severity_grade: Option<String> ){
-
-}
 
 pub fn fetch_all_vuln_entries(connection: &mut PgConnection) -> Vec<Vulnerability>{
     use self::schema::vulnerability::dsl::vulnerability;
@@ -68,17 +65,6 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection){
         println!("{:?} {:?} {:?} {:?}", vuln.vuln_id, vuln.installed_version, vuln.pkg_name, vuln.id);
     }  
     
-}
-// check for malformed json
-
-pub fn process_trivy_report_to_db_json(){
-    /*
-    extra json oder nur als Struct 
-    */
-
-}
-
-pub fn filter_out_duplicates_from_json(){
 }
 
 pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::error::Error>> {
