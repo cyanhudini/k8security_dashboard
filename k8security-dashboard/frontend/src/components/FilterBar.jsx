@@ -1,13 +1,27 @@
+import { useState } from 'react'
 
 
-export default function FilterBar() {
+export default function FilterSidebar() {
+    const [checked, setChecked] = useState(false);
     
+    const handleCheckboxChange = (e) => {
+        const check = !checked;
+        setChecked(check);
+        console.log(e.target.id)
+
+    }
+
     return (
-        <div>
-            <label for="dropdown">filter by Severity</label>
-            <select name="" id="severity">
-                <option value="LOW">LOW</option>
-            </select>
-        </div>
+            <div>
+                <h2 >Filter</h2>
+                <div className="mb-4">
+                    <label htmlFor="severity">Severity</label>
+                    <div>
+                        <input type="checkbox" id="CRITICAL" onChange={handleCheckboxChange} />
+                        <label htmlFor="critical">Critical</label>
+
+                    </div>
+                </div>
+            </div>
     )
 }

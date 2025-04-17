@@ -62,3 +62,8 @@ pub struct ResultEntry {
     pub Vulnerabilities: Option<Vec<TrivyVulnerability>>,
     // Add other fields as needed
 }
+
+#[derive(Deserialize)]
+pub struct FilterQuery {
+    pub query: Option<Vec<String>>,
+}

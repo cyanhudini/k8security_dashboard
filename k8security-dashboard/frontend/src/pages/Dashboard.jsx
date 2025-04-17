@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getVulnerabilities } from '../lib/api'
 import FilterBar from '../components/FilterBar'
+import '../styles/Dashboard.css'
 
 export default function Dashboard() {
     const [vulns, setVulns] = useState([])
@@ -10,11 +11,12 @@ export default function Dashboard() {
 
     return (
         <div className="p-6">
-            <h1 className="text-2xl font-bold">Kubernetes Security Dashboard</h1>
-            <FilterBar/>
-            <div className="overflow-auto rounded-lg shadow border">
-                <table className="min-w-full bg-white">
-                    <thead className="bg-gray-100 text-left text-sm font-semibold text-gray-700">
+            <h1>Kubernetes Security Dashboard</h1>
+            
+            <div className="dashboard" >
+                <FilterBar/>
+                <table className=" ">
+                    <thead>
                         <tr>
                             <th className="p-3">CVE</th>
                             <th className="p-3">Title</th>
