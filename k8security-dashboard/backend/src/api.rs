@@ -46,6 +46,10 @@ pub(crate) async fn post_new_email(pool : web::Data<DbPool>, req: web::Json<NewE
     Ok(HttpResponse::Ok().json("Successfully inserted"))
 }
 
+pub(crate) async fn delete_vulns(pool : web::Data<DbPool>){}
+
+pub(crate) async fn delete_receiver_email(pool : web::Data<DbPool>){}
+
 pub(crate) async fn get_all_receiver_emails(pool : web::Data<DbPool>) -> actix_web::Result<impl Responder> {
     let pool = pool.clone();
     let response = web::block(move ||{
@@ -57,8 +61,6 @@ pub(crate) async fn get_all_receiver_emails(pool : web::Data<DbPool>) -> actix_w
 
     Ok(HttpResponse::Ok().json(response))
 }
-
-
 
 pub(crate) async fn index(pool: web::Data<DbPool>) -> &'static str {
     "<p>Hello</p>"
