@@ -1,6 +1,6 @@
 use actix_web::{web, App, HttpServer};
 use actix_cors::Cors;
-use api::{get_all_receiver_emails, get_all_vulns, index, post_new_email, post_new_vulns};
+use api::{get_all_receiver_emails, get_all_vulns, index, post_new_email_adress, post_new_vulns, post_filter_query};
 use diesel::PgConnection;
 use std::{io, env};
 use dotenv::dotenv;
@@ -12,7 +12,7 @@ type DbPool = r2d2::Pool<diesel::r2d2::ConnectionManager<PgConnection>>;
 
 #[actix_web::main]
 async fn main() -> io::Result<()> {
-    // Endpoints GET 1, GET all, FILTER POST vuln, DELETE vuln,
+    // Endpoints GET 1, GET all, FILTER POST vuln, DELETE vuln, authentication, Filter von mehreren Eigenschaften, 
     // add to Docker Container
 
     dotenv().ok();
@@ -34,7 +34,8 @@ async fn main() -> io::Result<()> {
             .route("/vulns", web::get().to(get_all_vulns))
             .route("/add_vulns_bulk", web::get().to(post_new_vulns))
             .route("/receiver_emails", web::get().to(get_all_receiver_emails))
-            .route("/add_receiver_email", web::post().to(post_new_email))
+            .route("/add_receiver_email", web::post().to(post_new_email_adress))
+            .route("/filter", web::post().to(post_filter_query))
     })
     .bind(("127.0.0.1", 8080))?
     .run()

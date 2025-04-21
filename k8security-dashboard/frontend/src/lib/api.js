@@ -4,13 +4,13 @@ export async function getVulnerabilities() {
   return await res.json()
 }
 
-export async function filterVulns() {
-    const postOptions = {
-        method: 'POST',
-        headers: {},
-        body: JSON.stringify({filters : ""})
-    }
+export async function filterVulnerabilities(filter_query) {
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: filter_query })
+  })
 
-    return (await fetch(`${import.meta.env.VITE_BACKEND_URL}/filter_vulns_by_severity`, postOptions)).json()
+  return await res.json()
 
 }

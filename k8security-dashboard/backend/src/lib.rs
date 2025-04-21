@@ -5,7 +5,6 @@ use diesel::prelude::*;
 use dotenv::dotenv;
 use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails, NewEmail};
 use schema::vulnerability::{installed_version, pkg_name, severity, vuln_id};
-use schema::emails::email_adress;
 use std::env;
 use std::fs::File;
 use std::io::BufReader;
@@ -63,16 +62,13 @@ pub fn create_email_entry(connection: &mut PgConnection, email_adr : String) -> 
         .expect("Error creating Email")
 }
 
-pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection, filter ){
+pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection, filter_criteria : Vec<String>) -> Vec<Vulnerability>{
     use self::schema::vulnerability::dsl::vulnerability;
     let vulns = vulnerability
-        .filter(severity.eq_any(["HIGH"]))
+        .filter(severity.eq_any(filter_criteria))
         .load::<Vulnerability>(connection)
         .expect("Etwas ist schiefgelaufen.");
-
-    for vuln in vulns {
-        println!("{:?} {:?} {:?} {:?}", vuln.vuln_id, vuln.installed_version, vuln.pkg_name, vuln.id);
-    }  
+    vulns
     
 }
 

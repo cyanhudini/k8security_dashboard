@@ -63,9 +63,7 @@ pub struct ResultEntry {
     // Add other fields as needed
 }
 
-#[derive(Queryable, Selectable, Deserialize, Serialize)]
-#[diesel(table_name = crate::schema::vulnerability)]
-#[diesel(check_for_backend(diesel::pg::Pg))]
-pub struct VulnerabilityFilter{
-    
+#[derive(Deserialize)]
+pub struct FilterQuery {
+    pub query: Option<Vec<String>>,
 }
