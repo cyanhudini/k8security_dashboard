@@ -1,7 +1,10 @@
+import {  useState } from 'react'
 
 
 export default function FilterBar() {
-    
+    const [severities, setSeverities] = useState([])
+
+
     return (
         <div>
             <label for="dropdown">filter by Severity</label>

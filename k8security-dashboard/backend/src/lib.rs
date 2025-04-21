@@ -63,7 +63,7 @@ pub fn create_email_entry(connection: &mut PgConnection, email_adr : String) -> 
         .expect("Error creating Email")
 }
 
-pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection){
+pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection, filter ){
     use self::schema::vulnerability::dsl::vulnerability;
     let vulns = vulnerability
         .filter(severity.eq_any(["HIGH"]))
@@ -79,12 +79,10 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection){
 pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::error::Error>> {
     use self::schema::vulnerability::dsl::vulnerability;
 
-    print!("DDD");
     let file = File::open("report.json")?;
     let reader = BufReader::new(file);
 
-    let report: VulnerabilityReport = serde_json::from_reader(reader).expect("msg");
-    print!("add in bulk");
+    let report: VulnerabilityReport = serde_json::from_reader(reader).expect("Nicht möglich einen JSON Reader zu erstellen.");
 
     let mut new_vulns: Vec<NewVulnerability> = Vec::new();
     for resource in report.Resources {

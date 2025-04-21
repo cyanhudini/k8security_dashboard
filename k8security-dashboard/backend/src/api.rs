@@ -46,6 +46,10 @@ pub(crate) async fn post_new_email(pool : web::Data<DbPool>, req: web::Json<NewE
     Ok(HttpResponse::Ok().json("Successfully inserted"))
 }
 
+pub(crate) async fn post_vuln_flter(pool : web::Data<DbPool>, req: web::Json<NewEmail>){
+    
+}
+
 pub(crate) async fn delete_vulns(pool : web::Data<DbPool>){}
 
 pub(crate) async fn delete_receiver_email(pool : web::Data<DbPool>){}
