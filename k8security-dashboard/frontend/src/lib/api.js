@@ -44,4 +44,16 @@ export async function addReceiverEmail(email) {
   return await res.json()
 }
 
-export async function setEmailStatus(){}
+export async function setEmailStatus(email_adress, status) {
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/set_email_status`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      query: {
+        email_adress: email_adress,
+        status : status,
+      } })
+  })
+
+  return await res.json()
+}
