@@ -33,6 +33,7 @@ export async function getReceiverEmails(){
   return await res.json()
 }
 
+
 export async function addReceiverEmail(email) {
   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/add_receiver_email`, {
     method: 'POST',

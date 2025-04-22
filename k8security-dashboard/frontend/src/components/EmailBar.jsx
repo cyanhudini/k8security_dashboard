@@ -9,7 +9,7 @@ export default function EmailBar() {
         getReceiverEmails().then(setEmails)
     }, [emails])
     const toggle = (value) => {
-        
+
     }
 
     return (
@@ -23,12 +23,10 @@ export default function EmailBar() {
                         type="checkbox"
                         checked
                         onChange={() => toggle(email)}
-                    ></input>
+                    />
                     {email.email_adress}
                 </label>
-           
             ))}
-            
         </div>
     )
 }
