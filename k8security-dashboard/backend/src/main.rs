@@ -18,6 +18,7 @@ async fn main() -> io::Result<()> {
     table Welche Email ist aktiviert um updates zu erhalten und table von allen emails
     pagination der vuln entries
     components aller filter in eine Filter Komponenten packen
+    da dashboard ständig läuft, sollte frontend geupdated werden vom backend ->server side update
      */
     
     dotenv().ok();

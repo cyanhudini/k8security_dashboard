@@ -11,7 +11,6 @@ export default function EmailBar() {
     const toggle = (value) => {
 
     }
-
     return (
         <div className="emailbar">
             <input

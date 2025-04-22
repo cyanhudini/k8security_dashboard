@@ -2,10 +2,8 @@ pub mod models;
 pub mod schema;
 
 use diesel::prelude::*;
-use dotenv::dotenv;
 use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails, NewEmail};
 use schema::vulnerability::{installed_version, pkg_name, severity, vuln_id};
-use std::env;
 use std::fs::File;
 use std::io::BufReader;
 
