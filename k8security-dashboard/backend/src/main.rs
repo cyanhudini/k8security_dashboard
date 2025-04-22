@@ -12,8 +12,9 @@ type DbPool = r2d2::Pool<diesel::r2d2::ConnectionManager<PgConnection>>;
 
 #[actix_web::main]
 async fn main() -> io::Result<()> {
-    // Endpoints GET 1, GET all, FILTER POST vuln, DELETE vuln, authentication, Filter von mehreren Eigenschaften, 
+    // Endpoints DELETE vuln, authentication, 
     // add to Docker Container
+    // table Welche Email ist aktiviert um updates zu erhalten und table von allen emails
 
     dotenv().ok();
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");

@@ -23,7 +23,6 @@ pub(crate) async fn get_all_vulns(pool: web::Data<DbPool>) -> actix_web::Result<
 pub(crate) async fn post_filter_query(pool : web::Data<DbPool>, req: web::Json<FilterQuery>) -> actix_web::Result<impl Responder> {
     let pool = pool.clone();
     let severity_filters = req.into_inner().query.unwrap_or(vec!["ALL".to_string()]);
-    
 
     let response = web::block(move ||{
         let mut connection = pool.get().unwrap();
@@ -61,9 +60,6 @@ pub(crate) async fn post_new_email_adress(pool : web::Data<DbPool>, req: web::Js
     Ok(HttpResponse::Ok().json("Successfully inserted"))
 }
 
-pub(crate) async fn post_vuln_flter(pool : web::Data<DbPool>, req: web::Json<NewEmail>){
-    
-}
 
 pub(crate) async fn delete_vulns(pool : web::Data<DbPool>){}
 
