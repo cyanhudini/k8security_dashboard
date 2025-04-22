@@ -1,6 +1,6 @@
 use actix_web::{web, App, HttpServer};
 use actix_cors::Cors;
-use api::{get_all_receiver_emails, get_all_vulns, index, post_new_email_adress, post_new_vulns, post_filter_query};
+use api::{get_all_receiver_emails, get_all_vulns, post_new_email_adress, post_new_vulns, post_filter_query};
 use diesel::PgConnection;
 use std::{io, env};
 use dotenv::dotenv;
@@ -30,7 +30,6 @@ async fn main() -> io::Result<()> {
                     .allow_any_header()
             )
             .app_data(web::Data::new(pool.clone()))
-            .route("/", web::get().to(index))
             .route("/vulns", web::get().to(get_all_vulns))
             .route("/add_vulns_bulk", web::get().to(post_new_vulns))
             .route("/receiver_emails", web::get().to(get_all_receiver_emails))

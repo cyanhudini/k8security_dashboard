@@ -5,7 +5,7 @@ import '../styles/Dashboard.css'
 
 export default function Dashboard() {
     const [vulns, setVulns] = useState([])
-    useEffect(() => {
+        useEffect(() => {
         getVulnerabilities().then(setVulns)
     }, [])
 
@@ -14,7 +14,7 @@ export default function Dashboard() {
             <h1>Kubernetes Security Dashboard</h1>
             
             <div className="dashboard" >
-                <FilterBar/>
+                <FilterBar onFilter={setVulns}/>
                 <table className=" ">
                     <thead>
                         <tr>

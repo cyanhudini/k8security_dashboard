@@ -64,11 +64,18 @@ pub fn create_email_entry(connection: &mut PgConnection, email_adr : String) -> 
 
 pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection, filter_criteria : Vec<String>) -> Vec<Vulnerability>{
     use self::schema::vulnerability::dsl::vulnerability;
-    let vulns = vulnerability
-        .filter(severity.eq_any(filter_criteria))
+    let query = vulnerability.into_boxed();
+
+    let query = if filter_criteria.is_empty() || 
+               filter_criteria.iter().any(|s| s.to_uppercase() == "ALL") {
+        query
+    } else {
+        query.filter(severity.eq_any(filter_criteria))
+    };
+
+    query
         .load::<Vulnerability>(connection)
-        .expect("Etwas ist schiefgelaufen.");
-    vulns
+        .expect("Failed to load vulnerabilities")
     
 }
 

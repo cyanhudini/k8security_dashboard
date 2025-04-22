@@ -59,6 +59,7 @@ pub struct Resource {
 
 #[derive(Deserialize)]
 pub struct ResultEntry {
+    #[serde(rename = "Vulnerabilities")]
     pub Vulnerabilities: Option<Vec<TrivyVulnerability>>,
     // Add other fields as needed
 }

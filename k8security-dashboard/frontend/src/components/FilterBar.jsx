@@ -1,27 +1,39 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { filterVulnerabilities } from '../lib/api'
 
+const severities = ['LOW', 'MEDIUM', 'HIGH', 'CRITICAL']
 
-export default function FilterSidebar() {
-    const [checked, setChecked] = useState(false);
-    
-    const handleCheckboxChange = (e) => {
-        const check = !checked;
-        setChecked(check);
-        console.log(e.target.id)
+export default function FilterBar({ onFilter }) {
+    const [selected, setSelected] = useState([])
 
+    useEffect(() => {
+        fetchFiltered(selected)
+    }, [selected])
+
+    const fetchFiltered = async (filters) => {
+        const query = filters.length == 0 ? ['ALL'] : filters
+        const res = await filterVulnerabilities(query)
+        onFilter(res)
     }
 
-    return (
-            <div>
-                <h2 >Filter</h2>
-                <div className="mb-4">
-                    <label htmlFor="severity">Severity</label>
-                    <div>
-                        <input type="checkbox" id="CRITICAL" onChange={handleCheckboxChange} />
-                        <label htmlFor="critical">Critical</label>
-
-                    </div>
-                </div>
-            </div>
+  const toggle = (value) => {
+    setSelected((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
     )
+  }
+
+  return (
+    <div>
+      {severities.map((sev) => (
+        <label key={sev}>
+          <input
+            type="checkbox"
+            checked={selected.includes(sev)}
+            onChange={() => toggle(sev)}
+          />
+          {sev}
+        </label>
+      ))}
+    </div>
+  )
 }

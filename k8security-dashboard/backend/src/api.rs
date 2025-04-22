@@ -22,11 +22,11 @@ pub(crate) async fn get_all_vulns(pool: web::Data<DbPool>) -> actix_web::Result<
 
 pub(crate) async fn post_filter_query(pool : web::Data<DbPool>, req: web::Json<FilterQuery>) -> actix_web::Result<impl Responder> {
     let pool = pool.clone();
-    let severity_filters = req.into_inner().query;
+    let severity_filters = req.into_inner().query.unwrap_or(vec!["ALL".to_string()]);
+    
 
     let response = web::block(move ||{
         let mut connection = pool.get().unwrap();
-
         filter_vuln_entries_by_severity(&mut connection, severity_filters)
     })
     .await?;
@@ -81,7 +81,3 @@ pub(crate) async fn get_all_receiver_emails(pool : web::Data<DbPool>) -> actix_w
     Ok(HttpResponse::Ok().json(response))
 }
 
-pub(crate) async fn index(pool: web::Data<DbPool>) -> &'static str {
-    "<p>Hello</p>"
-    // TODO: add HTTPResponse:Body
-}
