@@ -3,7 +3,7 @@ import { filterVulnerabilities } from '../lib/api'
 
 const severities = ['LOW', 'MEDIUM', 'HIGH', 'CRITICAL']
 
-export default function FilterBar({ onFilter }) {
+export default function SeverityFilter({ onFilter }) {
     const [selected, setSelected] = useState([])
 
     useEffect(() => {

@@ -72,8 +72,14 @@ pub(crate) async fn get_all_receiver_emails(pool : web::Data<DbPool>) -> actix_w
 
         fetch_receiver_emails(&mut connection)
     })
-    .await?;
+    .await
+    .map_err(actix_web::error::ErrorInternalServerError)?;
 
     Ok(HttpResponse::Ok().json(response))
 }
 
+pub(crate) async fn update_status_email(pool : web::Data<DbPool>){
+
+    let pool = pool.clone();
+
+}
