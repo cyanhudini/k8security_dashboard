@@ -70,3 +70,9 @@ pub struct ResultEntry {
 pub struct FilterQuery {
     pub query: Option<Vec<String>>,
 }
+
+#[derive(Deserialize)]
+pub struct SetEmailQuery{
+    pub email_adress: String,
+
+}

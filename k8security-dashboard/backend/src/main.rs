@@ -1,6 +1,7 @@
 use actix_web::{web, App, HttpServer};
 use actix_cors::Cors;
-use api::{get_all_receiver_emails, get_all_vulns, post_new_email_adress, post_new_vulns, post_filter_query};
+use api::{get_all_receiver_emails, get_all_vulns, post_new_email_adress, post_new_vulns, post_filter_query, update_status_email};
+use backend::update_email_entry;
 use diesel::PgConnection;
 use std::{io, env};
 use dotenv::dotenv;
@@ -41,7 +42,7 @@ async fn main() -> io::Result<()> {
             .route("/receiver_emails", web::get().to(get_all_receiver_emails))
             .route("/add_receiver_email", web::post().to(post_new_email_adress))
             .route("/filter", web::post().to(post_filter_query))
-            //route("/set_email_status", web::post().to(set_email_status))
+            .route("/set_email_status", web::post().to(update_status_email))
     })
     .bind(("127.0.0.1", 8080))?
     .run()

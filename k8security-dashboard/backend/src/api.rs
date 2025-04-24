@@ -1,9 +1,9 @@
 
 use actix_web::{web, HttpResponse, Responder};
 
-use backend::{fetch_all_vuln_entries, fetch_receiver_emails, bulk_add_vulns, create_email_entry, filter_vuln_entries_by_severity};
+use backend::{bulk_add_vulns, create_email_entry, fetch_all_vuln_entries, fetch_receiver_emails, filter_vuln_entries_by_severity, update_email_entry};
 use serde::Serialize;
-use crate::models::{NewEmail, FilterQuery};
+use crate::models::{NewEmail, FilterQuery, SetEmailQuery};
 use crate::DbPool;
 
 pub(crate) async fn get_all_vulns(pool: web::Data<DbPool>) -> actix_web::Result<impl Responder>{
@@ -77,12 +77,13 @@ pub(crate) async fn get_all_receiver_emails(pool : web::Data<DbPool>) -> actix_w
     Ok(HttpResponse::Ok().json(response))
 }
 
-pub(crate) async fn update_status_email(pool : web::Data<DbPool>) -> actix_web::Result<impl Responder> {
-
+pub(crate) async fn update_status_email(pool : web::Data<DbPool>, req: web::Json<SetEmailQuery>) -> actix_web::Result<impl Responder> {
+    let to_be_updated = req.into_inner().email_adress;
     let pool = pool.clone();
     let response = web::block(move ||{
         let mut connection: r2d2::PooledConnection<diesel::r2d2::ConnectionManager<diesel::PgConnection>> = pool.get().unwrap();
 
+        let _ = update_email_entry(&mut connection, to_be_updated);
 
     })
     .await

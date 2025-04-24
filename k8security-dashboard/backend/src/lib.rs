@@ -2,6 +2,7 @@ pub mod models;
 pub mod schema;
 
 use diesel::prelude::*;
+use diesel::dsl::not;
 use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails, NewEmail};
 use schema::emails::{email_adress, receiving};
 use schema::vulnerability::{installed_version, pkg_name, severity, vuln_id};
@@ -108,6 +109,10 @@ pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std:
 }
 
 
-pub fn update_email_entry(connection: &mut PgConnection, email: String) {
+pub fn update_email_entry(connection: &mut PgConnection, query_email: String) -> Emails{
     use self::schema::emails::dsl::emails;
+    diesel::update(emails.filter(email_adress.eq(query_email)))
+        .set(receiving.eq(not(receiving)))
+        .get_result(connection)
+        .expect("Error updating email status")
 }
