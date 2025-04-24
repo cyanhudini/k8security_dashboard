@@ -46,7 +46,7 @@ pub fn delete_vuln_entry(connection: &mut PgConnection, to_delete : Vec<String>)
 pub fn create_email_entry(connection: &mut PgConnection, email_adr : String) -> Emails {
     use crate::schema::emails;
 
-    let new_email = NewEmail { email_adress: email_adr, receiving: true};
+    let new_email = NewEmail { email_adress: email_adr};
 
     diesel::insert_into(emails::table)
         .values(&new_email)
@@ -116,3 +116,5 @@ pub fn update_email_entry(connection: &mut PgConnection, query_email: String) ->
         .get_result(connection)
         .expect("Error updating email status")
 }
+
+// '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')

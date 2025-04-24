@@ -14,7 +14,7 @@ pub struct Emails {
 #[diesel(table_name = crate::schema::emails)]
 pub struct NewEmail{
     pub email_adress: String,
-    pub receiving : bool,
+
 }
 
 
