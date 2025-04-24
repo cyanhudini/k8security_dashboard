@@ -16,3 +16,4 @@ diesel::table! {
         receiving -> Bool,
     }
 }
+

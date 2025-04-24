@@ -108,7 +108,6 @@ pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std:
 
 }
 
-
 pub fn update_email_entry(connection: &mut PgConnection, query_email: String) -> Emails{
     use self::schema::emails::dsl::emails;
     diesel::update(emails.filter(email_adress.eq(query_email)))
@@ -116,5 +115,3 @@ pub fn update_email_entry(connection: &mut PgConnection, query_email: String) ->
         .get_result(connection)
         .expect("Error updating email status")
 }
-
-// '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
