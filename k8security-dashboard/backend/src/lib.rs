@@ -3,6 +3,7 @@ pub mod schema;
 
 use diesel::prelude::*;
 use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails, NewEmail};
+use schema::emails::{email_adress, receiving};
 use schema::vulnerability::{installed_version, pkg_name, severity, vuln_id};
 use std::fs::File;
 use std::io::BufReader;
@@ -44,7 +45,7 @@ pub fn delete_vuln_entry(connection: &mut PgConnection, to_delete : Vec<String>)
 pub fn create_email_entry(connection: &mut PgConnection, email_adr : String) -> Emails {
     use crate::schema::emails;
 
-    let new_email = NewEmail { email_adress: email_adr};
+    let new_email = NewEmail { email_adress: email_adr, receiving: true};
 
     diesel::insert_into(emails::table)
         .values(&new_email)
@@ -107,3 +108,6 @@ pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std:
 }
 
 
+pub fn update_email_entry(connection: &mut PgConnection, email: String) {
+    use self::schema::emails::dsl::emails;
+}

@@ -7,12 +7,14 @@ use serde::{Deserialize, Serialize};
 pub struct Emails {
     pub id: i32,
     pub email_adress : String,
+    pub receiving : bool,
 }
 
 #[derive(Queryable, Insertable, Serialize,Deserialize, Debug)]
 #[diesel(table_name = crate::schema::emails)]
 pub struct NewEmail{
     pub email_adress: String,
+    pub receiving : bool,
 }
 
 

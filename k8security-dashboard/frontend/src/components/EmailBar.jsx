@@ -8,9 +8,11 @@ export default function EmailBar() {
     useEffect(() => {
         getReceiverEmails().then(setEmails)
     }, [emails])
-    const toggle = (value) => {
-
+    const toggleStatus = (value) => {
+        
     }
+
+
     return (
         <div className="emailbar">
             <input
@@ -21,7 +23,7 @@ export default function EmailBar() {
                     <input
                         type="checkbox"
                         checked
-                        onChange={() => toggle(email)}
+                        onChange={() => toggleStatus(email)}
                     />
                     {email.email_adress}
                 </label>
