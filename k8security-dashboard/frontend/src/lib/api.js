@@ -5,7 +5,7 @@ export async function getVulnerabilities() {
 }
 
 export async function filterVulnerabilities(filter_query) {
-  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}`, {
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/filter`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query: filter_query })
@@ -20,3 +20,45 @@ export async function getGroupedVulnsByPkg() {
   
   return await res.json();
 } 
+
+export async function postNewEmail(email) {
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/filter`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: email })
+  })
+
+  return await res.json()
+
+}
+
+export async function getReceiverEmails(){
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/receiver_emails`)
+
+  return await res.json()
+}
+
+
+export async function addReceiverEmail(email) {
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/add_receiver_email`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: email })
+  })
+
+  return await res.json()
+}
+
+export async function setEmailStatus(email_adress, status) {
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/set_email_status`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      query: {
+        email_adress: email_adress,
+        status : status,
+      } })
+  })
+
+  return await res.json()
+}

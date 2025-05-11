@@ -3,12 +3,12 @@ pub mod schema;
 
 use actix_web::HttpResponse;
 use diesel::prelude::*;
-use dotenv::dotenv;
+use diesel::dsl::not;
 use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails, NewEmail};
+use schema::emails::{email_adress, receiving};
 use schema::vulnerability::{installed_version, pkg_name,pkg_id, severity, vuln_id};
 use serde::Serialize;
 use std::collections::HashMap;
-use std::env;
 use std::fs::File;
 use std::io::BufReader;
 use self::schema::vulnerability::dsl::vulnerability; 
@@ -20,13 +20,6 @@ use self::schema::vulnerability::dsl::vulnerability;
 
 
 
-pub fn establish_connection() -> PgConnection {
-    dotenv().ok();
-
-    let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-    PgConnection::establish(&database_url)
-        .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
-}
 
 pub fn create_vuln_entry(connection: &mut PgConnection, cve_id: String, name : String, inst_version: String, severity_grade: String, pk_id: String)-> Vulnerability{
     use crate::schema::vulnerability;
@@ -76,11 +69,18 @@ pub fn create_email_entry(connection: &mut PgConnection, email_adr : String) -> 
 
 pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection, filter_criteria : Vec<String>) -> Vec<Vulnerability>{
     use self::schema::vulnerability::dsl::vulnerability;
-    let vulns = vulnerability
-        .filter(severity.eq_any(filter_criteria))
+    let query = vulnerability.into_boxed();
+
+    let query = if filter_criteria.is_empty() || 
+               filter_criteria.iter().any(|s| s.to_uppercase() == "ALL") {
+        query
+    } else {
+        query.filter(severity.eq_any(filter_criteria))
+    };
+
+    query
         .load::<Vulnerability>(connection)
-        .expect("Etwas ist schiefgelaufen.");
-    vulns
+        .expect("Failed to load vulnerabilities")
     
 }
 
@@ -135,4 +135,12 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabi
     GroupedVulnerabilites{
         vulnerabilities: grouped,
     }   
+}pub fn update_email_entry(connection: &mut PgConnection, query_email: String) -> Emails{
+    use self::schema::emails::dsl::emails;
+    diesel::update(emails.filter(email_adress.eq(query_email)))
+        .set(receiving.eq(not(receiving)))
+        .get_result(connection)
+        .expect("Error updating email status")
 }
+
+// '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')

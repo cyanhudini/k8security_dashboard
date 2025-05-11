@@ -14,5 +14,6 @@ diesel::table! {
     emails (id) {
         id -> Int4,
         email_adress -> Varchar,
+        receiving -> Bool,
     }
 }

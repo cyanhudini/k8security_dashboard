@@ -7,12 +7,14 @@ use serde::{Deserialize, Serialize};
 pub struct Emails {
     pub id: i32,
     pub email_adress : String,
+    pub receiving : bool,
 }
 
 #[derive(Queryable, Insertable, Serialize,Deserialize, Debug)]
 #[diesel(table_name = crate::schema::emails)]
 pub struct NewEmail{
     pub email_adress: String,
+
 }
 
 
@@ -63,10 +65,17 @@ pub struct Resource {
 
 #[derive(Deserialize)]
 pub struct ResultEntry {
+    #[serde(rename = "Vulnerabilities")]
     pub Vulnerabilities: Option<Vec<TrivyVulnerability>>,
 }
 
 #[derive(Deserialize)]
 pub struct FilterQuery {
     pub query: Option<Vec<String>>,
+}
+
+#[derive(Deserialize)]
+pub struct SetEmailQuery{
+    pub email_adress: String,
+
 }
