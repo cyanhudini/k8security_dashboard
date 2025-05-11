@@ -16,13 +16,14 @@ pub struct NewEmail{
 }
 
 
-#[derive(Queryable, Selectable, Deserialize, Serialize)]
+#[derive(Queryable, Selectable, Deserialize, Serialize, Debug)]
 #[diesel(table_name = crate::schema::vulnerability)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Vulnerability{
     pub id: i32,
     pub vuln_id : String,
     pub pkg_name: String,
+    pub pkg_id: String,
     pub installed_version: String,
     pub severity: String, 
 }
@@ -32,6 +33,7 @@ pub struct Vulnerability{
 pub struct NewVulnerability{
     pub vuln_id : String,
     pub pkg_name: String,
+    pub pkg_id : String,
     pub installed_version: String,
     pub severity: String, 
 }
@@ -42,6 +44,8 @@ pub struct TrivyVulnerability {
     pub vuln_id: String,
     #[serde(rename = "PkgName")]
     pub pkg_name: String,
+    #[serde(rename = "PkgID")]
+    pub pkg_id: String,
     #[serde(rename = "InstalledVersion")]
     pub installed_version: String,
     #[serde(rename = "Severity")]
@@ -60,7 +64,6 @@ pub struct Resource {
 #[derive(Deserialize)]
 pub struct ResultEntry {
     pub Vulnerabilities: Option<Vec<TrivyVulnerability>>,
-    // Add other fields as needed
 }
 
 #[derive(Deserialize)]

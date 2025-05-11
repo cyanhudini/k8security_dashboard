@@ -1,0 +1,2840 @@
+{
+  "vulnerabilities": {
+    "openssl@3.0.15-1~deb12u1|openssl": [
+      {
+        "id": 145,
+        "vuln_id": "CVE-2024-13176",
+        "pkg_name": "openssl",
+        "pkg_id": "openssl@3.0.15-1~deb12u1",
+        "installed_version": "3.0.15-1~deb12u1",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libc-bin@2.36-9+deb12u9|libc-bin": [
+      {
+        "id": 20,
+        "vuln_id": "CVE-2025-0395",
+        "pkg_name": "libc-bin",
+        "pkg_id": "libc-bin@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 21,
+        "vuln_id": "CVE-2010-4756",
+        "pkg_name": "libc-bin",
+        "pkg_id": "libc-bin@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 22,
+        "vuln_id": "CVE-2018-20796",
+        "pkg_name": "libc-bin",
+        "pkg_id": "libc-bin@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 23,
+        "vuln_id": "CVE-2019-1010022",
+        "pkg_name": "libc-bin",
+        "pkg_id": "libc-bin@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 24,
+        "vuln_id": "CVE-2019-1010023",
+        "pkg_name": "libc-bin",
+        "pkg_id": "libc-bin@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 25,
+        "vuln_id": "CVE-2019-1010024",
+        "pkg_name": "libc-bin",
+        "pkg_id": "libc-bin@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 26,
+        "vuln_id": "CVE-2019-1010025",
+        "pkg_name": "libc-bin",
+        "pkg_id": "libc-bin@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 27,
+        "vuln_id": "CVE-2019-9192",
+        "pkg_name": "libc-bin",
+        "pkg_id": "libc-bin@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      }
+    ],
+    "libapt-pkg6.0@2.6.1|libapt-pkg6.0": [
+      {
+        "id": 18,
+        "vuln_id": "CVE-2011-3374",
+        "pkg_name": "libapt-pkg6.0",
+        "pkg_id": "libapt-pkg6.0@2.6.1",
+        "installed_version": "2.6.1",
+        "severity": "LOW"
+      }
+    ],
+    "libde265-0@1.0.11-1+deb12u2|libde265-0": [
+      {
+        "id": 43,
+        "vuln_id": "CVE-2023-51792",
+        "pkg_name": "libde265-0",
+        "pkg_id": "libde265-0@1.0.11-1+deb12u2",
+        "installed_version": "1.0.11-1+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 44,
+        "vuln_id": "CVE-2024-38949",
+        "pkg_name": "libde265-0",
+        "pkg_id": "libde265-0@1.0.11-1+deb12u2",
+        "installed_version": "1.0.11-1+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 45,
+        "vuln_id": "CVE-2024-38950",
+        "pkg_name": "libde265-0",
+        "pkg_id": "libde265-0@1.0.11-1+deb12u2",
+        "installed_version": "1.0.11-1+deb12u2",
+        "severity": "MEDIUM"
+      }
+    ],
+    "stdlib@v1.22.5|stdlib": [
+      {
+        "id": 160,
+        "vuln_id": "CVE-2024-34156",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.22.5",
+        "installed_version": "v1.22.5",
+        "severity": "HIGH"
+      },
+      {
+        "id": 161,
+        "vuln_id": "CVE-2024-34155",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.22.5",
+        "installed_version": "v1.22.5",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 162,
+        "vuln_id": "CVE-2024-34158",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.22.5",
+        "installed_version": "v1.22.5",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 163,
+        "vuln_id": "CVE-2024-45336",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.22.5",
+        "installed_version": "v1.22.5",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 164,
+        "vuln_id": "CVE-2024-45341",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.22.5",
+        "installed_version": "v1.22.5",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 165,
+        "vuln_id": "CVE-2025-22866",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.22.5",
+        "installed_version": "v1.22.5",
+        "severity": "MEDIUM"
+      }
+    ],
+    "iptables@1.8.9-2|iptables": [
+      {
+        "id": 273,
+        "vuln_id": "CVE-2012-2663",
+        "pkg_name": "iptables",
+        "pkg_id": "iptables@1.8.9-2",
+        "installed_version": "1.8.9-2",
+        "severity": "LOW"
+      }
+    ],
+    "libtasn1-6@4.19.0-2|libtasn1-6": [
+      {
+        "id": 104,
+        "vuln_id": "CVE-2024-12133",
+        "pkg_name": "libtasn1-6",
+        "pkg_id": "libtasn1-6@4.19.0-2",
+        "installed_version": "4.19.0-2",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libc6@2.36-9+deb12u7|libc6": [
+      {
+        "id": 274,
+        "vuln_id": "CVE-2025-0395",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u7",
+        "installed_version": "2.36-9+deb12u7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 275,
+        "vuln_id": "CVE-2010-4756",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u7",
+        "installed_version": "2.36-9+deb12u7",
+        "severity": "LOW"
+      },
+      {
+        "id": 276,
+        "vuln_id": "CVE-2018-20796",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u7",
+        "installed_version": "2.36-9+deb12u7",
+        "severity": "LOW"
+      },
+      {
+        "id": 277,
+        "vuln_id": "CVE-2019-1010022",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u7",
+        "installed_version": "2.36-9+deb12u7",
+        "severity": "LOW"
+      },
+      {
+        "id": 278,
+        "vuln_id": "CVE-2019-1010023",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u7",
+        "installed_version": "2.36-9+deb12u7",
+        "severity": "LOW"
+      },
+      {
+        "id": 279,
+        "vuln_id": "CVE-2019-1010024",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u7",
+        "installed_version": "2.36-9+deb12u7",
+        "severity": "LOW"
+      },
+      {
+        "id": 280,
+        "vuln_id": "CVE-2019-1010025",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u7",
+        "installed_version": "2.36-9+deb12u7",
+        "severity": "LOW"
+      },
+      {
+        "id": 281,
+        "vuln_id": "CVE-2019-9192",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u7",
+        "installed_version": "2.36-9+deb12u7",
+        "severity": "LOW"
+      }
+    ],
+    "libpam-modules@1.5.2-6+deb12u1|libpam-modules": [
+      {
+        "id": 87,
+        "vuln_id": "CVE-2024-10041",
+        "pkg_name": "libpam-modules",
+        "pkg_id": "libpam-modules@1.5.2-6+deb12u1",
+        "installed_version": "1.5.2-6+deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 88,
+        "vuln_id": "CVE-2024-22365",
+        "pkg_name": "libpam-modules",
+        "pkg_id": "libpam-modules@1.5.2-6+deb12u1",
+        "installed_version": "1.5.2-6+deb12u1",
+        "severity": "MEDIUM"
+      }
+    ],
+    "google.golang.org/protobuf@v1.25.0|google.golang.org/protobuf": [
+      {
+        "id": 194,
+        "vuln_id": "CVE-2024-24786",
+        "pkg_name": "google.golang.org/protobuf",
+        "pkg_id": "google.golang.org/protobuf@v1.25.0",
+        "installed_version": "v1.25.0",
+        "severity": "MEDIUM"
+      }
+    ],
+    "google.golang.org/protobuf@v1.31.0|google.golang.org/protobuf": [
+      {
+        "id": 385,
+        "vuln_id": "CVE-2024-24786",
+        "pkg_name": "google.golang.org/protobuf",
+        "pkg_id": "google.golang.org/protobuf@v1.31.0",
+        "installed_version": "v1.31.0",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libudev1@252.33-1~deb12u1|libudev1": [
+      {
+        "id": 117,
+        "vuln_id": "CVE-2013-4392",
+        "pkg_name": "libudev1",
+        "pkg_id": "libudev1@252.33-1~deb12u1",
+        "installed_version": "252.33-1~deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 118,
+        "vuln_id": "CVE-2023-31437",
+        "pkg_name": "libudev1",
+        "pkg_id": "libudev1@252.33-1~deb12u1",
+        "installed_version": "252.33-1~deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 119,
+        "vuln_id": "CVE-2023-31438",
+        "pkg_name": "libudev1",
+        "pkg_id": "libudev1@252.33-1~deb12u1",
+        "installed_version": "252.33-1~deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 120,
+        "vuln_id": "CVE-2023-31439",
+        "pkg_name": "libudev1",
+        "pkg_id": "libudev1@252.33-1~deb12u1",
+        "installed_version": "252.33-1~deb12u1",
+        "severity": "LOW"
+      }
+    ],
+    "golang.org/x/net@v0.26.0|golang.org/x/net": [
+      {
+        "id": 168,
+        "vuln_id": "CVE-2025-22870",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.26.0",
+        "installed_version": "v0.26.0",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libssl3@3.0.13-1~deb12u1|libssl3": [
+      {
+        "id": 285,
+        "vuln_id": "CVE-2024-13176",
+        "pkg_name": "libssl3",
+        "pkg_id": "libssl3@3.0.13-1~deb12u1",
+        "installed_version": "3.0.13-1~deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 286,
+        "vuln_id": "CVE-2024-4603",
+        "pkg_name": "libssl3",
+        "pkg_id": "libssl3@3.0.13-1~deb12u1",
+        "installed_version": "3.0.13-1~deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 287,
+        "vuln_id": "CVE-2024-4741",
+        "pkg_name": "libssl3",
+        "pkg_id": "libssl3@3.0.13-1~deb12u1",
+        "installed_version": "3.0.13-1~deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 288,
+        "vuln_id": "CVE-2024-5535",
+        "pkg_name": "libssl3",
+        "pkg_id": "libssl3@3.0.13-1~deb12u1",
+        "installed_version": "3.0.13-1~deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 289,
+        "vuln_id": "CVE-2024-6119",
+        "pkg_name": "libssl3",
+        "pkg_id": "libssl3@3.0.13-1~deb12u1",
+        "installed_version": "3.0.13-1~deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 290,
+        "vuln_id": "CVE-2024-2511",
+        "pkg_name": "libssl3",
+        "pkg_id": "libssl3@3.0.13-1~deb12u1",
+        "installed_version": "3.0.13-1~deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 291,
+        "vuln_id": "CVE-2024-9143",
+        "pkg_name": "libssl3",
+        "pkg_id": "libssl3@3.0.13-1~deb12u1",
+        "installed_version": "3.0.13-1~deb12u1",
+        "severity": "LOW"
+      }
+    ],
+    "github.com/quic-go/quic-go@v0.37.4|github.com/quic-go/quic-go": [
+      {
+        "id": 374,
+        "vuln_id": "CVE-2024-22189",
+        "pkg_name": "github.com/quic-go/quic-go",
+        "pkg_id": "github.com/quic-go/quic-go@v0.37.4",
+        "installed_version": "v0.37.4",
+        "severity": "HIGH"
+      },
+      {
+        "id": 375,
+        "vuln_id": "CVE-2023-49295",
+        "pkg_name": "github.com/quic-go/quic-go",
+        "pkg_id": "github.com/quic-go/quic-go@v0.37.4",
+        "installed_version": "v0.37.4",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 376,
+        "vuln_id": "CVE-2024-53259",
+        "pkg_name": "github.com/quic-go/quic-go",
+        "pkg_id": "github.com/quic-go/quic-go@v0.37.4",
+        "installed_version": "v0.37.4",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libaom3@3.6.0-1+deb12u1|libaom3": [
+      {
+        "id": 16,
+        "vuln_id": "CVE-2023-6879",
+        "pkg_name": "libaom3",
+        "pkg_id": "libaom3@3.6.0-1+deb12u1",
+        "installed_version": "3.6.0-1+deb12u1",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": 17,
+        "vuln_id": "CVE-2023-39616",
+        "pkg_name": "libaom3",
+        "pkg_id": "libaom3@3.6.0-1+deb12u1",
+        "installed_version": "3.6.0-1+deb12u1",
+        "severity": "HIGH"
+      }
+    ],
+    "libcurl4@7.88.1-10+deb12u8|libcurl4": [
+      {
+        "id": 37,
+        "vuln_id": "CVE-2024-11053",
+        "pkg_name": "libcurl4",
+        "pkg_id": "libcurl4@7.88.1-10+deb12u8",
+        "installed_version": "7.88.1-10+deb12u8",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 38,
+        "vuln_id": "CVE-2024-9681",
+        "pkg_name": "libcurl4",
+        "pkg_id": "libcurl4@7.88.1-10+deb12u8",
+        "installed_version": "7.88.1-10+deb12u8",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 39,
+        "vuln_id": "CVE-2024-2379",
+        "pkg_name": "libcurl4",
+        "pkg_id": "libcurl4@7.88.1-10+deb12u8",
+        "installed_version": "7.88.1-10+deb12u8",
+        "severity": "LOW"
+      },
+      {
+        "id": 40,
+        "vuln_id": "CVE-2025-0167",
+        "pkg_name": "libcurl4",
+        "pkg_id": "libcurl4@7.88.1-10+deb12u8",
+        "installed_version": "7.88.1-10+deb12u8",
+        "severity": "LOW"
+      },
+      {
+        "id": 41,
+        "vuln_id": "CVE-2025-0725",
+        "pkg_name": "libcurl4",
+        "pkg_id": "libcurl4@7.88.1-10+deb12u8",
+        "installed_version": "7.88.1-10+deb12u8",
+        "severity": "LOW"
+      }
+    ],
+    "libtinfo6@6.4-4|libtinfo6": [
+      {
+        "id": 116,
+        "vuln_id": "CVE-2023-50495",
+        "pkg_name": "libtinfo6",
+        "pkg_id": "libtinfo6@6.4-4",
+        "installed_version": "6.4-4",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libxslt1.1@1.1.35-1|libxslt1.1": [
+      {
+        "id": 130,
+        "vuln_id": "CVE-2024-55549",
+        "pkg_name": "libxslt1.1",
+        "pkg_id": "libxslt1.1@1.1.35-1",
+        "installed_version": "1.1.35-1",
+        "severity": "HIGH"
+      },
+      {
+        "id": 131,
+        "vuln_id": "CVE-2025-24855",
+        "pkg_name": "libxslt1.1",
+        "pkg_id": "libxslt1.1@1.1.35-1",
+        "installed_version": "1.1.35-1",
+        "severity": "HIGH"
+      },
+      {
+        "id": 132,
+        "vuln_id": "CVE-2015-9019",
+        "pkg_name": "libxslt1.1",
+        "pkg_id": "libxslt1.1@1.1.35-1",
+        "installed_version": "1.1.35-1",
+        "severity": "LOW"
+      }
+    ],
+    "stdlib@v1.16.2|stdlib": [
+      {
+        "id": 235,
+        "vuln_id": "CVE-2023-29403",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 195,
+        "vuln_id": "CVE-2022-23806",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": 196,
+        "vuln_id": "CVE-2023-24538",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": 197,
+        "vuln_id": "CVE-2023-24540",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": 198,
+        "vuln_id": "CVE-2024-24790",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": 199,
+        "vuln_id": "CVE-2021-33195",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 200,
+        "vuln_id": "CVE-2021-33196",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 201,
+        "vuln_id": "CVE-2021-33198",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 202,
+        "vuln_id": "CVE-2021-39293",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 203,
+        "vuln_id": "CVE-2021-41771",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 204,
+        "vuln_id": "CVE-2021-41772",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 205,
+        "vuln_id": "CVE-2021-44716",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 206,
+        "vuln_id": "CVE-2022-23772",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 207,
+        "vuln_id": "CVE-2022-24675",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 208,
+        "vuln_id": "CVE-2022-24921",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 209,
+        "vuln_id": "CVE-2022-27664",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 210,
+        "vuln_id": "CVE-2022-28131",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 211,
+        "vuln_id": "CVE-2022-28327",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 212,
+        "vuln_id": "CVE-2022-2879",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 213,
+        "vuln_id": "CVE-2022-2880",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 214,
+        "vuln_id": "CVE-2022-29804",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 215,
+        "vuln_id": "CVE-2022-30580",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 216,
+        "vuln_id": "CVE-2022-30630",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 217,
+        "vuln_id": "CVE-2022-30631",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 218,
+        "vuln_id": "CVE-2022-30632",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 219,
+        "vuln_id": "CVE-2022-30633",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 220,
+        "vuln_id": "CVE-2022-30634",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 221,
+        "vuln_id": "CVE-2022-30635",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 222,
+        "vuln_id": "CVE-2022-32189",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 223,
+        "vuln_id": "CVE-2022-41715",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 224,
+        "vuln_id": "CVE-2022-41716",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 225,
+        "vuln_id": "CVE-2022-41720",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 226,
+        "vuln_id": "CVE-2022-41722",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 227,
+        "vuln_id": "CVE-2022-41723",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 228,
+        "vuln_id": "CVE-2022-41724",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 229,
+        "vuln_id": "CVE-2022-41725",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 230,
+        "vuln_id": "CVE-2023-24534",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 231,
+        "vuln_id": "CVE-2023-24536",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 232,
+        "vuln_id": "CVE-2023-24537",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 233,
+        "vuln_id": "CVE-2023-24539",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 234,
+        "vuln_id": "CVE-2023-29400",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 236,
+        "vuln_id": "CVE-2023-39325",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 237,
+        "vuln_id": "CVE-2023-45283",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 238,
+        "vuln_id": "CVE-2023-45287",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 239,
+        "vuln_id": "CVE-2023-45288",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 240,
+        "vuln_id": "CVE-2024-34156",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 241,
+        "vuln_id": "CVE-2021-31525",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 242,
+        "vuln_id": "CVE-2021-33197",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 243,
+        "vuln_id": "CVE-2021-34558",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 244,
+        "vuln_id": "CVE-2021-36221",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 245,
+        "vuln_id": "CVE-2021-44717",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 246,
+        "vuln_id": "CVE-2022-1705",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 247,
+        "vuln_id": "CVE-2022-1962",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 248,
+        "vuln_id": "CVE-2022-29526",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 249,
+        "vuln_id": "CVE-2022-32148",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 250,
+        "vuln_id": "CVE-2022-41717",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 251,
+        "vuln_id": "CVE-2023-24532",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 252,
+        "vuln_id": "CVE-2023-29406",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 253,
+        "vuln_id": "CVE-2023-29409",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 254,
+        "vuln_id": "CVE-2023-39318",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 255,
+        "vuln_id": "CVE-2023-39319",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 256,
+        "vuln_id": "CVE-2023-39326",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 257,
+        "vuln_id": "CVE-2023-45284",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 258,
+        "vuln_id": "CVE-2023-45289",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 259,
+        "vuln_id": "CVE-2023-45290",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 260,
+        "vuln_id": "CVE-2024-24783",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 261,
+        "vuln_id": "CVE-2024-24784",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 262,
+        "vuln_id": "CVE-2024-24785",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 263,
+        "vuln_id": "CVE-2024-24789",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 264,
+        "vuln_id": "CVE-2024-24791",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 265,
+        "vuln_id": "CVE-2024-34155",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 266,
+        "vuln_id": "CVE-2024-34158",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 267,
+        "vuln_id": "CVE-2024-45336",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 268,
+        "vuln_id": "CVE-2024-45341",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 269,
+        "vuln_id": "CVE-2025-22866",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 270,
+        "vuln_id": "CVE-2022-30629",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.16.2",
+        "installed_version": "v1.16.2",
+        "severity": "LOW"
+      }
+    ],
+    "libgnutls30@3.7.9-2+deb12u3|libgnutls30": [
+      {
+        "id": 56,
+        "vuln_id": "CVE-2024-12243",
+        "pkg_name": "libgnutls30",
+        "pkg_id": "libgnutls30@3.7.9-2+deb12u3",
+        "installed_version": "3.7.9-2+deb12u3",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 57,
+        "vuln_id": "CVE-2011-3389",
+        "pkg_name": "libgnutls30",
+        "pkg_id": "libgnutls30@3.7.9-2+deb12u3",
+        "installed_version": "3.7.9-2+deb12u3",
+        "severity": "LOW"
+      }
+    ],
+    "sysvinit-utils@3.06-4|sysvinit-utils": [
+      {
+        "id": 154,
+        "vuln_id": "TEMP-0517018-A83CE6",
+        "pkg_name": "sysvinit-utils",
+        "pkg_id": "sysvinit-utils@3.06-4",
+        "installed_version": "3.06-4",
+        "severity": "LOW"
+      }
+    ],
+    "libsystemd0@252.33-1~deb12u1|libsystemd0": [
+      {
+        "id": 100,
+        "vuln_id": "CVE-2013-4392",
+        "pkg_name": "libsystemd0",
+        "pkg_id": "libsystemd0@252.33-1~deb12u1",
+        "installed_version": "252.33-1~deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 101,
+        "vuln_id": "CVE-2023-31437",
+        "pkg_name": "libsystemd0",
+        "pkg_id": "libsystemd0@252.33-1~deb12u1",
+        "installed_version": "252.33-1~deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 102,
+        "vuln_id": "CVE-2023-31438",
+        "pkg_name": "libsystemd0",
+        "pkg_id": "libsystemd0@252.33-1~deb12u1",
+        "installed_version": "252.33-1~deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 103,
+        "vuln_id": "CVE-2023-31439",
+        "pkg_name": "libsystemd0",
+        "pkg_id": "libsystemd0@252.33-1~deb12u1",
+        "installed_version": "252.33-1~deb12u1",
+        "severity": "LOW"
+      }
+    ],
+    "golang.org/x/text@v0.3.5|golang.org/x/text": [
+      {
+        "id": 192,
+        "vuln_id": "CVE-2021-38561",
+        "pkg_name": "golang.org/x/text",
+        "pkg_id": "golang.org/x/text@v0.3.5",
+        "installed_version": "v0.3.5",
+        "severity": "HIGH"
+      },
+      {
+        "id": 193,
+        "vuln_id": "CVE-2022-32149",
+        "pkg_name": "golang.org/x/text",
+        "pkg_id": "golang.org/x/text@v0.3.5",
+        "installed_version": "v0.3.5",
+        "severity": "HIGH"
+      }
+    ],
+    "libkrb5support0@1.20.1-2+deb12u2|libkrb5support0": [
+      {
+        "id": 76,
+        "vuln_id": "CVE-2024-26462",
+        "pkg_name": "libkrb5support0",
+        "pkg_id": "libkrb5support0@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 77,
+        "vuln_id": "CVE-2025-24528",
+        "pkg_name": "libkrb5support0",
+        "pkg_id": "libkrb5support0@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 78,
+        "vuln_id": "CVE-2018-5709",
+        "pkg_name": "libkrb5support0",
+        "pkg_id": "libkrb5support0@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 79,
+        "vuln_id": "CVE-2024-26458",
+        "pkg_name": "libkrb5support0",
+        "pkg_id": "libkrb5support0@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 80,
+        "vuln_id": "CVE-2024-26461",
+        "pkg_name": "libkrb5support0",
+        "pkg_id": "libkrb5support0@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      }
+    ],
+    "libabsl20220623@20220623.1-1|libabsl20220623": [
+      {
+        "id": 15,
+        "vuln_id": "CVE-2025-0838",
+        "pkg_name": "libabsl20220623",
+        "pkg_id": "libabsl20220623@20220623.1-1",
+        "installed_version": "20220623.1-1",
+        "severity": "MEDIUM"
+      }
+    ],
+    "util-linux-extra@2.38.1-5+deb12u3|util-linux-extra": [
+      {
+        "id": 158,
+        "vuln_id": "CVE-2022-0563",
+        "pkg_name": "util-linux-extra",
+        "pkg_id": "util-linux-extra@2.38.1-5+deb12u3",
+        "installed_version": "2.38.1-5+deb12u3",
+        "severity": "LOW"
+      }
+    ],
+    "libip4tc2@1.8.9-2|libip4tc2": [
+      {
+        "id": 282,
+        "vuln_id": "CVE-2012-2663",
+        "pkg_name": "libip4tc2",
+        "pkg_id": "libip4tc2@1.8.9-2",
+        "installed_version": "1.8.9-2",
+        "severity": "LOW"
+      }
+    ],
+    "libjbig0@2.1-6.1|libjbig0": [
+      {
+        "id": 65,
+        "vuln_id": "CVE-2017-9937",
+        "pkg_name": "libjbig0",
+        "pkg_id": "libjbig0@2.1-6.1",
+        "installed_version": "2.1-6.1",
+        "severity": "LOW"
+      }
+    ],
+    "nginx@1.27.3-1~bookworm|nginx": [
+      {
+        "id": 141,
+        "vuln_id": "CVE-2024-7347",
+        "pkg_name": "nginx",
+        "pkg_id": "nginx@1.27.3-1~bookworm",
+        "installed_version": "1.27.3-1~bookworm",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 142,
+        "vuln_id": "CVE-2009-4487",
+        "pkg_name": "nginx",
+        "pkg_id": "nginx@1.27.3-1~bookworm",
+        "installed_version": "1.27.3-1~bookworm",
+        "severity": "LOW"
+      },
+      {
+        "id": 143,
+        "vuln_id": "CVE-2013-0337",
+        "pkg_name": "nginx",
+        "pkg_id": "nginx@1.27.3-1~bookworm",
+        "installed_version": "1.27.3-1~bookworm",
+        "severity": "LOW"
+      },
+      {
+        "id": 144,
+        "vuln_id": "CVE-2023-44487",
+        "pkg_name": "nginx",
+        "pkg_id": "nginx@1.27.3-1~bookworm",
+        "installed_version": "1.27.3-1~bookworm",
+        "severity": "LOW"
+      }
+    ],
+    "golang.org/x/crypto@v0.12.0|golang.org/x/crypto": [
+      {
+        "id": 377,
+        "vuln_id": "CVE-2024-45337",
+        "pkg_name": "golang.org/x/crypto",
+        "pkg_id": "golang.org/x/crypto@v0.12.0",
+        "installed_version": "v0.12.0",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": 378,
+        "vuln_id": "CVE-2023-48795",
+        "pkg_name": "golang.org/x/crypto",
+        "pkg_id": "golang.org/x/crypto@v0.12.0",
+        "installed_version": "v0.12.0",
+        "severity": "MEDIUM"
+      }
+    ],
+    "curl@7.88.1-10+deb12u8|curl": [
+      {
+        "id": 6,
+        "vuln_id": "CVE-2024-11053",
+        "pkg_name": "curl",
+        "pkg_id": "curl@7.88.1-10+deb12u8",
+        "installed_version": "7.88.1-10+deb12u8",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 7,
+        "vuln_id": "CVE-2024-9681",
+        "pkg_name": "curl",
+        "pkg_id": "curl@7.88.1-10+deb12u8",
+        "installed_version": "7.88.1-10+deb12u8",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 8,
+        "vuln_id": "CVE-2024-2379",
+        "pkg_name": "curl",
+        "pkg_id": "curl@7.88.1-10+deb12u8",
+        "installed_version": "7.88.1-10+deb12u8",
+        "severity": "LOW"
+      },
+      {
+        "id": 9,
+        "vuln_id": "CVE-2025-0167",
+        "pkg_name": "curl",
+        "pkg_id": "curl@7.88.1-10+deb12u8",
+        "installed_version": "7.88.1-10+deb12u8",
+        "severity": "LOW"
+      },
+      {
+        "id": 10,
+        "vuln_id": "CVE-2025-0725",
+        "pkg_name": "curl",
+        "pkg_id": "curl@7.88.1-10+deb12u8",
+        "installed_version": "7.88.1-10+deb12u8",
+        "severity": "LOW"
+      }
+    ],
+    "libip6tc2@1.8.9-2|libip6tc2": [
+      {
+        "id": 283,
+        "vuln_id": "CVE-2012-2663",
+        "pkg_name": "libip6tc2",
+        "pkg_id": "libip6tc2@1.8.9-2",
+        "installed_version": "1.8.9-2",
+        "severity": "LOW"
+      }
+    ],
+    "libgcrypt20@1.10.1-3|libgcrypt20": [
+      {
+        "id": 54,
+        "vuln_id": "CVE-2024-2236",
+        "pkg_name": "libgcrypt20",
+        "pkg_id": "libgcrypt20@1.10.1-3",
+        "installed_version": "1.10.1-3",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 55,
+        "vuln_id": "CVE-2018-6829",
+        "pkg_name": "libgcrypt20",
+        "pkg_id": "libgcrypt20@1.10.1-3",
+        "installed_version": "1.10.1-3",
+        "severity": "LOW"
+      }
+    ],
+    "gpgv@2.2.40-1.1|gpgv": [
+      {
+        "id": 13,
+        "vuln_id": "CVE-2022-3219",
+        "pkg_name": "gpgv",
+        "pkg_id": "gpgv@2.2.40-1.1",
+        "installed_version": "2.2.40-1.1",
+        "severity": "LOW"
+      },
+      {
+        "id": 14,
+        "vuln_id": "CVE-2025-30258",
+        "pkg_name": "gpgv",
+        "pkg_id": "gpgv@2.2.40-1.1",
+        "installed_version": "2.2.40-1.1",
+        "severity": "LOW"
+      }
+    ],
+    "libssl3@3.0.15-1~deb12u1|libssl3": [
+      {
+        "id": 97,
+        "vuln_id": "CVE-2024-13176",
+        "pkg_name": "libssl3",
+        "pkg_id": "libssl3@3.0.15-1~deb12u1",
+        "installed_version": "3.0.15-1~deb12u1",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libgssapi-krb5-2@1.20.1-2+deb12u2|libgssapi-krb5-2": [
+      {
+        "id": 58,
+        "vuln_id": "CVE-2024-26462",
+        "pkg_name": "libgssapi-krb5-2",
+        "pkg_id": "libgssapi-krb5-2@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 59,
+        "vuln_id": "CVE-2025-24528",
+        "pkg_name": "libgssapi-krb5-2",
+        "pkg_id": "libgssapi-krb5-2@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 60,
+        "vuln_id": "CVE-2018-5709",
+        "pkg_name": "libgssapi-krb5-2",
+        "pkg_id": "libgssapi-krb5-2@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 61,
+        "vuln_id": "CVE-2024-26458",
+        "pkg_name": "libgssapi-krb5-2",
+        "pkg_id": "libgssapi-krb5-2@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 62,
+        "vuln_id": "CVE-2024-26461",
+        "pkg_name": "libgssapi-krb5-2",
+        "pkg_id": "libgssapi-krb5-2@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      }
+    ],
+    "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b|golang.org/x/net": [
+      {
+        "id": 181,
+        "vuln_id": "CVE-2021-33194",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b",
+        "installed_version": "v0.0.0-20201224014010-6772e930b67b",
+        "severity": "HIGH"
+      },
+      {
+        "id": 182,
+        "vuln_id": "CVE-2022-27664",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b",
+        "installed_version": "v0.0.0-20201224014010-6772e930b67b",
+        "severity": "HIGH"
+      },
+      {
+        "id": 183,
+        "vuln_id": "CVE-2022-41723",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b",
+        "installed_version": "v0.0.0-20201224014010-6772e930b67b",
+        "severity": "HIGH"
+      },
+      {
+        "id": 184,
+        "vuln_id": "CVE-2023-39325",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b",
+        "installed_version": "v0.0.0-20201224014010-6772e930b67b",
+        "severity": "HIGH"
+      },
+      {
+        "id": 185,
+        "vuln_id": "CVE-2021-31525",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b",
+        "installed_version": "v0.0.0-20201224014010-6772e930b67b",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 186,
+        "vuln_id": "CVE-2022-41717",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b",
+        "installed_version": "v0.0.0-20201224014010-6772e930b67b",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 187,
+        "vuln_id": "CVE-2023-3978",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b",
+        "installed_version": "v0.0.0-20201224014010-6772e930b67b",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 188,
+        "vuln_id": "CVE-2023-44487",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b",
+        "installed_version": "v0.0.0-20201224014010-6772e930b67b",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 189,
+        "vuln_id": "CVE-2023-45288",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b",
+        "installed_version": "v0.0.0-20201224014010-6772e930b67b",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 190,
+        "vuln_id": "CVE-2025-22870",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.0.0-20201224014010-6772e930b67b",
+        "installed_version": "v0.0.0-20201224014010-6772e930b67b",
+        "severity": "MEDIUM"
+      }
+    ],
+    "stdlib@v1.21.12|stdlib": [
+      {
+        "id": 312,
+        "vuln_id": "CVE-2024-34156",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.21.12",
+        "installed_version": "v1.21.12",
+        "severity": "HIGH"
+      },
+      {
+        "id": 313,
+        "vuln_id": "CVE-2024-34155",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.21.12",
+        "installed_version": "v1.21.12",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 314,
+        "vuln_id": "CVE-2024-34158",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.21.12",
+        "installed_version": "v1.21.12",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 315,
+        "vuln_id": "CVE-2024-45336",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.21.12",
+        "installed_version": "v1.21.12",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 316,
+        "vuln_id": "CVE-2024-45341",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.21.12",
+        "installed_version": "v1.21.12",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 317,
+        "vuln_id": "CVE-2025-22866",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.21.12",
+        "installed_version": "v1.21.12",
+        "severity": "MEDIUM"
+      }
+    ],
+    "apt@2.6.1|apt": [
+      {
+        "id": 1,
+        "vuln_id": "CVE-2011-3374",
+        "pkg_name": "apt",
+        "pkg_id": "apt@2.6.1",
+        "installed_version": "2.6.1",
+        "severity": "LOW"
+      }
+    ],
+    "bash@5.2.15-2+b7|bash": [
+      {
+        "id": 2,
+        "vuln_id": "TEMP-0841856-B18BAF",
+        "pkg_name": "bash",
+        "pkg_id": "bash@5.2.15-2+b7",
+        "installed_version": "5.2.15-2+b7",
+        "severity": "LOW"
+      }
+    ],
+    "libcap2@1:2.66-4|libcap2": [
+      {
+        "id": 36,
+        "vuln_id": "CVE-2025-1390",
+        "pkg_name": "libcap2",
+        "pkg_id": "libcap2@1:2.66-4",
+        "installed_version": "1:2.66-4",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libxtables12@1.8.9-2|libxtables12": [
+      {
+        "id": 292,
+        "vuln_id": "CVE-2012-2663",
+        "pkg_name": "libxtables12",
+        "pkg_id": "libxtables12@1.8.9-2",
+        "installed_version": "1.8.9-2",
+        "severity": "LOW"
+      }
+    ],
+    "tzdata@2021a-1+deb11u10|tzdata": [
+      {
+        "id": 370,
+        "vuln_id": "DLA-3972-1",
+        "pkg_name": "tzdata",
+        "pkg_id": "tzdata@2021a-1+deb11u10",
+        "installed_version": "2021a-1+deb11u10",
+        "severity": "UNKNOWN"
+      },
+      {
+        "id": 371,
+        "vuln_id": "DLA-4085-1",
+        "pkg_name": "tzdata",
+        "pkg_id": "tzdata@2021a-1+deb11u10",
+        "installed_version": "2021a-1+deb11u10",
+        "severity": "UNKNOWN"
+      }
+    ],
+    "github.com/golang-jwt/jwt/v4@v4.5.0|github.com/golang-jwt/jwt/v4": [
+      {
+        "id": 372,
+        "vuln_id": "CVE-2025-30204",
+        "pkg_name": "github.com/golang-jwt/jwt/v4",
+        "pkg_id": "github.com/golang-jwt/jwt/v4@v4.5.0",
+        "installed_version": "v4.5.0",
+        "severity": "HIGH"
+      },
+      {
+        "id": 373,
+        "vuln_id": "CVE-2024-51744",
+        "pkg_name": "github.com/golang-jwt/jwt/v4",
+        "pkg_id": "github.com/golang-jwt/jwt/v4@v4.5.0",
+        "installed_version": "v4.5.0",
+        "severity": "LOW"
+      }
+    ],
+    "github.com/prometheus/client_golang@v1.7.1|github.com/prometheus/client_golang": [
+      {
+        "id": 175,
+        "vuln_id": "CVE-2022-21698",
+        "pkg_name": "github.com/prometheus/client_golang",
+        "pkg_id": "github.com/prometheus/client_golang@v1.7.1",
+        "installed_version": "v1.7.1",
+        "severity": "HIGH"
+      }
+    ],
+    "libdav1d6@1.0.0-2+deb12u1|libdav1d6": [
+      {
+        "id": 42,
+        "vuln_id": "CVE-2023-32570",
+        "pkg_name": "libdav1d6",
+        "pkg_id": "libdav1d6@1.0.0-2+deb12u1",
+        "installed_version": "1.0.0-2+deb12u1",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libkrb5-3@1.20.1-2+deb12u2|libkrb5-3": [
+      {
+        "id": 71,
+        "vuln_id": "CVE-2024-26462",
+        "pkg_name": "libkrb5-3",
+        "pkg_id": "libkrb5-3@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 72,
+        "vuln_id": "CVE-2025-24528",
+        "pkg_name": "libkrb5-3",
+        "pkg_id": "libkrb5-3@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 73,
+        "vuln_id": "CVE-2018-5709",
+        "pkg_name": "libkrb5-3",
+        "pkg_id": "libkrb5-3@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 74,
+        "vuln_id": "CVE-2024-26458",
+        "pkg_name": "libkrb5-3",
+        "pkg_id": "libkrb5-3@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 75,
+        "vuln_id": "CVE-2024-26461",
+        "pkg_name": "libkrb5-3",
+        "pkg_id": "libkrb5-3@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      }
+    ],
+    "coreutils@9.1-1|coreutils": [
+      {
+        "id": 4,
+        "vuln_id": "CVE-2016-2781",
+        "pkg_name": "coreutils",
+        "pkg_id": "coreutils@9.1-1",
+        "installed_version": "9.1-1",
+        "severity": "LOW"
+      },
+      {
+        "id": 5,
+        "vuln_id": "CVE-2017-18018",
+        "pkg_name": "coreutils",
+        "pkg_id": "coreutils@9.1-1",
+        "installed_version": "9.1-1",
+        "severity": "LOW"
+      }
+    ],
+    "ncurses-base@6.4-4|ncurses-base": [
+      {
+        "id": 139,
+        "vuln_id": "CVE-2023-50495",
+        "pkg_name": "ncurses-base",
+        "pkg_id": "ncurses-base@6.4-4",
+        "installed_version": "6.4-4",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libk5crypto3@1.20.1-2+deb12u2|libk5crypto3": [
+      {
+        "id": 66,
+        "vuln_id": "CVE-2024-26462",
+        "pkg_name": "libk5crypto3",
+        "pkg_id": "libk5crypto3@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 67,
+        "vuln_id": "CVE-2025-24528",
+        "pkg_name": "libk5crypto3",
+        "pkg_id": "libk5crypto3@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 68,
+        "vuln_id": "CVE-2018-5709",
+        "pkg_name": "libk5crypto3",
+        "pkg_id": "libk5crypto3@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 69,
+        "vuln_id": "CVE-2024-26458",
+        "pkg_name": "libk5crypto3",
+        "pkg_id": "libk5crypto3@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 70,
+        "vuln_id": "CVE-2024-26461",
+        "pkg_name": "libk5crypto3",
+        "pkg_id": "libk5crypto3@1.20.1-2+deb12u2",
+        "installed_version": "1.20.1-2+deb12u2",
+        "severity": "LOW"
+      }
+    ],
+    "perl-base@5.36.0-7+deb12u1|perl-base": [
+      {
+        "id": 151,
+        "vuln_id": "CVE-2023-31484",
+        "pkg_name": "perl-base",
+        "pkg_id": "perl-base@5.36.0-7+deb12u1",
+        "installed_version": "5.36.0-7+deb12u1",
+        "severity": "HIGH"
+      },
+      {
+        "id": 152,
+        "vuln_id": "CVE-2011-4116",
+        "pkg_name": "perl-base",
+        "pkg_id": "perl-base@5.36.0-7+deb12u1",
+        "installed_version": "5.36.0-7+deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 153,
+        "vuln_id": "CVE-2023-31486",
+        "pkg_name": "perl-base",
+        "pkg_id": "perl-base@5.36.0-7+deb12u1",
+        "installed_version": "5.36.0-7+deb12u1",
+        "severity": "LOW"
+      }
+    ],
+    "golang.org/x/crypto@v0.24.0|golang.org/x/crypto": [
+      {
+        "id": 167,
+        "vuln_id": "CVE-2024-45337",
+        "pkg_name": "golang.org/x/crypto",
+        "pkg_id": "golang.org/x/crypto@v0.24.0",
+        "installed_version": "v0.24.0",
+        "severity": "CRITICAL"
+      }
+    ],
+    "libsmartcols1@2.38.1-5+deb12u3|libsmartcols1": [
+      {
+        "id": 96,
+        "vuln_id": "CVE-2022-0563",
+        "pkg_name": "libsmartcols1",
+        "pkg_id": "libsmartcols1@2.38.1-5+deb12u3",
+        "installed_version": "2.38.1-5+deb12u3",
+        "severity": "LOW"
+      }
+    ],
+    "golang.org/x/crypto@v0.21.0|golang.org/x/crypto": [
+      {
+        "id": 310,
+        "vuln_id": "CVE-2024-45337",
+        "pkg_name": "golang.org/x/crypto",
+        "pkg_id": "golang.org/x/crypto@v0.21.0",
+        "installed_version": "v0.21.0",
+        "severity": "CRITICAL"
+      }
+    ],
+    "passwd@1:4.13+dfsg1-1+b1|passwd": [
+      {
+        "id": 146,
+        "vuln_id": "CVE-2023-4641",
+        "pkg_name": "passwd",
+        "pkg_id": "passwd@1:4.13+dfsg1-1+b1",
+        "installed_version": "1:4.13+dfsg1-1+b1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 147,
+        "vuln_id": "CVE-2007-5686",
+        "pkg_name": "passwd",
+        "pkg_id": "passwd@1:4.13+dfsg1-1+b1",
+        "installed_version": "1:4.13+dfsg1-1+b1",
+        "severity": "LOW"
+      },
+      {
+        "id": 148,
+        "vuln_id": "CVE-2023-29383",
+        "pkg_name": "passwd",
+        "pkg_id": "passwd@1:4.13+dfsg1-1+b1",
+        "installed_version": "1:4.13+dfsg1-1+b1",
+        "severity": "LOW"
+      },
+      {
+        "id": 149,
+        "vuln_id": "CVE-2024-56433",
+        "pkg_name": "passwd",
+        "pkg_id": "passwd@1:4.13+dfsg1-1+b1",
+        "installed_version": "1:4.13+dfsg1-1+b1",
+        "severity": "LOW"
+      },
+      {
+        "id": 150,
+        "vuln_id": "TEMP-0628843-DBAD28",
+        "pkg_name": "passwd",
+        "pkg_id": "passwd@1:4.13+dfsg1-1+b1",
+        "installed_version": "1:4.13+dfsg1-1+b1",
+        "severity": "LOW"
+      }
+    ],
+    "stdlib@v1.20.7|stdlib": [
+      {
+        "id": 386,
+        "vuln_id": "CVE-2024-24790",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": 387,
+        "vuln_id": "CVE-2023-39325",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "HIGH"
+      },
+      {
+        "id": 388,
+        "vuln_id": "CVE-2023-45283",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "HIGH"
+      },
+      {
+        "id": 389,
+        "vuln_id": "CVE-2023-45288",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "HIGH"
+      },
+      {
+        "id": 390,
+        "vuln_id": "CVE-2024-34156",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "HIGH"
+      },
+      {
+        "id": 391,
+        "vuln_id": "CVE-2023-39318",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 392,
+        "vuln_id": "CVE-2023-39319",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 393,
+        "vuln_id": "CVE-2023-39326",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 394,
+        "vuln_id": "CVE-2023-45284",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 395,
+        "vuln_id": "CVE-2023-45289",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 396,
+        "vuln_id": "CVE-2023-45290",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 397,
+        "vuln_id": "CVE-2024-24783",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 398,
+        "vuln_id": "CVE-2024-24784",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 399,
+        "vuln_id": "CVE-2024-24785",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 400,
+        "vuln_id": "CVE-2024-24789",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 401,
+        "vuln_id": "CVE-2024-24791",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 402,
+        "vuln_id": "CVE-2024-34155",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 403,
+        "vuln_id": "CVE-2024-34158",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 404,
+        "vuln_id": "CVE-2024-45336",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 405,
+        "vuln_id": "CVE-2024-45341",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 406,
+        "vuln_id": "CVE-2025-22866",
+        "pkg_name": "stdlib",
+        "pkg_id": "stdlib@v1.20.7",
+        "installed_version": "v1.20.7",
+        "severity": "MEDIUM"
+      }
+    ],
+    "tar@1.34+dfsg-1.2+deb12u1|tar": [
+      {
+        "id": 155,
+        "vuln_id": "CVE-2005-2541",
+        "pkg_name": "tar",
+        "pkg_id": "tar@1.34+dfsg-1.2+deb12u1",
+        "installed_version": "1.34+dfsg-1.2+deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 156,
+        "vuln_id": "TEMP-0290435-0B57B5",
+        "pkg_name": "tar",
+        "pkg_id": "tar@1.34+dfsg-1.2+deb12u1",
+        "installed_version": "1.34+dfsg-1.2+deb12u1",
+        "severity": "LOW"
+      }
+    ],
+    "login@1:4.13+dfsg1-1+b1|login": [
+      {
+        "id": 133,
+        "vuln_id": "CVE-2023-4641",
+        "pkg_name": "login",
+        "pkg_id": "login@1:4.13+dfsg1-1+b1",
+        "installed_version": "1:4.13+dfsg1-1+b1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 134,
+        "vuln_id": "CVE-2007-5686",
+        "pkg_name": "login",
+        "pkg_id": "login@1:4.13+dfsg1-1+b1",
+        "installed_version": "1:4.13+dfsg1-1+b1",
+        "severity": "LOW"
+      },
+      {
+        "id": 135,
+        "vuln_id": "CVE-2023-29383",
+        "pkg_name": "login",
+        "pkg_id": "login@1:4.13+dfsg1-1+b1",
+        "installed_version": "1:4.13+dfsg1-1+b1",
+        "severity": "LOW"
+      },
+      {
+        "id": 136,
+        "vuln_id": "CVE-2024-56433",
+        "pkg_name": "login",
+        "pkg_id": "login@1:4.13+dfsg1-1+b1",
+        "installed_version": "1:4.13+dfsg1-1+b1",
+        "severity": "LOW"
+      },
+      {
+        "id": 137,
+        "vuln_id": "TEMP-0628843-DBAD28",
+        "pkg_name": "login",
+        "pkg_id": "login@1:4.13+dfsg1-1+b1",
+        "installed_version": "1:4.13+dfsg1-1+b1",
+        "severity": "LOW"
+      }
+    ],
+    "libuuid1@2.38.1-5+deb12u3|libuuid1": [
+      {
+        "id": 121,
+        "vuln_id": "CVE-2022-0563",
+        "pkg_name": "libuuid1",
+        "pkg_id": "libuuid1@2.38.1-5+deb12u3",
+        "installed_version": "2.38.1-5+deb12u3",
+        "severity": "LOW"
+      }
+    ],
+    "gopkg.in/square/go-jose.v2@v2.6.0|gopkg.in/square/go-jose.v2": [
+      {
+        "id": 363,
+        "vuln_id": "CVE-2024-28180",
+        "pkg_name": "gopkg.in/square/go-jose.v2",
+        "pkg_id": "gopkg.in/square/go-jose.v2@v2.6.0",
+        "installed_version": "v2.6.0",
+        "severity": "MEDIUM"
+      }
+    ],
+    "golang.org/x/crypto@v0.0.0-20201002170205-7f63de1d35b0|golang.org/x/crypto": [
+      {
+        "id": 176,
+        "vuln_id": "CVE-2024-45337",
+        "pkg_name": "golang.org/x/crypto",
+        "pkg_id": "golang.org/x/crypto@v0.0.0-20201002170205-7f63de1d35b0",
+        "installed_version": "v0.0.0-20201002170205-7f63de1d35b0",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": 177,
+        "vuln_id": "CVE-2020-29652",
+        "pkg_name": "golang.org/x/crypto",
+        "pkg_id": "golang.org/x/crypto@v0.0.0-20201002170205-7f63de1d35b0",
+        "installed_version": "v0.0.0-20201002170205-7f63de1d35b0",
+        "severity": "HIGH"
+      },
+      {
+        "id": 178,
+        "vuln_id": "CVE-2021-43565",
+        "pkg_name": "golang.org/x/crypto",
+        "pkg_id": "golang.org/x/crypto@v0.0.0-20201002170205-7f63de1d35b0",
+        "installed_version": "v0.0.0-20201002170205-7f63de1d35b0",
+        "severity": "HIGH"
+      },
+      {
+        "id": 179,
+        "vuln_id": "CVE-2022-27191",
+        "pkg_name": "golang.org/x/crypto",
+        "pkg_id": "golang.org/x/crypto@v0.0.0-20201002170205-7f63de1d35b0",
+        "installed_version": "v0.0.0-20201002170205-7f63de1d35b0",
+        "severity": "HIGH"
+      },
+      {
+        "id": 180,
+        "vuln_id": "CVE-2023-48795",
+        "pkg_name": "golang.org/x/crypto",
+        "pkg_id": "golang.org/x/crypto@v0.0.0-20201002170205-7f63de1d35b0",
+        "installed_version": "v0.0.0-20201002170205-7f63de1d35b0",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libldap-2.5-0@2.5.13+dfsg-5|libldap-2.5-0": [
+      {
+        "id": 81,
+        "vuln_id": "CVE-2023-2953",
+        "pkg_name": "libldap-2.5-0",
+        "pkg_id": "libldap-2.5-0@2.5.13+dfsg-5",
+        "installed_version": "2.5.13+dfsg-5",
+        "severity": "HIGH"
+      },
+      {
+        "id": 82,
+        "vuln_id": "CVE-2015-3276",
+        "pkg_name": "libldap-2.5-0",
+        "pkg_id": "libldap-2.5-0@2.5.13+dfsg-5",
+        "installed_version": "2.5.13+dfsg-5",
+        "severity": "LOW"
+      },
+      {
+        "id": 83,
+        "vuln_id": "CVE-2017-14159",
+        "pkg_name": "libldap-2.5-0",
+        "pkg_id": "libldap-2.5-0@2.5.13+dfsg-5",
+        "installed_version": "2.5.13+dfsg-5",
+        "severity": "LOW"
+      },
+      {
+        "id": 84,
+        "vuln_id": "CVE-2017-17740",
+        "pkg_name": "libldap-2.5-0",
+        "pkg_id": "libldap-2.5-0@2.5.13+dfsg-5",
+        "installed_version": "2.5.13+dfsg-5",
+        "severity": "LOW"
+      },
+      {
+        "id": 85,
+        "vuln_id": "CVE-2020-15719",
+        "pkg_name": "libldap-2.5-0",
+        "pkg_id": "libldap-2.5-0@2.5.13+dfsg-5",
+        "installed_version": "2.5.13+dfsg-5",
+        "severity": "LOW"
+      }
+    ],
+    "mount@2.38.1-5+deb12u3|mount": [
+      {
+        "id": 138,
+        "vuln_id": "CVE-2022-0563",
+        "pkg_name": "mount",
+        "pkg_id": "mount@2.38.1-5+deb12u3",
+        "installed_version": "2.38.1-5+deb12u3",
+        "severity": "LOW"
+      }
+    ],
+    "libstdc++6@12.2.0-14|libstdc++6": [
+      {
+        "id": 98,
+        "vuln_id": "CVE-2022-27943",
+        "pkg_name": "libstdc++6",
+        "pkg_id": "libstdc++6@12.2.0-14",
+        "installed_version": "12.2.0-14",
+        "severity": "LOW"
+      },
+      {
+        "id": 99,
+        "vuln_id": "CVE-2023-4039",
+        "pkg_name": "libstdc++6",
+        "pkg_id": "libstdc++6@12.2.0-14",
+        "installed_version": "12.2.0-14",
+        "severity": "LOW"
+      }
+    ],
+    "ncurses-bin@6.4-4|ncurses-bin": [
+      {
+        "id": 140,
+        "vuln_id": "CVE-2023-50495",
+        "pkg_name": "ncurses-bin",
+        "pkg_id": "ncurses-bin@6.4-4",
+        "installed_version": "6.4-4",
+        "severity": "MEDIUM"
+      }
+    ],
+    "golang.org/x/sys@v0.0.0-20210217105451-b926d437f341|golang.org/x/sys": [
+      {
+        "id": 191,
+        "vuln_id": "CVE-2022-29526",
+        "pkg_name": "golang.org/x/sys",
+        "pkg_id": "golang.org/x/sys@v0.0.0-20210217105451-b926d437f341",
+        "installed_version": "v0.0.0-20210217105451-b926d437f341",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libmount1@2.38.1-5+deb12u3|libmount1": [
+      {
+        "id": 86,
+        "vuln_id": "CVE-2022-0563",
+        "pkg_name": "libmount1",
+        "pkg_id": "libmount1@2.38.1-5+deb12u3",
+        "installed_version": "2.38.1-5+deb12u3",
+        "severity": "LOW"
+      }
+    ],
+    "libblkid1@2.38.1-5+deb12u3|libblkid1": [
+      {
+        "id": 19,
+        "vuln_id": "CVE-2022-0563",
+        "pkg_name": "libblkid1",
+        "pkg_id": "libblkid1@2.38.1-5+deb12u3",
+        "installed_version": "2.38.1-5+deb12u3",
+        "severity": "LOW"
+      }
+    ],
+    "golang.org/x/net@v0.23.0|golang.org/x/net": [
+      {
+        "id": 311,
+        "vuln_id": "CVE-2025-22870",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.23.0",
+        "installed_version": "v0.23.0",
+        "severity": "MEDIUM"
+      }
+    ],
+    "golang.org/x/net@v0.14.0|golang.org/x/net": [
+      {
+        "id": 379,
+        "vuln_id": "CVE-2023-39325",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.14.0",
+        "installed_version": "v0.14.0",
+        "severity": "HIGH"
+      },
+      {
+        "id": 380,
+        "vuln_id": "CVE-2023-44487",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.14.0",
+        "installed_version": "v0.14.0",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 381,
+        "vuln_id": "CVE-2023-45288",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.14.0",
+        "installed_version": "v0.14.0",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 382,
+        "vuln_id": "CVE-2025-22870",
+        "pkg_name": "golang.org/x/net",
+        "pkg_id": "golang.org/x/net@v0.14.0",
+        "installed_version": "v0.14.0",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libjansson4@2.14-2|libjansson4": [
+      {
+        "id": 284,
+        "vuln_id": "CVE-2020-36325",
+        "pkg_name": "libjansson4",
+        "pkg_id": "libjansson4@2.14-2",
+        "installed_version": "2.14-2",
+        "severity": "LOW"
+      }
+    ],
+    "libfreetype6@2.12.1+dfsg-5+deb12u3|libfreetype6": [
+      {
+        "id": 51,
+        "vuln_id": "CVE-2025-27363",
+        "pkg_name": "libfreetype6",
+        "pkg_id": "libfreetype6@2.12.1+dfsg-5+deb12u3",
+        "installed_version": "2.12.1+dfsg-5+deb12u3",
+        "severity": "HIGH"
+      }
+    ],
+    "libpng16-16@1.6.39-2|libpng16-16": [
+      {
+        "id": 95,
+        "vuln_id": "CVE-2021-4214",
+        "pkg_name": "libpng16-16",
+        "pkg_id": "libpng16-16@1.6.39-2",
+        "installed_version": "1.6.39-2",
+        "severity": "LOW"
+      }
+    ],
+    "bsdutils@1:2.38.1-5+deb12u3|bsdutils": [
+      {
+        "id": 3,
+        "vuln_id": "CVE-2022-0563",
+        "pkg_name": "bsdutils",
+        "pkg_id": "bsdutils@1:2.38.1-5+deb12u3",
+        "installed_version": "1:2.38.1-5+deb12u3",
+        "severity": "LOW"
+      }
+    ],
+    "libexpat1@2.5.0-1+deb12u1|libexpat1": [
+      {
+        "id": 46,
+        "vuln_id": "CVE-2023-52425",
+        "pkg_name": "libexpat1",
+        "pkg_id": "libexpat1@2.5.0-1+deb12u1",
+        "installed_version": "2.5.0-1+deb12u1",
+        "severity": "HIGH"
+      },
+      {
+        "id": 47,
+        "vuln_id": "CVE-2024-8176",
+        "pkg_name": "libexpat1",
+        "pkg_id": "libexpat1@2.5.0-1+deb12u1",
+        "installed_version": "2.5.0-1+deb12u1",
+        "severity": "HIGH"
+      },
+      {
+        "id": 48,
+        "vuln_id": "CVE-2024-50602",
+        "pkg_name": "libexpat1",
+        "pkg_id": "libexpat1@2.5.0-1+deb12u1",
+        "installed_version": "2.5.0-1+deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 49,
+        "vuln_id": "CVE-2023-52426",
+        "pkg_name": "libexpat1",
+        "pkg_id": "libexpat1@2.5.0-1+deb12u1",
+        "installed_version": "2.5.0-1+deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 50,
+        "vuln_id": "CVE-2024-28757",
+        "pkg_name": "libexpat1",
+        "pkg_id": "libexpat1@2.5.0-1+deb12u1",
+        "installed_version": "2.5.0-1+deb12u1",
+        "severity": "LOW"
+      }
+    ],
+    "libpam-modules-bin@1.5.2-6+deb12u1|libpam-modules-bin": [
+      {
+        "id": 89,
+        "vuln_id": "CVE-2024-10041",
+        "pkg_name": "libpam-modules-bin",
+        "pkg_id": "libpam-modules-bin@1.5.2-6+deb12u1",
+        "installed_version": "1.5.2-6+deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 90,
+        "vuln_id": "CVE-2024-22365",
+        "pkg_name": "libpam-modules-bin",
+        "pkg_id": "libpam-modules-bin@1.5.2-6+deb12u1",
+        "installed_version": "1.5.2-6+deb12u1",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libheif1@1.15.1-1+deb12u1|libheif1": [
+      {
+        "id": 63,
+        "vuln_id": "CVE-2023-49463",
+        "pkg_name": "libheif1",
+        "pkg_id": "libheif1@1.15.1-1+deb12u1",
+        "installed_version": "1.15.1-1+deb12u1",
+        "severity": "LOW"
+      },
+      {
+        "id": 64,
+        "vuln_id": "CVE-2024-25269",
+        "pkg_name": "libheif1",
+        "pkg_id": "libheif1@1.15.1-1+deb12u1",
+        "installed_version": "1.15.1-1+deb12u1",
+        "severity": "LOW"
+      }
+    ],
+    "libpam-runtime@1.5.2-6+deb12u1|libpam-runtime": [
+      {
+        "id": 91,
+        "vuln_id": "CVE-2024-10041",
+        "pkg_name": "libpam-runtime",
+        "pkg_id": "libpam-runtime@1.5.2-6+deb12u1",
+        "installed_version": "1.5.2-6+deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 92,
+        "vuln_id": "CVE-2024-22365",
+        "pkg_name": "libpam-runtime",
+        "pkg_id": "libpam-runtime@1.5.2-6+deb12u1",
+        "installed_version": "1.5.2-6+deb12u1",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libxml2@2.9.14+dfsg-1.3~deb12u1|libxml2": [
+      {
+        "id": 122,
+        "vuln_id": "CVE-2024-25062",
+        "pkg_name": "libxml2",
+        "pkg_id": "libxml2@2.9.14+dfsg-1.3~deb12u1",
+        "installed_version": "2.9.14+dfsg-1.3~deb12u1",
+        "severity": "HIGH"
+      },
+      {
+        "id": 123,
+        "vuln_id": "CVE-2024-56171",
+        "pkg_name": "libxml2",
+        "pkg_id": "libxml2@2.9.14+dfsg-1.3~deb12u1",
+        "installed_version": "2.9.14+dfsg-1.3~deb12u1",
+        "severity": "HIGH"
+      },
+      {
+        "id": 124,
+        "vuln_id": "CVE-2025-24928",
+        "pkg_name": "libxml2",
+        "pkg_id": "libxml2@2.9.14+dfsg-1.3~deb12u1",
+        "installed_version": "2.9.14+dfsg-1.3~deb12u1",
+        "severity": "HIGH"
+      },
+      {
+        "id": 125,
+        "vuln_id": "CVE-2025-27113",
+        "pkg_name": "libxml2",
+        "pkg_id": "libxml2@2.9.14+dfsg-1.3~deb12u1",
+        "installed_version": "2.9.14+dfsg-1.3~deb12u1",
+        "severity": "HIGH"
+      },
+      {
+        "id": 126,
+        "vuln_id": "CVE-2022-49043",
+        "pkg_name": "libxml2",
+        "pkg_id": "libxml2@2.9.14+dfsg-1.3~deb12u1",
+        "installed_version": "2.9.14+dfsg-1.3~deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 127,
+        "vuln_id": "CVE-2023-39615",
+        "pkg_name": "libxml2",
+        "pkg_id": "libxml2@2.9.14+dfsg-1.3~deb12u1",
+        "installed_version": "2.9.14+dfsg-1.3~deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 128,
+        "vuln_id": "CVE-2023-45322",
+        "pkg_name": "libxml2",
+        "pkg_id": "libxml2@2.9.14+dfsg-1.3~deb12u1",
+        "installed_version": "2.9.14+dfsg-1.3~deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 129,
+        "vuln_id": "CVE-2024-34459",
+        "pkg_name": "libxml2",
+        "pkg_id": "libxml2@2.9.14+dfsg-1.3~deb12u1",
+        "installed_version": "2.9.14+dfsg-1.3~deb12u1",
+        "severity": "LOW"
+      }
+    ],
+    "zlib1g@1:1.2.13.dfsg-1|zlib1g": [
+      {
+        "id": 159,
+        "vuln_id": "CVE-2023-45853",
+        "pkg_name": "zlib1g",
+        "pkg_id": "zlib1g@1:1.2.13.dfsg-1",
+        "installed_version": "1:1.2.13.dfsg-1",
+        "severity": "CRITICAL"
+      }
+    ],
+    "gcc-12-base@12.2.0-14|gcc-12-base": [
+      {
+        "id": 11,
+        "vuln_id": "CVE-2022-27943",
+        "pkg_name": "gcc-12-base",
+        "pkg_id": "gcc-12-base@12.2.0-14",
+        "installed_version": "12.2.0-14",
+        "severity": "LOW"
+      },
+      {
+        "id": 12,
+        "vuln_id": "CVE-2023-4039",
+        "pkg_name": "gcc-12-base",
+        "pkg_id": "gcc-12-base@12.2.0-14",
+        "installed_version": "12.2.0-14",
+        "severity": "LOW"
+      }
+    ],
+    "libpam0g@1.5.2-6+deb12u1|libpam0g": [
+      {
+        "id": 93,
+        "vuln_id": "CVE-2024-10041",
+        "pkg_name": "libpam0g",
+        "pkg_id": "libpam0g@1.5.2-6+deb12u1",
+        "installed_version": "1.5.2-6+deb12u1",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 94,
+        "vuln_id": "CVE-2024-22365",
+        "pkg_name": "libpam0g",
+        "pkg_id": "libpam0g@1.5.2-6+deb12u1",
+        "installed_version": "1.5.2-6+deb12u1",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libgcc-s1@12.2.0-14|libgcc-s1": [
+      {
+        "id": 52,
+        "vuln_id": "CVE-2022-27943",
+        "pkg_name": "libgcc-s1",
+        "pkg_id": "libgcc-s1@12.2.0-14",
+        "installed_version": "12.2.0-14",
+        "severity": "LOW"
+      },
+      {
+        "id": 53,
+        "vuln_id": "CVE-2023-4039",
+        "pkg_name": "libgcc-s1",
+        "pkg_id": "libgcc-s1@12.2.0-14",
+        "installed_version": "12.2.0-14",
+        "severity": "LOW"
+      }
+    ],
+    "libtiff6@4.5.0-6+deb12u2|libtiff6": [
+      {
+        "id": 105,
+        "vuln_id": "CVE-2023-52355",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 106,
+        "vuln_id": "CVE-2023-6277",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 107,
+        "vuln_id": "CVE-2017-16232",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 108,
+        "vuln_id": "CVE-2017-17973",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 109,
+        "vuln_id": "CVE-2017-5563",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 110,
+        "vuln_id": "CVE-2017-9117",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 111,
+        "vuln_id": "CVE-2018-10126",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 112,
+        "vuln_id": "CVE-2022-1210",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 113,
+        "vuln_id": "CVE-2023-1916",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 114,
+        "vuln_id": "CVE-2023-3164",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "LOW"
+      },
+      {
+        "id": 115,
+        "vuln_id": "CVE-2023-6228",
+        "pkg_name": "libtiff6",
+        "pkg_id": "libtiff6@4.5.0-6+deb12u2",
+        "installed_version": "4.5.0-6+deb12u2",
+        "severity": "LOW"
+      }
+    ],
+    "github.com/opencontainers/runc@v1.1.13|github.com/opencontainers/runc": [
+      {
+        "id": 166,
+        "vuln_id": "CVE-2024-45310",
+        "pkg_name": "github.com/opencontainers/runc",
+        "pkg_id": "github.com/opencontainers/runc@v1.1.13",
+        "installed_version": "v1.1.13",
+        "severity": "MEDIUM"
+      }
+    ],
+    "util-linux@2.38.1-5+deb12u3|util-linux": [
+      {
+        "id": 157,
+        "vuln_id": "CVE-2022-0563",
+        "pkg_name": "util-linux",
+        "pkg_id": "util-linux@2.38.1-5+deb12u3",
+        "installed_version": "2.38.1-5+deb12u3",
+        "severity": "LOW"
+      }
+    ],
+    "github.com/golang-jwt/jwt/v4@v4.4.2|github.com/golang-jwt/jwt/v4": [
+      {
+        "id": 308,
+        "vuln_id": "CVE-2025-30204",
+        "pkg_name": "github.com/golang-jwt/jwt/v4",
+        "pkg_id": "github.com/golang-jwt/jwt/v4@v4.4.2",
+        "installed_version": "v4.4.2",
+        "severity": "HIGH"
+      },
+      {
+        "id": 309,
+        "vuln_id": "CVE-2024-51744",
+        "pkg_name": "github.com/golang-jwt/jwt/v4",
+        "pkg_id": "github.com/golang-jwt/jwt/v4@v4.4.2",
+        "installed_version": "v4.4.2",
+        "severity": "LOW"
+      }
+    ],
+    "google.golang.org/grpc@v1.57.0|google.golang.org/grpc": [
+      {
+        "id": 383,
+        "vuln_id": "GHSA-m425-mq94-257g",
+        "pkg_name": "google.golang.org/grpc",
+        "pkg_id": "google.golang.org/grpc@v1.57.0",
+        "installed_version": "v1.57.0",
+        "severity": "HIGH"
+      },
+      {
+        "id": 384,
+        "vuln_id": "CVE-2023-44487",
+        "pkg_name": "google.golang.org/grpc",
+        "pkg_id": "google.golang.org/grpc@v1.57.0",
+        "installed_version": "v1.57.0",
+        "severity": "MEDIUM"
+      }
+    ],
+    "libc6@2.36-9+deb12u9|libc6": [
+      {
+        "id": 28,
+        "vuln_id": "CVE-2025-0395",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "MEDIUM"
+      },
+      {
+        "id": 29,
+        "vuln_id": "CVE-2010-4756",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 30,
+        "vuln_id": "CVE-2018-20796",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 31,
+        "vuln_id": "CVE-2019-1010022",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 32,
+        "vuln_id": "CVE-2019-1010023",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 33,
+        "vuln_id": "CVE-2019-1010024",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 34,
+        "vuln_id": "CVE-2019-1010025",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      },
+      {
+        "id": 35,
+        "vuln_id": "CVE-2019-9192",
+        "pkg_name": "libc6",
+        "pkg_id": "libc6@2.36-9+deb12u9",
+        "installed_version": "2.36-9+deb12u9",
+        "severity": "LOW"
+      }
+    ]
+  }
+}

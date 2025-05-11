@@ -1,7 +1,8 @@
 
 use actix_web::{web, HttpResponse, Responder};
 
-use backend::{fetch_all_vuln_entries, fetch_receiver_emails, bulk_add_vulns, create_email_entry, filter_vuln_entries_by_severity};
+use backend::{fetch_all_vuln_entries, fetch_receiver_emails,group_by_pkgid_pkgname, bulk_add_vulns, create_email_entry, filter_vuln_entries_by_severity};
+use diesel::connection;
 use crate::models::{NewEmail, FilterQuery};
 use crate::DbPool;
 
@@ -22,7 +23,7 @@ pub(crate) async fn get_all_vulns(pool: web::Data<DbPool>) -> actix_web::Result<
 
 pub(crate) async fn post_filter_query(pool : web::Data<DbPool>, req: web::Json<FilterQuery>) -> actix_web::Result<impl Responder> {
     let pool = pool.clone();
-    let severity_filters = req.into_inner().query;
+    let severity_filters = req.into_inner().query.expect("leer");
 
     let response = web::block(move ||{
         let mut connection = pool.get().unwrap();
@@ -84,4 +85,18 @@ pub(crate) async fn get_all_receiver_emails(pool : web::Data<DbPool>) -> actix_w
 pub(crate) async fn index(pool: web::Data<DbPool>) -> &'static str {
     "<p>Hello</p>"
     // TODO: add HTTPResponse:Body
+}
+
+pub(crate) async fn get_grouped_by_pkgname_pkgid(pool : web::Data<DbPool>) -> actix_web::Result<impl Responder>{
+    let pool = pool.clone();
+    let result = web::block(move ||{
+        let mut connection = pool.get().unwrap();
+
+        group_by_pkgid_pkgname(&mut connection)
+    })
+    .await?;
+
+    Ok(HttpResponse::Ok().json(result))
+
+
 }

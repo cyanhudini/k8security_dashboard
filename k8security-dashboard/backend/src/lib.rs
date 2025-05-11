@@ -1,13 +1,24 @@
 pub mod models;
 pub mod schema;
 
+use actix_web::HttpResponse;
 use diesel::prelude::*;
 use dotenv::dotenv;
 use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails, NewEmail};
-use schema::vulnerability::{installed_version, pkg_name, severity, vuln_id};
+use schema::vulnerability::{installed_version, pkg_name,pkg_id, severity, vuln_id};
+use serde::Serialize;
+use std::collections::HashMap;
 use std::env;
 use std::fs::File;
 use std::io::BufReader;
+use self::schema::vulnerability::dsl::vulnerability; 
+
+ #[derive(Serialize)]
+    pub struct GroupedVulnerabilites{
+        pub vulnerabilities:HashMap<String, Vec<Vulnerability>>
+    }
+
+
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
@@ -17,11 +28,12 @@ pub fn establish_connection() -> PgConnection {
         .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
 }
 
-pub fn create_vuln_entry(connection: &mut PgConnection, cve_id: String, name : String, inst_version: String, severity_grade: String)-> Vulnerability{
+pub fn create_vuln_entry(connection: &mut PgConnection, cve_id: String, name : String, inst_version: String, severity_grade: String, pk_id: String)-> Vulnerability{
     use crate::schema::vulnerability;
 
     let new_vuln = NewVulnerability{
-        vuln_id: cve_id, pkg_name: name, installed_version: inst_version, severity: severity_grade
+        vuln_id: cve_id, pkg_name: name, installed_version: inst_version, severity: severity_grade,
+        pkg_id: pk_id,
     };
 
     diesel::insert_into(vulnerability::table)
@@ -72,7 +84,7 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection, filter_cri
     
 }
 
-pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::error::Error>> {
+pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::error::Error>> {
     use self::schema::vulnerability::dsl::vulnerability;
 
     let file = File::open("report.json")?;
@@ -88,6 +100,7 @@ pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std:
                     new_vulns.push(NewVulnerability {
                         vuln_id: v.vuln_id,
                         pkg_name: v.pkg_name,
+                        pkg_id: v.pkg_id,
                         installed_version: v.installed_version,
                         severity: v.severity,
                     });
@@ -98,7 +111,7 @@ pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std:
 
     diesel::insert_into(vulnerability)
         .values(&new_vulns)
-        .on_conflict((vuln_id, pkg_name, installed_version))
+        .on_conflict((vuln_id, pkg_name, pkg_id, installed_version))
         .do_nothing()
         .execute(connection)
         .expect("Error inserting new vulnerabilities");
@@ -109,3 +122,17 @@ pub  fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std:
 }
 
 
+pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabilites {
+
+   let to_be_grouped = fetch_all_vuln_entries(connection);
+
+   let mut grouped : HashMap<String, Vec<Vulnerability>> = HashMap::new();
+
+    for vuln in to_be_grouped {
+        let key = format!("{}|{}", vuln.pkg_id, vuln.pkg_name);
+        grouped.entry(key).or_insert(vec![]).push(vuln);
+    }
+    GroupedVulnerabilites{
+        vulnerabilities: grouped,
+    }   
+}

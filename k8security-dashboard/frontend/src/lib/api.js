@@ -14,3 +14,9 @@ export async function filterVulnerabilities(filter_query) {
   return await res.json()
 
 }
+
+export async function getGroupedVulnsByPkg() {
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/group_by_pkg`)
+  
+  return await res.json();
+} 
