@@ -1,33 +1,37 @@
 import { useEffect, useState } from 'react'
-import { getReceiverEmails } from '../lib/api'
+import { addReceiverEmail, getReceiverEmails } from '../lib/api'
 import "../styles/styles.css"
 
 
 export default function EmailBar() {
     const [emails, setEmails] = useState([])
+    const [newEmail, setNewEmail] = useState('')
     useEffect(() => {
         getReceiverEmails().then(setEmails)
-    }, [emails])
-    const toggleStatus = (value) => {
-        
-    }
-
+    }, [])
 
     return (
         <div className="emailbar">
+            <label for="email"></label>
             <input
-                type="email" />
-            
+                type="email"
+                id="email"
+                value={newEmail}
+                onChange={e => setNewEmail(e.target.value)}
+            />
+            <button onClick={() => addReceiverEmail(newEmail)}></button>
+            <div>
             {emails.map((email) => ( 
-                <label key={email}>
+                <li key={email}>
                     <input
                         type="checkbox"
                         checked
-                        onChange={() => toggleStatus(email)}
+                        
                     />
                     {email.email_adress}
-                </label>
+                </li>
             ))}
+            </div>
         </div>
     )
 }

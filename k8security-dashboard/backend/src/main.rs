@@ -1,8 +1,6 @@
 use actix_web::{web, App, HttpServer};
 use actix_cors::Cors;
-use api::{get_all_receiver_emails, get_all_vulns, index, post_new_email_adress, post_new_vulns, post_filter_query, get_grouped_by_pkgname_pkgid};
-use api::{get_all_receiver_emails, get_all_vulns, post_new_email_adress, post_new_vulns, post_filter_query, update_status_email};
-use backend::update_email_entry;
+use api::{get_all_receiver_emails, get_all_vulns, post_new_email_adress, post_new_vulns, post_filter_query, get_grouped_by_pkgname_pkgid, update_status_email};
 use diesel::PgConnection;
 use std::{io, env};
 use dotenv::dotenv;

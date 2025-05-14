@@ -1,7 +1,7 @@
 
 use actix_web::{web, HttpResponse, Responder};
 
-use backend::{bulk_add_vulns, create_email_entry, fetch_all_vuln_entries, fetch_receiver_emails, filter_vuln_entries_by_severity, update_email_entry};
+use backend::{bulk_add_vulns, create_email_entry, fetch_all_vuln_entries, fetch_receiver_emails, filter_vuln_entries_by_severity, update_email_entry, group_by_pkgid_pkgname};
 use serde::Serialize;
 use crate::models::{NewEmail, FilterQuery, SetEmailQuery};
 use crate::DbPool;
@@ -19,6 +19,7 @@ pub(crate) async fn get_all_vulns(pool: web::Data<DbPool>) -> actix_web::Result<
 
     Ok(web::Json(all_vulns))
 }
+
 
 pub(crate) async fn post_filter_query(pool : web::Data<DbPool>, req: web::Json<FilterQuery>) -> actix_web::Result<impl Responder> {
     let pool = pool.clone();
@@ -53,7 +54,7 @@ pub(crate) async fn post_new_email_adress(pool : web::Data<DbPool>, req: web::Js
     web::block(move ||{
         let mut connection = pool.get().unwrap();
         //TODO: Result muss genutzt werden
-        let _ = create_email_entry(&mut connection, new_email_adress);
+        create_email_entry(&mut connection, new_email_adress)
     })
     .await?;
 

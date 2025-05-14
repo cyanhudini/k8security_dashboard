@@ -12,22 +12,16 @@ export default function GroupedByPkgDashboard() {
     } ,[])
 
     return (
-        <div>
+        <div className="p-4 space-y-6">
+            
             {Object.entries(grouped).map(([key, group]) => (
-            <div>
-                <h2>
-                PKG_NAME|PKG_ID({key})
-                </h2>
-                <ul>
+            <div className = "border rounded p-4 grid grid-cols-3">
+                <h2 className="font-bold text-lg col-span-1 break-all">{key}</h2>
+                <ul className="col-span-2">
                         {group.map(v => (
                         <div>
                         <li key={v.vuln_id}>
-                            <span>
-                                {v.id}  
-                            </span> - 
-                            {v.pkg_name}
-                            {v.severity}
-                            {v.vuln_id}
+                                    <p>{v.vuln_id} | {v.installed_version} | {v.severity} </p>
                         </li>
                              
                         </div>

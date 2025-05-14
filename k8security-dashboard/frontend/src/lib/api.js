@@ -43,7 +43,7 @@ export async function addReceiverEmail(email) {
   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/add_receiver_email`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: email })
+    body: JSON.stringify({ email_adress: email })
   })
 
   return await res.json()
