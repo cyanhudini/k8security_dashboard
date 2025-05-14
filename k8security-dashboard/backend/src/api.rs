@@ -79,12 +79,13 @@ pub(crate) async fn get_all_receiver_emails(pool : web::Data<DbPool>) -> actix_w
 }
 
 pub(crate) async fn update_status_email(pool : web::Data<DbPool>, req: web::Json<SetEmailQuery>) -> actix_web::Result<impl Responder> {
-    let to_be_updated = req.into_inner().email_adress;
+    print!("{:?}", req);
+    let email_id = req.into_inner().email_id;
     let pool = pool.clone();
     let response = web::block(move ||{
         let mut connection: r2d2::PooledConnection<diesel::r2d2::ConnectionManager<diesel::PgConnection>> = pool.get().unwrap();
-
-        let _ = update_email_entry(&mut connection, to_be_updated);
+        print!("DDD");
+        update_email_entry(&mut connection, email_id)
 
     })
     .await

@@ -73,7 +73,7 @@ pub struct FilterQuery {
     pub query: Option<Vec<String>>,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Debug)]
 pub struct SetEmailQuery{
-    pub email_adress: String,
+    pub email_id : i32,
 }

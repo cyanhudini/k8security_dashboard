@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { addReceiverEmail, getReceiverEmails } from '../lib/api'
+import { addReceiverEmail, getReceiverEmails, setEmailStatus } from '../lib/api'
 import "../styles/styles.css"
 
 
@@ -25,8 +25,8 @@ export default function EmailBar() {
                 <li key={email}>
                     <input
                         type="checkbox"
-                        checked
-                        
+                        checked={email.receiving}
+                        onChange={() => setEmailStatus(email.id)}
                     />
                     {email.email_adress}
                 </li>

@@ -1,17 +1,14 @@
 pub mod models;
 pub mod schema;
-
-use actix_web::HttpResponse;
 use diesel::prelude::*;
 use diesel::dsl::not;
 use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails, NewEmail};
-use schema::emails::{email_adress, receiving};
+use schema::emails::{email_adress, receiving, id};
 use schema::vulnerability::{installed_version, pkg_name,pkg_id, severity, vuln_id};
 use serde::Serialize;
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::BufReader;
-use self::schema::vulnerability::dsl::vulnerability; 
 
  #[derive(Serialize)]
 pub struct GroupedVulnerabilites{
@@ -132,9 +129,10 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabi
         vulnerabilities: grouped,
     }   
 }
-pub fn update_email_entry(connection: &mut PgConnection, query_email: String) -> Emails{
+pub fn update_email_entry(connection: &mut PgConnection, email_id: i32) -> Emails{
     use self::schema::emails::dsl::emails;
-    diesel::update(emails.filter(email_adress.eq(query_email)))
+
+    diesel::update(emails.filter(id.eq(email_id)))
         .set(receiving.eq(not(receiving)))
         .get_result(connection)
         .expect("Error updating email status")

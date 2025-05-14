@@ -1,0 +1,2 @@
+ALTER TABLE emails
+ADD COLUMN receiving BOOLEAN DEFAULT true;
