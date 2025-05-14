@@ -93,6 +93,18 @@ pub(crate) async fn update_status_email(pool : web::Data<DbPool>, req: web::Json
 
 }
 
+pub(crate) async fn get_grouped_by_pkgname_pkgid(pool : web::Data<DbPool>) -> actix_web::Result<impl Responder>{
+    let pool = pool.clone();
+    let result = web::block(move ||{
+        let mut connection = pool.get().unwrap();
+
+        group_by_pkgid_pkgname(&mut connection)
+    })
+    .await?;
+
+        Ok(HttpResponse::Ok().json(result))
+    }
+
 // generic function für alle Create, Update, Delete Operationen
 pub(crate) async fn run_rud_db_task<F, T>(pool : web::Data<DbPool>, f: F) -> actix_web::Result<impl Responder>
     where F: FnOnce(&mut r2d2::PooledConnection<diesel::r2d2::ConnectionManager<diesel::PgConnection>> ) -> T + Send + 'static,

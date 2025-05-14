@@ -3,6 +3,7 @@ diesel::table! {
         id -> Int4,
         vuln_id -> Varchar,
         pkg_name -> Varchar,
+        pkg_id -> Varchar,
         installed_version -> Varchar,
         severity -> Varchar,
     }
