@@ -78,7 +78,6 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection, filter_cri
 }
 
 
-
 pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::error::Error>> {
     use self::schema::vulnerability::dsl::vulnerability;
 
@@ -137,23 +136,19 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabi
 }
 
 pub fn filter_grouped_by_severity(groupedVulns : &mut GroupedVulnerabilites) -> HashMap<String, Vec<Vulnerability>>{
-    let f_crit = vec!["HIGH.".to_string()];
+    let f_crit = vec!["CRITICAL.".to_string()];
     
     let f: HashMap<_, _> = groupedVulns.vulnerabilities
     .iter()
     .filter_map(|(k, vulns)| {
-        print!("{:?}", vulns);
-        let filtered_vulns: Vec<Vulnerability> = vulns.iter().filter(|v| v.severity == "HIGH".to_string()).cloned().collect();
+        let filtered_vulns: Vec<Vulnerability> = vulns.iter().filter(|v| v.severity == "CRITICAL".to_string()).cloned().collect();
         if filtered_vulns.is_empty() {
-            print!("Is None");
             None
         } else {
-            print!("is some");
             Some((k.clone(), filtered_vulns))
         }
     })
     .collect();
-    print!("{:?}", f);
     f
 }
 

@@ -6,10 +6,12 @@ import "../styles/styles.css"
 export default function EmailBar() {
     const [emails, setEmails] = useState([])
     const [newEmail, setNewEmail] = useState('')
+    
+
     useEffect(() => {
         getReceiverEmails().then(setEmails)
     }, [])
-
+    
     return (
         <div className="emailbar">
             <label for="email"></label>
@@ -19,10 +21,16 @@ export default function EmailBar() {
                 value={newEmail}
                 onChange={e => setNewEmail(e.target.value)}
             />
-            <button onClick={() => addReceiverEmail(newEmail)}></button>
+            <button onClick={async () => {
+                        await addReceiverEmail(newEmail);
+                        const updatedEmails = await getReceiverEmails();
+                        setEmails(updatedEmails);
+                        setNewEmail('');
+            }}>
+            </button>
             <div>
             {emails.map((email) => ( 
-                <li key={email}>
+                <li key={email.id}>
                     <input
                         type="checkbox"
                         checked={email.receiving}

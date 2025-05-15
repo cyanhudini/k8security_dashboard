@@ -6,15 +6,15 @@ const severities = ['LOW', 'MEDIUM', 'HIGH', 'CRITICAL']
 export default function SeverityFilter({ onFilter }) {
     const [selected, setSelected] = useState([])
 
-    useEffect(() => {
-        fetchFiltered(selected)
-    }, [selected])
+  useEffect(() => {
+    const fetchFiltered = async () => {
+      const query = selected.length === 0 ? ['ALL'] : selected;
+      const res = await filterVulnerabilities(query);
+      onFilter(res);
+    };
 
-    const fetchFiltered = async (filters) => {
-        const query = filters.length == 0 ? ['ALL'] : filters
-        const res = await filterVulnerabilities(query)
-        onFilter(res)
-    }
+  fetchFiltered();
+  }, [selected, onFilter]);
 
   const toggle = (value) => {
     setSelected((prev) =>
