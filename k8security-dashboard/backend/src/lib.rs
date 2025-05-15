@@ -65,8 +65,7 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection, filter_cri
     use self::schema::vulnerability::dsl::vulnerability;
     let query = vulnerability.into_boxed();
 
-    let query = if filter_criteria.is_empty() || 
-               filter_criteria.iter().any(|s| s.to_uppercase() == "ALL") {
+    let query = if filter_criteria.is_empty() || filter_criteria.iter().any(|s| s.to_uppercase() == "ALL") {
         query
     } else {
         query.filter(severity.eq_any(filter_criteria))
@@ -77,6 +76,8 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection, filter_cri
         .expect("Failed to load vulnerabilities")
     
 }
+
+
 
 pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::error::Error>> {
     use self::schema::vulnerability::dsl::vulnerability;
@@ -125,10 +126,37 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabi
         let key = format!("{}|{}", vuln.pkg_id, vuln.pkg_name);
         grouped.entry(key).or_insert(vec![]).push(vuln);
     }
-    GroupedVulnerabilites{
+    let mut g = GroupedVulnerabilites{
         vulnerabilities: grouped,
-    }   
+    };
+    let f = filter_grouped_by_severity(&mut g);
+    let mut g_filtered = GroupedVulnerabilites{
+        vulnerabilities: f,
+    };
+    g_filtered
 }
+
+pub fn filter_grouped_by_severity(groupedVulns : &mut GroupedVulnerabilites) -> HashMap<String, Vec<Vulnerability>>{
+    let f_crit = vec!["HIGH.".to_string()];
+    
+    let f: HashMap<_, _> = groupedVulns.vulnerabilities
+    .iter()
+    .filter_map(|(k, vulns)| {
+        print!("{:?}", vulns);
+        let filtered_vulns: Vec<Vulnerability> = vulns.iter().filter(|v| v.severity == "HIGH".to_string()).cloned().collect();
+        if filtered_vulns.is_empty() {
+            print!("Is None");
+            None
+        } else {
+            print!("is some");
+            Some((k.clone(), filtered_vulns))
+        }
+    })
+    .collect();
+    print!("{:?}", f);
+    f
+}
+
 pub fn update_email_entry(connection: &mut PgConnection, email_id: i32) -> Emails{
     use self::schema::emails::dsl::emails;
 

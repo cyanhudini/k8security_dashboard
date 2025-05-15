@@ -17,7 +17,7 @@ pub struct NewEmail{
 }
 
 
-#[derive(Queryable, Selectable, Deserialize, Serialize, Debug)]
+#[derive(Queryable, Selectable, Deserialize, Serialize, Debug, Clone)]
 #[diesel(table_name = crate::schema::vulnerability)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Vulnerability{
