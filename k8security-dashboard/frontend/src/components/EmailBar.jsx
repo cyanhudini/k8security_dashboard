@@ -7,7 +7,7 @@ export default function EmailBar() {
     const [emails, setEmails] = useState([])
     const [newEmail, setNewEmail] = useState('')
     
-    // Änderung 2
+    // Änderung
     useEffect(() => {
         getReceiverEmails().then(setEmails)
     }, [])
