@@ -4,7 +4,7 @@ use diesel::prelude::*;
 use diesel::dsl::not;
 use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails, NewEmail};
 use schema::emails::{email_adress, receiving, id};
-use schema::vulnerability::{installed_version, pkg_name,pkg_id, severity, vuln_id};
+use schema::vulnerability::{installed_version, pkg_name,pkg_id, severity, vuln_id, origin};
 use serde::Serialize;
 use std::collections::HashMap;
 use std::fs::File;
@@ -35,9 +35,20 @@ pub fn fetch_all_vuln_entries(connection: &mut PgConnection) -> Vec<Vulnerabilit
     vulnerability.load::<Vulnerability>(connection).unwrap()
 }
 
-pub fn fetch_all_docker_vulns(connection: &mut PgConnection) -> Vec<Vulnerability> {
-    use self::schema::vulnerability::dsl::{vulnerability, origin};
-    vulnerability.filter(origin.eq("docker")).load::<Vulnerability>(connection).unwrap()
+pub fn fetch_all_docker_vulns(connection: &mut PgConnection, criteria: String) -> Vec<Vulnerability> {
+
+    use self::schema::vulnerability::dsl::vulnerability;
+
+    let query = vulnerability.into_boxed();
+    let query = if criteria.is_empty() || criteria.to_uppercase() == "ALL" {
+        query
+    } else {
+        query.filter(origin.eq_any(vec![criteria]))
+    };
+    
+    query
+        .load::<Vulnerability>(connection)
+        .expect("Failed to load docker vulnerabilities")
 }
 
 pub fn fetch_receiver_emails(connection: &mut PgConnection) -> Vec<Emails> {
@@ -53,6 +64,7 @@ pub fn delete_vuln_entry(connection: &mut PgConnection, to_delete : Vec<String>)
         .expect("Unable to delete");
     Ok(())
 }
+
 
 pub fn create_email_entry(connection: &mut PgConnection, email_adr : String) -> Emails {
     use crate::schema::emails;
@@ -97,7 +109,7 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
     // else {
 
     
-    let origin = report
+    let vuln_origin = report
     .ClusterName
     .clone()
     .or_else(|| report.ArtifactName.clone())
@@ -117,7 +129,7 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
                                 pkg_id: Some(v.pkg_id.clone().unwrap_or_default()),
                                 installed_version: v.installed_version.clone(),
                                 severity: v.severity.clone(),
-                                origin: origin.clone(), 
+                                origin: vuln_origin.clone(), 
                             });
                         }
                     }
@@ -134,15 +146,13 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
                         pkg_id: Some(v.pkg_id.clone().unwrap_or_default()),
                         installed_version: v.installed_version,
                         severity: v.severity,
-                        origin: origin.clone(), 
+                        origin: vuln_origin.clone(), 
                     });
                 }
             }
         }
     }
    
-
-
     diesel::insert_into(vulnerability)
         .values(&new_vulns)
         .on_conflict((vuln_id, pkg_name, pkg_id, installed_version))
@@ -156,9 +166,16 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
 
 pub fn get_grouped_by_docker_scan_type(connection: &mut PgConnection)  {
     // if entry has scan_type docker, it then should be further grouped by ArtifactName
-    
+    let to_be_grouped = fetch_all_docker_vulns(connection, "docker".to_string());
+    let mut grouped: HashMap<String, Vec<Vulnerability>> = HashMap::new();
+    for vuln in to_be_grouped {
+        let key = format!("{}", vuln.origin);
+        grouped.entry(key).or_insert(vec![]).push(vuln);
+    }
+    let mut g = GroupedVulnerabilites {
+        vulnerabilities: grouped,
+    };
 }
-
 
 
 
@@ -175,6 +192,7 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabi
     let mut g = GroupedVulnerabilites{
         vulnerabilities: grouped,
     };
+    //TODO: nochmal gucken was ich mir dabei gedacht habe
     let f = filter_grouped_by_severity(&mut g);
     let mut g_filtered = GroupedVulnerabilites{
         vulnerabilities: f,
