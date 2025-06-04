@@ -1,3 +1,2 @@
--- This file should undo anything in `up.sql`
-ALTER TABLE emails
-DROP CONSTRAINT unique_email;
+ALTER TABLE vulnerability
+DROP CONSTRAINT IF EXISTS unique_vuln;

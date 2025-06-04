@@ -26,7 +26,8 @@ pub struct Vulnerability{
     pub pkg_name: String,
     pub pkg_id: String,
     pub installed_version: String,
-    pub severity: String, 
+    pub severity: String,
+    pub origin: String,
 }
 
 #[derive(Queryable, Insertable, Serialize)]
@@ -34,9 +35,10 @@ pub struct Vulnerability{
 pub struct NewVulnerability{
     pub vuln_id : String,
     pub pkg_name: String,
-    pub pkg_id : String,
+    pub pkg_id : Option<String>,
     pub installed_version: String,
-    pub severity: String, 
+    pub severity: String,
+    pub origin: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -46,7 +48,7 @@ pub struct TrivyVulnerability {
     #[serde(rename = "PkgName")]
     pub pkg_name: String,
     #[serde(rename = "PkgID")]
-    pub pkg_id: String,
+    pub pkg_id: Option<String>,
     #[serde(rename = "InstalledVersion")]
     pub installed_version: String,
     #[serde(rename = "Severity")]
@@ -54,12 +56,17 @@ pub struct TrivyVulnerability {
 }
 #[derive(Deserialize)]
 pub struct VulnerabilityReport {
-    pub Resources: Vec<Resource>,
+    pub Resources: Option<Vec<Resource>>,
+    pub Results: Option<Vec<ResultEntry>>,
+    pub ArtifactName: Option<String>,
+    pub ClusterName: Option<String>,
 }
+
+
 
 #[derive(Deserialize)]
 pub struct Resource {
-    pub Results: Vec<ResultEntry>,
+    pub Results: Option<Vec<ResultEntry>>,
 }
 
 #[derive(Deserialize)]

@@ -9,6 +9,7 @@ export default function Dashboard() {
     
     useEffect(() => {
         getVulnerabilities().then(setVulns)
+        console.log("Vulnerabilities fetched:", vulns)
     }, [])
 
     return (
@@ -37,6 +38,7 @@ export default function Dashboard() {
                                 <td className="p-3">{vulns.pkg_name}</td>
                                 <td className="p-3">{vulns.installed_version}</td>
                                 <td className="p-3">{vulns.severity}</td>
+                                <td className="p-3">{vulns.origin}</td>
                             </tr>
                         ))}
                     </tbody>

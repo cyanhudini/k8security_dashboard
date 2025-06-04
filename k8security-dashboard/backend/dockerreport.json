@@ -1,0 +1,764 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2025-06-04T16:25:51.192884049+02:00",
+  "ArtifactName": "dpage/pgadmin4",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.21.3"
+    },
+    "ImageID": "sha256:46af92358e2e104a18e6b68eb3d3941a1aeef71028427e5f14698f7ef6db2621",
+    "DiffIDs": [
+      "sha256:08000c18d16dadf9553d747a58cf44023423a9ab010aab96cf263d2216b8b350",
+      "sha256:1df6a8718ec19d61678501a031863e6a1f7fadea8ee50d808a189894745f7dad",
+      "sha256:c945e22010c4fe0148a260e8f9f028cd2213090bcb820fcd7ebef7bbb2485842",
+      "sha256:6f2516b003db9704591bd9e791bdec074b1aae4b2d3113bc8a65c6b702207ad8",
+      "sha256:42d19c399134477a9c50b53b456f71aa0ac893cba9f794702d9da1bfd23f622c",
+      "sha256:a0b0255dbd0189689acb75ac32bbdd4266fbf0d7e6301a868dae0986e130b4b2",
+      "sha256:7a83d0a43690d5ac9addc916ec49b5bb857892937fcd6bbcfc148015e6b3c431",
+      "sha256:0226a7ab9b76bc9782a6b2384a6575a286fa88a42f1bb73293225dcf2dbeceab",
+      "sha256:13d499802f79323b7c7368ad992ca618702703a0e76152a6822bd3ac656a574d",
+      "sha256:5570f6e7fc8820a8f2bca20ce1bbb5fe9ac4bfdda2fe784ef6a7a27087629d8f",
+      "sha256:558f4243c36668cf80f711deff6ce3e81864005b27a0b54aaf791b20965a1796",
+      "sha256:97946405c12f9f78159fe4b28cddbdde6b7272cc46c119c4db9edcf33dda8c65",
+      "sha256:af0c36eff8423b52b616fc64d4a23e94d58ed6f2c76a5ef515420fbf25ecf99f",
+      "sha256:b3c5b2a9cc716b9c347ceacc02545fd34a0abce8a16718dbbc93235711c49b49",
+      "sha256:9afc72229e331cd7370e92cff802708098e95600946576b20b5335a9c2177f01",
+      "sha256:7dd458fa40db3548d655b7ac7d3ae225430c4943547d7cee9cbad03e43d59874"
+    ],
+    "RepoTags": [
+      "dpage/pgadmin4:latest"
+    ],
+    "RepoDigests": [
+      "dpage/pgadmin4@sha256:52cb72a9e3da275324ca0b9bb3891021366d501aad375db34584a7bca8ce02ff"
+    ],
+    "ImageConfig": {
+      "architecture": "amd64",
+      "created": "2025-04-02T10:28:25.887168684Z",
+      "history": [
+        {
+          "created": "2025-02-14T03:28:36Z",
+          "created_by": "ADD alpine-minirootfs-3.21.3-x86_64.tar.gz / # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-02-14T03:28:36Z",
+          "created_by": "CMD [\"/bin/sh\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-02T10:23:38Z",
+          "created_by": "COPY /venv /venv # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:23:38Z",
+          "created_by": "COPY /usr/local/pgsql /usr/local/ # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:23:38Z",
+          "created_by": "COPY /usr/local/lib/libpq.so.5.17 /usr/lib/ # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:23:38Z",
+          "created_by": "COPY /usr/lib/libzstd.so.1.5.6 /usr/lib/ # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:23:38Z",
+          "created_by": "COPY /usr/lib/liblz4.so.1.10.0 /usr/lib/ # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:23:39Z",
+          "created_by": "RUN /bin/sh -c ln -s libpq.so.5.17 /usr/lib/libpq.so.5 \u0026\u0026     ln -s libpq.so.5.17 /usr/lib/libpq.so \u0026\u0026     ln -s libzstd.so.1.5.6 /usr/lib/libzstd.so.1 \u0026\u0026     ln -s liblz4.so.1.10.0 /usr/lib/liblz4.so.1 # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:23:39Z",
+          "created_by": "WORKDIR /pgadmin4",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:28:19Z",
+          "created_by": "ENV PYTHONPATH=/pgadmin4",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-02T10:28:19Z",
+          "created_by": "COPY /pgadmin4/web /pgadmin4 # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:28:19Z",
+          "created_by": "COPY /pgadmin4/docs/en_US/_build/html/ /pgadmin4/docs # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:28:19Z",
+          "created_by": "COPY pkg/docker/run_pgadmin.py /pgadmin4 # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:28:19Z",
+          "created_by": "COPY pkg/docker/gunicorn_config.py /pgadmin4 # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:28:19Z",
+          "created_by": "COPY pkg/docker/entrypoint.sh /entrypoint.sh # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:28:19Z",
+          "created_by": "COPY LICENSE /pgadmin4/LICENSE # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:28:19Z",
+          "created_by": "COPY DEPENDENCIES /pgadmin4/DEPENDENCIES # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:28:25Z",
+          "created_by": "RUN /bin/sh -c apk add --no-cache         python3         bash         py3-pip         postfix         krb5-libs         libjpeg-turbo         shadow         sudo         tzdata         libedit         libldap         libcap \u0026\u0026     /venv/bin/python3 -m pip install --no-cache-dir gunicorn==23.0.0 \u0026\u0026     find / -type d -name '__pycache__' -exec rm -rf {} + \u0026\u0026     useradd -r -u 5050 -g root -s /sbin/nologin pgadmin \u0026\u0026     mkdir -p /run/pgadmin /var/lib/pgadmin \u0026\u0026     chown pgadmin:root /run/pgadmin /var/lib/pgadmin \u0026\u0026     chmod g=u /var/lib/pgadmin \u0026\u0026     touch /pgadmin4/config_distro.py \u0026\u0026     chown pgadmin:root /pgadmin4/config_distro.py \u0026\u0026     chmod g=u /pgadmin4/config_distro.py \u0026\u0026     chmod g=u /etc/passwd \u0026\u0026     setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/python3.12 \u0026\u0026     echo \"pgadmin ALL = NOPASSWD: /usr/sbin/postfix start\" \u003e /etc/sudoers.d/postfix \u0026\u0026     echo \"pgadminr ALL = NOPASSWD: /usr/sbin/postfix start\" \u003e\u003e /etc/sudoers.d/postfix # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-02T10:28:25Z",
+          "created_by": "USER pgadmin",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-02T10:28:25Z",
+          "created_by": "VOLUME [/var/lib/pgadmin]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-02T10:28:25Z",
+          "created_by": "EXPOSE map[443/tcp:{} 80/tcp:{}]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-02T10:28:25Z",
+          "created_by": "ENTRYPOINT [\"/entrypoint.sh\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:08000c18d16dadf9553d747a58cf44023423a9ab010aab96cf263d2216b8b350",
+          "sha256:1df6a8718ec19d61678501a031863e6a1f7fadea8ee50d808a189894745f7dad",
+          "sha256:c945e22010c4fe0148a260e8f9f028cd2213090bcb820fcd7ebef7bbb2485842",
+          "sha256:6f2516b003db9704591bd9e791bdec074b1aae4b2d3113bc8a65c6b702207ad8",
+          "sha256:42d19c399134477a9c50b53b456f71aa0ac893cba9f794702d9da1bfd23f622c",
+          "sha256:a0b0255dbd0189689acb75ac32bbdd4266fbf0d7e6301a868dae0986e130b4b2",
+          "sha256:7a83d0a43690d5ac9addc916ec49b5bb857892937fcd6bbcfc148015e6b3c431",
+          "sha256:0226a7ab9b76bc9782a6b2384a6575a286fa88a42f1bb73293225dcf2dbeceab",
+          "sha256:13d499802f79323b7c7368ad992ca618702703a0e76152a6822bd3ac656a574d",
+          "sha256:5570f6e7fc8820a8f2bca20ce1bbb5fe9ac4bfdda2fe784ef6a7a27087629d8f",
+          "sha256:558f4243c36668cf80f711deff6ce3e81864005b27a0b54aaf791b20965a1796",
+          "sha256:97946405c12f9f78159fe4b28cddbdde6b7272cc46c119c4db9edcf33dda8c65",
+          "sha256:af0c36eff8423b52b616fc64d4a23e94d58ed6f2c76a5ef515420fbf25ecf99f",
+          "sha256:b3c5b2a9cc716b9c347ceacc02545fd34a0abce8a16718dbbc93235711c49b49",
+          "sha256:9afc72229e331cd7370e92cff802708098e95600946576b20b5335a9c2177f01",
+          "sha256:7dd458fa40db3548d655b7ac7d3ae225430c4943547d7cee9cbad03e43d59874"
+        ]
+      },
+      "config": {
+        "Entrypoint": [
+          "/entrypoint.sh"
+        ],
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "PYTHONPATH=/pgadmin4"
+        ],
+        "User": "pgadmin",
+        "Volumes": {
+          "/var/lib/pgadmin": {}
+        },
+        "WorkingDir": "/pgadmin4",
+        "ExposedPorts": {
+          "443": {},
+          "80": {}
+        }
+      }
+    }
+  },
+  "Results": [
+    {
+      "Target": "dpage/pgadmin4 (alpine 3.21.3)",
+      "Class": "os-pkgs",
+      "Type": "alpine",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2025-4516",
+          "PkgID": "pyc@3.12.9-r0",
+          "PkgName": "pyc",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/pyc@3.12.9-r0?arch=x86_64\u0026distro=3.21.3",
+            "UID": "cf72e64d953821c9"
+          },
+          "InstalledVersion": "3.12.9-r0",
+          "FixedVersion": "3.12.10-r1",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:7dd458fa40db3548d655b7ac7d3ae225430c4943547d7cee9cbad03e43d59874"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-4516",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "There is an issue in CPython when using `bytes.decode(\"unicode_escape\" ...",
+          "Description": "There is an issue in CPython when using `bytes.decode(\"unicode_escape\", error=\"ignore|replace\")`. If you are not using the \"unicode_escape\" encoding or an error handler your usage is not affected. To work-around this issue you may stop using the error= handler and instead wrap the bytes.decode() call in a try-except catching the DecodeError.",
+          "Severity": "UNKNOWN",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/05/16/4",
+            "http://www.openwall.com/lists/oss-security/2025/05/19/1",
+            "https://github.com/python/cpython/commit/4398b788ffc1f954a2c552da285477d42a571292",
+            "https://github.com/python/cpython/commit/6279eb8c076d89d3739a6edb393e43c7929b429d",
+            "https://github.com/python/cpython/commit/69b4387f78f413e8c47572a85b3478c47eba8142",
+            "https://github.com/python/cpython/commit/73b3040f592436385007918887b7e2132aa8431f",
+            "https://github.com/python/cpython/commit/8d35fd1b34935221aff23a1ab69a429dd156be77",
+            "https://github.com/python/cpython/commit/9f69a58623bd01349a18ba0c7a9cb1dad6a51e8e",
+            "https://github.com/python/cpython/commit/ab9893c40609935e0d40a6d2a7307ea51aec598b",
+            "https://github.com/python/cpython/issues/133767",
+            "https://github.com/python/cpython/pull/129648",
+            "https://mail.python.org/archives/list/security-announce@python.org/thread/L75IPBBTSCYEF56I2M4KIW353BB3AY74/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-4516"
+          ],
+          "PublishedDate": "2025-05-15T14:15:31.753Z",
+          "LastModifiedDate": "2025-06-03T14:15:49.697Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-4516",
+          "PkgID": "python3@3.12.9-r0",
+          "PkgName": "python3",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/python3@3.12.9-r0?arch=x86_64\u0026distro=3.21.3",
+            "UID": "343ad4cba47e8b28"
+          },
+          "InstalledVersion": "3.12.9-r0",
+          "FixedVersion": "3.12.10-r1",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:7dd458fa40db3548d655b7ac7d3ae225430c4943547d7cee9cbad03e43d59874"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-4516",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "There is an issue in CPython when using `bytes.decode(\"unicode_escape\" ...",
+          "Description": "There is an issue in CPython when using `bytes.decode(\"unicode_escape\", error=\"ignore|replace\")`. If you are not using the \"unicode_escape\" encoding or an error handler your usage is not affected. To work-around this issue you may stop using the error= handler and instead wrap the bytes.decode() call in a try-except catching the DecodeError.",
+          "Severity": "UNKNOWN",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/05/16/4",
+            "http://www.openwall.com/lists/oss-security/2025/05/19/1",
+            "https://github.com/python/cpython/commit/4398b788ffc1f954a2c552da285477d42a571292",
+            "https://github.com/python/cpython/commit/6279eb8c076d89d3739a6edb393e43c7929b429d",
+            "https://github.com/python/cpython/commit/69b4387f78f413e8c47572a85b3478c47eba8142",
+            "https://github.com/python/cpython/commit/73b3040f592436385007918887b7e2132aa8431f",
+            "https://github.com/python/cpython/commit/8d35fd1b34935221aff23a1ab69a429dd156be77",
+            "https://github.com/python/cpython/commit/9f69a58623bd01349a18ba0c7a9cb1dad6a51e8e",
+            "https://github.com/python/cpython/commit/ab9893c40609935e0d40a6d2a7307ea51aec598b",
+            "https://github.com/python/cpython/issues/133767",
+            "https://github.com/python/cpython/pull/129648",
+            "https://mail.python.org/archives/list/security-announce@python.org/thread/L75IPBBTSCYEF56I2M4KIW353BB3AY74/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-4516"
+          ],
+          "PublishedDate": "2025-05-15T14:15:31.753Z",
+          "LastModifiedDate": "2025-06-03T14:15:49.697Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-4516",
+          "PkgID": "python3-pyc@3.12.9-r0",
+          "PkgName": "python3-pyc",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/python3-pyc@3.12.9-r0?arch=x86_64\u0026distro=3.21.3",
+            "UID": "3d0324976e18cd4f"
+          },
+          "InstalledVersion": "3.12.9-r0",
+          "FixedVersion": "3.12.10-r1",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:7dd458fa40db3548d655b7ac7d3ae225430c4943547d7cee9cbad03e43d59874"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-4516",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "There is an issue in CPython when using `bytes.decode(\"unicode_escape\" ...",
+          "Description": "There is an issue in CPython when using `bytes.decode(\"unicode_escape\", error=\"ignore|replace\")`. If you are not using the \"unicode_escape\" encoding or an error handler your usage is not affected. To work-around this issue you may stop using the error= handler and instead wrap the bytes.decode() call in a try-except catching the DecodeError.",
+          "Severity": "UNKNOWN",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/05/16/4",
+            "http://www.openwall.com/lists/oss-security/2025/05/19/1",
+            "https://github.com/python/cpython/commit/4398b788ffc1f954a2c552da285477d42a571292",
+            "https://github.com/python/cpython/commit/6279eb8c076d89d3739a6edb393e43c7929b429d",
+            "https://github.com/python/cpython/commit/69b4387f78f413e8c47572a85b3478c47eba8142",
+            "https://github.com/python/cpython/commit/73b3040f592436385007918887b7e2132aa8431f",
+            "https://github.com/python/cpython/commit/8d35fd1b34935221aff23a1ab69a429dd156be77",
+            "https://github.com/python/cpython/commit/9f69a58623bd01349a18ba0c7a9cb1dad6a51e8e",
+            "https://github.com/python/cpython/commit/ab9893c40609935e0d40a6d2a7307ea51aec598b",
+            "https://github.com/python/cpython/issues/133767",
+            "https://github.com/python/cpython/pull/129648",
+            "https://mail.python.org/archives/list/security-announce@python.org/thread/L75IPBBTSCYEF56I2M4KIW353BB3AY74/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-4516"
+          ],
+          "PublishedDate": "2025-05-15T14:15:31.753Z",
+          "LastModifiedDate": "2025-06-03T14:15:49.697Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-4516",
+          "PkgID": "python3-pycache-pyc0@3.12.9-r0",
+          "PkgName": "python3-pycache-pyc0",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/python3-pycache-pyc0@3.12.9-r0?arch=x86_64\u0026distro=3.21.3",
+            "UID": "7be0c38594cbfd3c"
+          },
+          "InstalledVersion": "3.12.9-r0",
+          "FixedVersion": "3.12.10-r1",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:7dd458fa40db3548d655b7ac7d3ae225430c4943547d7cee9cbad03e43d59874"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-4516",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "There is an issue in CPython when using `bytes.decode(\"unicode_escape\" ...",
+          "Description": "There is an issue in CPython when using `bytes.decode(\"unicode_escape\", error=\"ignore|replace\")`. If you are not using the \"unicode_escape\" encoding or an error handler your usage is not affected. To work-around this issue you may stop using the error= handler and instead wrap the bytes.decode() call in a try-except catching the DecodeError.",
+          "Severity": "UNKNOWN",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/05/16/4",
+            "http://www.openwall.com/lists/oss-security/2025/05/19/1",
+            "https://github.com/python/cpython/commit/4398b788ffc1f954a2c552da285477d42a571292",
+            "https://github.com/python/cpython/commit/6279eb8c076d89d3739a6edb393e43c7929b429d",
+            "https://github.com/python/cpython/commit/69b4387f78f413e8c47572a85b3478c47eba8142",
+            "https://github.com/python/cpython/commit/73b3040f592436385007918887b7e2132aa8431f",
+            "https://github.com/python/cpython/commit/8d35fd1b34935221aff23a1ab69a429dd156be77",
+            "https://github.com/python/cpython/commit/9f69a58623bd01349a18ba0c7a9cb1dad6a51e8e",
+            "https://github.com/python/cpython/commit/ab9893c40609935e0d40a6d2a7307ea51aec598b",
+            "https://github.com/python/cpython/issues/133767",
+            "https://github.com/python/cpython/pull/129648",
+            "https://mail.python.org/archives/list/security-announce@python.org/thread/L75IPBBTSCYEF56I2M4KIW353BB3AY74/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-4516"
+          ],
+          "PublishedDate": "2025-05-15T14:15:31.753Z",
+          "LastModifiedDate": "2025-06-03T14:15:49.697Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-29087",
+          "PkgID": "sqlite-libs@3.48.0-r0",
+          "PkgName": "sqlite-libs",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/sqlite-libs@3.48.0-r0?arch=x86_64\u0026distro=3.21.3",
+            "UID": "d3184f4c955c09b4"
+          },
+          "InstalledVersion": "3.48.0-r0",
+          "FixedVersion": "3.48.0-r1",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:7dd458fa40db3548d655b7ac7d3ae225430c4943547d7cee9cbad03e43d59874"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-29087",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "sqlite: Integer Overflow in SQLite concat_ws Function",
+          "Description": "In SQLite 3.44.0 through 3.49.0 before 3.49.1, the concat_ws() SQL function can cause memory to be written beyond the end of a malloc-allocated buffer. If the separator argument is attacker-controlled and has a large string (e.g., 2MB or more), an integer overflow occurs in calculating the size of the result buffer, and thus malloc may not allocate enough memory.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "VendorSeverity": {
+            "bitnami": 3,
+            "nvd": 3,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-29087",
+            "https://gist.github.com/ylwango613/a44a29f1ef074fa783e29f04a0afd62a",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-29087",
+            "https://sqlite.org/releaselog/3_49_1.html",
+            "https://ubuntu.com/security/notices/USN-7528-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-29087",
+            "https://www.sqlite.org/cves.html"
+          ],
+          "PublishedDate": "2025-04-07T20:15:20.253Z",
+          "LastModifiedDate": "2025-04-30T12:43:22.31Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-31115",
+          "PkgID": "xz-libs@5.6.3-r0",
+          "PkgName": "xz-libs",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/xz-libs@5.6.3-r0?arch=x86_64\u0026distro=3.21.3",
+            "UID": "6a1b930ba614c87c"
+          },
+          "InstalledVersion": "5.6.3-r0",
+          "FixedVersion": "5.6.3-r1",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:7dd458fa40db3548d655b7ac7d3ae225430c4943547d7cee9cbad03e43d59874"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-31115",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "xz: XZ has a heap-use-after-free bug in threaded .xz decoder",
+          "Description": "XZ Utils provide a general-purpose data-compression library plus command-line tools. In XZ Utils 5.3.3alpha to 5.8.0, the multithreaded .xz decoder in liblzma has a bug where invalid input can at least result in a crash. The effects include heap use after free and writing to an address based on the null pointer plus an offset. Applications and libraries that use the lzma_stream_decoder_mt function are affected. The bug has been fixed in XZ Utils 5.8.1, and the fix has been committed to the v5.4, v5.6, v5.8, and master branches in the xz Git repository. No new release packages will be made from the old stable branches, but a standalone patch is available that applies to all affected releases.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-366",
+            "CWE-416",
+            "CWE-476",
+            "CWE-826"
+          ],
+          "VendorSeverity": {
+            "azure": 3,
+            "photon": 3,
+            "redhat": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/04/03/1",
+            "http://www.openwall.com/lists/oss-security/2025/04/03/2",
+            "http://www.openwall.com/lists/oss-security/2025/04/03/3",
+            "https://access.redhat.com/security/cve/CVE-2025-31115",
+            "https://github.com/tukaani-project/xz/commit/d5a2ffe41bb77b918a8c96084885d4dbe4bf6480",
+            "https://github.com/tukaani-project/xz/security/advisories/GHSA-6cc8-p5mm-29w2",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-31115",
+            "https://tukaani.org/xz/xz-cve-2025-31115.patch",
+            "https://ubuntu.com/security/notices/USN-7414-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-31115"
+          ],
+          "PublishedDate": "2025-04-03T17:15:30.54Z",
+          "LastModifiedDate": "2025-04-07T14:18:34.453Z"
+        }
+      ]
+    },
+    {
+      "Target": "Python",
+      "Class": "lang-pkgs",
+      "Type": "python-pkg",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2025-47278",
+          "PkgName": "Flask",
+          "PkgPath": "venv/lib/python3.12/site-packages/flask-3.1.0.dist-info/METADATA",
+          "PkgIdentifier": {
+            "PURL": "pkg:pypi/flask@3.1.0",
+            "UID": "6098b79e1433b49f"
+          },
+          "InstalledVersion": "3.1.0",
+          "FixedVersion": "3.1.1",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:1df6a8718ec19d61678501a031863e6a1f7fadea8ee50d808a189894745f7dad"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-47278",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory pip",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+          },
+          "Title": "flask: Flask Session Signing Fallback Key Vulnerability",
+          "Description": "Flask is a web server gateway interface (WSGI) web application framework. In Flask 3.1.0, the way fallback key configuration was handled resulted in the last fallback key being used for signing, rather than the current signing key. Signing is provided by the `itsdangerous` library. A list of keys can be passed, and it expects the last (top) key in the list to be the most recent key, and uses that for signing. Flask was incorrectly constructing that list in reverse, passing the signing key first. Sites that have opted-in to use key rotation by setting `SECRET_KEY_FALLBACKS` care likely to unexpectedly be signing their sessions with stale keys, and their transition to fresher keys will be impeded. Sessions are still signed, so this would not cause any sort of data integrity loss. Version 3.1.1 contains a patch for the issue.",
+          "Severity": "LOW",
+          "CweIDs": [
+            "CWE-683"
+          ],
+          "VendorSeverity": {
+            "ghsa": 1,
+            "redhat": 1
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 2.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-47278",
+            "https://github.com/pallets/flask",
+            "https://github.com/pallets/flask/commit/73d6504063bfa00666a92b07a28aaf906c532f09",
+            "https://github.com/pallets/flask/releases/tag/3.1.1",
+            "https://github.com/pallets/flask/security/advisories/GHSA-4grg-w6v8-c28g",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-47278",
+            "https://www.cve.org/CVERecord?id=CVE-2025-47278"
+          ],
+          "PublishedDate": "2025-05-13T16:15:32.187Z",
+          "LastModifiedDate": "2025-05-13T19:35:18.08Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-43859",
+          "PkgName": "h11",
+          "PkgPath": "venv/lib/python3.12/site-packages/h11-0.14.0.dist-info/METADATA",
+          "PkgIdentifier": {
+            "PURL": "pkg:pypi/h11@0.14.0",
+            "UID": "5981533fca1b063e"
+          },
+          "InstalledVersion": "0.14.0",
+          "FixedVersion": "0.16.0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:1df6a8718ec19d61678501a031863e6a1f7fadea8ee50d808a189894745f7dad"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-43859",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory pip",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+          },
+          "Title": "h11: h11 accepts some malformed Chunked-Encoding bodies",
+          "Description": "h11 is a Python implementation of HTTP/1.1. Prior to version 0.16.0, a leniency in h11's parsing of line terminators in chunked-coding message bodies can lead to request smuggling vulnerabilities under certain conditions. This issue has been patched in version 0.16.0. Since exploitation requires the combination of buggy h11 with a buggy (reverse) proxy, fixing either component is sufficient to mitigate this issue.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-444"
+          ],
+          "VendorSeverity": {
+            "ghsa": 4,
+            "redhat": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 9.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-43859",
+            "https://github.com/python-hyper/h11",
+            "https://github.com/python-hyper/h11/commit/114803a29ce50116dc47951c690ad4892b1a36ed",
+            "https://github.com/python-hyper/h11/security/advisories/GHSA-vqfr-h8mv-ghfj",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-43859",
+            "https://ubuntu.com/security/notices/USN-7503-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-43859"
+          ],
+          "PublishedDate": "2025-04-24T19:15:47.06Z",
+          "LastModifiedDate": "2025-04-29T13:52:28.49Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-47273",
+          "PkgName": "setuptools",
+          "PkgPath": "venv/lib/python3.12/site-packages/setuptools-75.9.1.dist-info/METADATA",
+          "PkgIdentifier": {
+            "PURL": "pkg:pypi/setuptools@75.9.1",
+            "UID": "38461ca75d8d4a55"
+          },
+          "InstalledVersion": "75.9.1",
+          "FixedVersion": "78.1.1",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:1df6a8718ec19d61678501a031863e6a1f7fadea8ee50d808a189894745f7dad"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-47273",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory pip",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+          },
+          "Title": "setuptools: Path Traversal Vulnerability in setuptools PackageIndex",
+          "Description": "setuptools is a package that allows users to download, build, install, upgrade, and uninstall Python packages. A path traversal vulnerability in `PackageIndex` is present in setuptools prior to version 78.1.1. An attacker would be allowed to write files to arbitrary locations on the filesystem with the permissions of the process running the Python code, which could escalate to remote code execution depending on the context. Version 78.1.1 fixes the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-22"
+          ],
+          "VendorSeverity": {
+            "azure": 3,
+            "ghsa": 3,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-47273",
+            "https://github.com/pypa/setuptools",
+            "https://github.com/pypa/setuptools/blob/6ead555c5fb29bc57fe6105b1bffc163f56fd558/setuptools/package_index.py#L810C1-L825C88",
+            "https://github.com/pypa/setuptools/commit/250a6d17978f9f6ac3ac887091f2d32886fbbb0b",
+            "https://github.com/pypa/setuptools/issues/4946",
+            "https://github.com/pypa/setuptools/security/advisories/GHSA-5rjg-fvgr-3xxf",
+            "https://lists.debian.org/debian-lts-announce/2025/05/msg00035.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-47273",
+            "https://ubuntu.com/security/notices/USN-7544-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-47273"
+          ],
+          "PublishedDate": "2025-05-17T16:15:19.11Z",
+          "LastModifiedDate": "2025-05-28T15:15:25.08Z"
+        }
+      ]
+    },
+    {
+      "Target": "/venv/lib/python3.12/site-packages/PyJWT-2.10.1.dist-info/METADATA",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "jwt-token",
+          "Category": "JWT",
+          "Severity": "MEDIUM",
+          "Title": "JWT token",
+          "StartLine": 89,
+          "EndLine": 89,
+          "Code": {
+            "Lines": [
+              {
+                "Number": 87,
+                "Content": "    \u003e\u003e\u003e encoded = jwt.encode({\"some\": \"payload\"}, \"secret\", algorithm=\"HS256\")",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    \u003e\u003e\u003e encoded = jwt.encode({\"some\": \"payload\"}, \"secret\", algorithm=\"HS256\")",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 88,
+                "Content": "    \u003e\u003e\u003e print(encoded)",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    \u003e\u003e\u003e print(encoded)",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 89,
+                "Content": "    *********************************************************************************************************",
+                "IsCause": true,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    *********************************************************************************************************",
+                "FirstCause": true,
+                "LastCause": true
+              },
+              {
+                "Number": 90,
+                "Content": "    \u003e\u003e\u003e jwt.decode(encoded, \"secret\", algorithms=[\"HS256\"])",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    \u003e\u003e\u003e jwt.decode(encoded, \"secret\", algorithms=[\"HS256\"])",
+                "FirstCause": false,
+                "LastCause": false
+              }
+            ]
+          },
+          "Match": "    *********************************************************************************************************",
+          "Layer": {
+            "DiffID": "sha256:1df6a8718ec19d61678501a031863e6a1f7fadea8ee50d808a189894745f7dad",
+            "CreatedBy": "COPY /venv /venv # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/venv/lib/python3.12/site-packages/google/auth/crypt/__pycache__/_python_rsa.cpython-312.pyc",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 13,
+          "EndLine": 13,
+          "Code": {
+            "Lines": null
+          },
+          "Match": "Binary file \"/venv/lib/python3.12/site-packages/google/auth/crypt/__pycache__/_python_rsa.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
+          "Layer": {
+            "DiffID": "sha256:1df6a8718ec19d61678501a031863e6a1f7fadea8ee50d808a189894745f7dad",
+            "CreatedBy": "COPY /venv /venv # buildkit"
+          }
+        },
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 14,
+          "EndLine": 14,
+          "Code": {
+            "Lines": null
+          },
+          "Match": "Binary file \"/venv/lib/python3.12/site-packages/google/auth/crypt/__pycache__/_python_rsa.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
+          "Layer": {
+            "DiffID": "sha256:1df6a8718ec19d61678501a031863e6a1f7fadea8ee50d808a189894745f7dad",
+            "CreatedBy": "COPY /venv /venv # buildkit"
+          }
+        }
+      ]
+    }
+  ]
+}

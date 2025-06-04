@@ -6,6 +6,7 @@ diesel::table! {
         pkg_id -> Varchar,
         installed_version -> Varchar,
         severity -> Varchar,
+        origin -> Varchar,
     }
     
 }

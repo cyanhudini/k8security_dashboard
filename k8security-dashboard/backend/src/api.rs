@@ -107,6 +107,7 @@ pub(crate) async fn get_grouped_by_pkgname_pkgid(pool : web::Data<DbPool>) -> ac
         Ok(HttpResponse::Ok().json(result))
     }
 
+
 // generic function für alle Create, Update, Delete Operationen
 pub(crate) async fn run_rud_db_task<F, T>(pool : web::Data<DbPool>, f: F) -> actix_web::Result<impl Responder>
     where F: FnOnce(&mut r2d2::PooledConnection<diesel::r2d2::ConnectionManager<diesel::PgConnection>> ) -> T + Send + 'static,

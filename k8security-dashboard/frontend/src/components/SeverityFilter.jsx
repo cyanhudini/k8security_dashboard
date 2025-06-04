@@ -11,6 +11,7 @@ export default function SeverityFilter({ onFilter }) {
       const query = selected.length === 0 ? ['ALL'] : selected;
       const res = await filterVulnerabilities(query);
       onFilter(res);
+      console.log("Filtered vulnerabilities:", res);
     };
 
   fetchFiltered();
