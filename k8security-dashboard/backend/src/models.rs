@@ -28,6 +28,7 @@ pub struct Vulnerability{
     pub installed_version: String,
     pub severity: String,
     pub origin: String,
+    pub scan_type : String,
 }
 
 #[derive(Queryable, Insertable, Serialize)]
@@ -39,6 +40,7 @@ pub struct NewVulnerability{
     pub installed_version: String,
     pub severity: String,
     pub origin: String,
+    pub scan_type : String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]

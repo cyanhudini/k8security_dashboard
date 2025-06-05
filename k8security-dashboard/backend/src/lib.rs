@@ -4,23 +4,23 @@ use diesel::prelude::*;
 use diesel::dsl::not;
 use models::{NewVulnerability, Vulnerability, VulnerabilityReport, Emails, NewEmail};
 use schema::emails::{email_adress, receiving, id};
-use schema::vulnerability::{installed_version, pkg_name,pkg_id, severity, vuln_id, origin};
+use schema::vulnerability::{installed_version, pkg_name,pkg_id, severity, vuln_id, origin, scan_type};
 use serde::Serialize;
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::BufReader;
 
- #[derive(Serialize)]
+ #[derive(Serialize, Debug)]
 pub struct GroupedVulnerabilites{
     pub vulnerabilities:HashMap<String, Vec<Vulnerability>>
 }
 
-pub fn create_vuln_entry(connection: &mut PgConnection, cve_id: String, name : String, inst_version: String, severity_grade: String, pk_id: String, scan_type: String)-> Vulnerability{
+pub fn create_vuln_entry(connection: &mut PgConnection, cve_id: String, name : String, inst_version: String, severity_grade: String, pk_id: String, ori: String, scan_type_name: String) -> Vulnerability {
     use crate::schema::vulnerability;
 
     let new_vuln = NewVulnerability{
         vuln_id: cve_id, pkg_name: name, installed_version: inst_version, severity: severity_grade,
-        pkg_id: Some(pk_id), origin: scan_type,
+        pkg_id: Some(pk_id), origin: ori, scan_type: scan_type_name,
     };
 
     diesel::insert_into(vulnerability::table)
@@ -35,15 +35,15 @@ pub fn fetch_all_vuln_entries(connection: &mut PgConnection) -> Vec<Vulnerabilit
     vulnerability.load::<Vulnerability>(connection).unwrap()
 }
 
-pub fn fetch_all_docker_vulns(connection: &mut PgConnection, criteria: String) -> Vec<Vulnerability> {
+pub fn filter_vuln_by_scan_type(connection: &mut PgConnection, criteria: Vec<String>) -> Vec<Vulnerability> {
 
     use self::schema::vulnerability::dsl::vulnerability;
 
     let query = vulnerability.into_boxed();
-    let query = if criteria.is_empty() || criteria.to_uppercase() == "ALL" {
+    let query = if criteria.is_empty() || criteria.iter().any(|s| s.to_uppercase() == "ALL") {
         query
     } else {
-        query.filter(origin.eq_any(vec![criteria]))
+        query.filter(scan_type.eq_any(criteria))
     };
     
     query
@@ -98,7 +98,7 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection, filter_cri
 pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::error::Error>> {
     use self::schema::vulnerability::dsl::vulnerability;
 
-    let file = File::open("report.json")?;
+    let file = File::open("dockerreport.json")?;
     let reader = BufReader::new(file);
 
     let report: VulnerabilityReport = serde_json::from_reader(reader).expect("Nicht möglich einen JSON Reader zu erstellen.");
@@ -129,7 +129,9 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
                                 pkg_id: Some(v.pkg_id.clone().unwrap_or_default()),
                                 installed_version: v.installed_version.clone(),
                                 severity: v.severity.clone(),
-                                origin: vuln_origin.clone(), 
+                                origin: vuln_origin.clone(),
+                                scan_type: "k8s".to_string(),
+
                             });
                         }
                     }
@@ -147,6 +149,7 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
                         installed_version: v.installed_version,
                         severity: v.severity,
                         origin: vuln_origin.clone(), 
+                        scan_type: "docker".to_string(),
                     });
                 }
             }
@@ -164,21 +167,25 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
 
 }
 
-pub fn get_grouped_by_docker_scan_type(connection: &mut PgConnection)  {
+pub fn get_grouped_by_docker_scan_type(connection: &mut PgConnection, filter : Vec<String>) -> GroupedVulnerabilites  {
     // if entry has scan_type docker, it then should be further grouped by ArtifactName
-    let to_be_grouped = fetch_all_docker_vulns(connection, "docker".to_string());
+    let to_be_grouped = filter_vuln_by_scan_type(connection, vec!["docker".to_string()]);
+    print!(" grouped {:?}", to_be_grouped);
     let mut grouped: HashMap<String, Vec<Vulnerability>> = HashMap::new();
     for vuln in to_be_grouped {
         let key = format!("{}", vuln.origin);
         grouped.entry(key).or_insert(vec![]).push(vuln);
     }
-    let mut g = GroupedVulnerabilites {
+    let g = GroupedVulnerabilites {
         vulnerabilities: grouped,
     };
+    
+    println!("{:?}", g);
+    g
 }
 
 
-
+// TODO führe group_by_pkgid_pkgname und get_grouped_by_docker_scan_type zusammen
 pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabilites {
 
    let to_be_grouped = fetch_all_vuln_entries(connection);

@@ -39,6 +39,7 @@ export default function Dashboard() {
                                 <td className="p-3">{vulns.installed_version}</td>
                                 <td className="p-3">{vulns.severity}</td>
                                 <td className="p-3">{vulns.origin}</td>
+                                <td className="p-3">{ vulns.scan_type}</td>
                             </tr>
                         ))}
                     </tbody>
