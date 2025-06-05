@@ -1,6 +1,6 @@
 use actix_web::{web, App, HttpServer};
 use actix_cors::Cors;
-use api::{get_all_receiver_emails, get_all_vulns, post_new_email_adress, post_new_vulns, post_filter_query, fetch_all_vulns_then_group, update_status_email };
+use api::*;
 use diesel::PgConnection;
 use std::{io, env};
 use dotenv::dotenv;
@@ -20,7 +20,7 @@ async fn main() -> io::Result<()> {
     components aller filter in eine Filter Komponenten packen
     da dashboard ständig läuft, sollte frontend geupdated werden vom backend ->server side update
      */
-    
+    println!("Hier");
     dotenv().ok();
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
     let manager = diesel::r2d2::ConnectionManager::<PgConnection>::new(database_url);
@@ -41,7 +41,8 @@ async fn main() -> io::Result<()> {
             .route("/receiver_emails", web::get().to(get_all_receiver_emails))
             .route("/add_receiver_email", web::post().to(post_new_email_adress))
             .route("/filter", web::post().to(post_filter_query))
-            .route("/group_vulns",  web::get().to(fetch_all_vulns_then_group))
+            .route("/group_vulns_by_scan_type",  web::post().to(fetch_all_vulns_then_group))
+            .route("/group_vulns_by_pkg",  web::post().to(fetch_all_vulns_then_group_by_pkg))
             .route("/set_email_status", web::post().to(update_status_email))
     })
     .bind(("127.0.0.1", 8080))?

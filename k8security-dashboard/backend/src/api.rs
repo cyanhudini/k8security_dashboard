@@ -1,7 +1,7 @@
 
 use actix_web::{web, HttpResponse, Responder};
 
-use backend::{bulk_add_vulns, create_email_entry, fetch_all_vuln_entries, fetch_receiver_emails, filter_vuln_entries_by_severity, update_email_entry, group_by_pkgid_pkgname, get_grouped_by_docker_scan_type};
+use backend::*;
 use serde::Serialize;
 use crate::models::{NewEmail, FilterQuery, SetEmailQuery};
 use crate::DbPool;
@@ -96,9 +96,27 @@ pub(crate) async fn update_status_email(pool : web::Data<DbPool>, req: web::Json
 
 }
 
+
+// group by scan type
 pub(crate) async fn fetch_all_vulns_then_group(pool : web::Data<DbPool>, req: web::Json<FilterQuery>) -> actix_web::Result<impl Responder>{
     let pool = pool.clone();
     let filter = req.into_inner().query.unwrap_or(vec!["ALL".to_string()]);
+    print!("Fetching vulnerabilities grouped by scan type...");
+
+    let result = web::block(move ||{
+        let mut connection = pool.get().unwrap();
+
+        get_grouped_by_docker_scan_type(&mut connection, filter)
+    })
+    .await?;
+
+    Ok(HttpResponse::Ok().json(result))
+}
+pub(crate) async fn fetch_all_vulns_then_group_by_pkg(pool : web::Data<DbPool>, req: web::Json<FilterQuery>) -> actix_web::Result<impl Responder>{
+    let pool = pool.clone();
+    let filter = req.into_inner().query.unwrap_or(vec!["ALL".to_string()]);
+
+
     let result = web::block(move ||{
         let mut connection = pool.get().unwrap();
 

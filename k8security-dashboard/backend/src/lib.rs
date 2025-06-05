@@ -35,7 +35,7 @@ pub fn fetch_all_vuln_entries(connection: &mut PgConnection) -> Vec<Vulnerabilit
     vulnerability.load::<Vulnerability>(connection).unwrap()
 }
 
-pub fn filter_vuln_by_scan_type(connection: &mut PgConnection, criteria: Vec<String>) -> Vec<Vulnerability> {
+pub fn fetch_all_vuln_filtered_scan_type(connection: &mut PgConnection, criteria: Vec<String>) -> Vec<Vulnerability> {
 
     use self::schema::vulnerability::dsl::vulnerability;
 
@@ -169,8 +169,8 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
 
 pub fn get_grouped_by_docker_scan_type(connection: &mut PgConnection, filter : Vec<String>) -> GroupedVulnerabilites  {
     // if entry has scan_type docker, it then should be further grouped by ArtifactName
-    let to_be_grouped = filter_vuln_by_scan_type(connection, vec!["docker".to_string()]);
-    print!(" grouped {:?}", to_be_grouped);
+    let to_be_grouped = fetch_all_vuln_filtered_scan_type(connection, filter);
+    print!("Fetching vulnerabilities grouped by scan type...");
     let mut grouped: HashMap<String, Vec<Vulnerability>> = HashMap::new();
     for vuln in to_be_grouped {
         let key = format!("{}", vuln.origin);
@@ -201,7 +201,7 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabi
     };
     //TODO: nochmal gucken was ich mir dabei gedacht habe
     let f = filter_grouped_by_severity(&mut g);
-    let mut g_filtered = GroupedVulnerabilites{
+    let g_filtered = GroupedVulnerabilites{
         vulnerabilities: f,
     };
     g_filtered
