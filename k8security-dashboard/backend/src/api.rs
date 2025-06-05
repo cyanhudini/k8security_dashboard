@@ -1,7 +1,7 @@
 
 use actix_web::{web, HttpResponse, Responder};
 
-use backend::{bulk_add_vulns, create_email_entry, fetch_all_vuln_entries, fetch_receiver_emails, filter_vuln_entries_by_severity, update_email_entry, group_by_pkgid_pkgname};
+use backend::{bulk_add_vulns, create_email_entry, fetch_all_vuln_entries, fetch_receiver_emails, filter_vuln_entries_by_severity, update_email_entry, group_by_pkgid_pkgname, get_grouped_by_docker_scan_type};
 use serde::Serialize;
 use crate::models::{NewEmail, FilterQuery, SetEmailQuery};
 use crate::DbPool;
@@ -47,6 +47,7 @@ pub(crate) async fn post_new_vulns(pool : web::Data<DbPool>) ->actix_web::Result
     Ok(HttpResponse::Ok().json("Successfully inserted"))
 }
 
+
 pub(crate) async fn post_new_email_adress(pool : web::Data<DbPool>, req: web::Json<NewEmail>) -> actix_web::Result<impl Responder>{
     let pool = pool.clone();
     let new_email_adress = req.into_inner().email_adress;
@@ -84,7 +85,7 @@ pub(crate) async fn update_status_email(pool : web::Data<DbPool>, req: web::Json
     let pool = pool.clone();
     let response = web::block(move ||{
         let mut connection: r2d2::PooledConnection<diesel::r2d2::ConnectionManager<diesel::PgConnection>> = pool.get().unwrap();
-        print!("DDD");
+        
         update_email_entry(&mut connection, email_id)
 
     })
@@ -95,8 +96,9 @@ pub(crate) async fn update_status_email(pool : web::Data<DbPool>, req: web::Json
 
 }
 
-pub(crate) async fn get_grouped_by_pkgname_pkgid(pool : web::Data<DbPool>) -> actix_web::Result<impl Responder>{
+pub(crate) async fn fetch_all_vulns_then_group(pool : web::Data<DbPool>, req: web::Json<FilterQuery>) -> actix_web::Result<impl Responder>{
     let pool = pool.clone();
+    let filter = req.into_inner().query.unwrap_or(vec!["ALL".to_string()]);
     let result = web::block(move ||{
         let mut connection = pool.get().unwrap();
 
@@ -104,8 +106,8 @@ pub(crate) async fn get_grouped_by_pkgname_pkgid(pool : web::Data<DbPool>) -> ac
     })
     .await?;
 
-        Ok(HttpResponse::Ok().json(result))
-    }
+    Ok(HttpResponse::Ok().json(result))
+}
 
 
 // generic function für alle Create, Update, Delete Operationen

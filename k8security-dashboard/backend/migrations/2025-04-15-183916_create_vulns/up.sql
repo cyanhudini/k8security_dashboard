@@ -1,6 +1,3 @@
--- Your SQL goes here
--- Your SQL goes here
-
 CREATE TABLE vulnerability
 (
     "id" SERIAL PRIMARY KEY,
