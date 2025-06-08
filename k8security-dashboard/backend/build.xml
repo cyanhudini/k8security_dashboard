@@ -1,18 +1,22 @@
 <project name="RustProjectPipeline" default="push" basedir=".">
 
-    <!-- Define properties -->
     <property name="src.dir" value="src"/>
     <property name="cargo" value="cargo"/>
     <property name="git" value="git"/>
 
     <!-- Initialize the build -->
     <target name="init">
-        <echo message="Initializing the build process..."/>
+        <echo message="Hier fängt die Pipeline an!"/>
     </target>
-
+    <!-- Clean the build directory -->
+    <target name="clean">
+        <echo message="Damit ein sicheres Arbeiten möglich ist"/>
+        <delete dir="${src.dir}/target"/>
+        <delete file="${src.dir}/Cargo.lock"/>
+    </target>
     <!-- Build the Rust project -->
     <target name="build" depends="init">
-        <echo message="Building the Rust project..."/>
+        <echo message="Hier wird gearbeitet"/>
         <exec executable="${cargo}" dir="${src.dir}">
             <arg value="build"/>
         </exec>
@@ -20,7 +24,7 @@
 
     <!-- Run tests -->
     <target name="test" depends="build">
-        <echo message="Running tests..."/>
+        <echo message="Tests sind wichtig!"/>
         <exec executable="${cargo}" dir="${src.dir}">
             <arg value="test"/>
         </exec>
@@ -28,7 +32,8 @@
 
     <!-- Add all changes to Git -->
     <target name="git-add" depends="test">
-        <echo message="Adding changes to Git..."/>
+        <echo message="Hier könnte es eventuell Probleme geben"/>
+        <echo message= "In einem echten Szenario sollte man sicher sein das die neusten Änderungen gepultt wurden"/>
         <exec executable="${git}">
             <arg value="add"/>
             <arg value="."/>
@@ -37,17 +42,17 @@
 
     <!-- Commit changes -->
     <target name="git-commit" depends="git-add">
-        <echo message="Committing changes..."/>
+        <echo message="Commit to Change"/>
         <exec executable="${git}">
             <arg value="commit"/>
             <arg value="-m"/>
-            <arg value="Automated commit from Ant build script"/>
+            <arg value="Version ${timestamp}"/>
         </exec>
     </target>
 
     <!-- Push changes to remote repository -->
     <target name="push" depends="git-commit">
-        <echo message="Pushing changes to remote repository..."/>
+        <echo message="Ich hoffe alles hat geklappt"/>
         <exec executable="${git}">
             <arg value="push"/>
         </exec>
