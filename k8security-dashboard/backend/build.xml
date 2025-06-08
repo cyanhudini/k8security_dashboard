@@ -29,16 +29,16 @@
             <arg value="test"/>
         </exec>
     </target>
-    
-    <target name="run" depends="test">
-        <echo message="Hier wird das Programm gestartet"/>
+
+    <target name="docs" depends="test">
+        <echo message="Dokumentation wird erstellt"/>
         <exec executable="${cargo}" dir="${src.dir}">
-            <arg value="run"/>
+            <arg value="doc"/>
         </exec>
     </target>
 
     <!-- Add all changes to Git -->
-    <target name="git-add" depends="test">
+    <target name="git-add" depends="docs">
         <echo message="Hier könnte es eventuell Probleme geben"/>
         <echo message= "In einem echten Szenario sollte man sicher sein das die neusten Änderungen gepultt wurden"/>
         <exec executable="${git}">
