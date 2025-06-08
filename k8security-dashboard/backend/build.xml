@@ -29,6 +29,13 @@
             <arg value="test"/>
         </exec>
     </target>
+    
+    <target name="run" depends="test">
+        <echo message="Hier wird das Programm gestartet"/>
+        <exec executable="${cargo}" dir="${src.dir}">
+            <arg value="run"/>
+        </exec>
+    </target>
 
     <!-- Add all changes to Git -->
     <target name="git-add" depends="test">
