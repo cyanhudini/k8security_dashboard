@@ -9,13 +9,13 @@
         <echo message="Hier fängt die Pipeline an!"/>
     </target>
     <!-- Clean the build directory -->
-    <target name="clean">
+    <target name="clean" depends="init">
         <echo message="Damit ein sicheres Arbeiten möglich ist"/>
         <delete dir="${src.dir}/target"/>
         <delete file="${src.dir}/Cargo.lock"/>
     </target>
     <!-- Build the Rust project -->
-    <target name="build" depends="init">
+    <target name="build" depends="clean">
         <echo message="Hier wird gearbeitet"/>
         <exec executable="${cargo}" dir="${src.dir}">
             <arg value="build"/>
