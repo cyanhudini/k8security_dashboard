@@ -15,10 +15,25 @@ export async function filterVulnerabilities(filter_query) {
 
 }
 
-export async function getGroupedVulnsByPkg() {
-  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/group_by_pkg`)
+
+export async function getGroupedVulnsByScanType(query) {
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/group_vulns_by_scan_type`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: query })
+  });
   return await res.json();
-} 
+}
+
+export async function getGroupedVulnsByPkg(query) {
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/group_vulns_by_pkg`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: query })
+  });
+  return await res.json();
+}
+
 
 export async function postNewEmail(email) {
   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/filter`, {

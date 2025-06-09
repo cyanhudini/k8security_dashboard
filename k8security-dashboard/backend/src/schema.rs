@@ -7,6 +7,7 @@ diesel::table! {
         installed_version -> Varchar,
         severity -> Varchar,
         origin -> Varchar,
+        scan_type -> VarChar
     }
     
 }

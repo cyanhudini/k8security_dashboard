@@ -1,3 +1,4 @@
 -- Your SQL goes here
+-- Your SQL goes here
 ALTER TABLE vulnerability
-RENAME COLUMN scan_type TO origin;
+ADD COLUMN scan_type TEXT;
