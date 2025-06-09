@@ -3,6 +3,8 @@ import { execa } from 'execa';
 import fs from 'fs';
 import { deleteSync } from 'del';
 
+// angelehnt an https://gulpjs.com/docs/en/recipes/automate-releases
+
 function isBuildOk() {
   try {
     const stats = fs.statSync('dist');
@@ -37,6 +39,7 @@ function test() {
   }
 }
 
+// wird fehlschlagen
 function commitAddAndPush() {
   return execa('git', ['add', '.'])
     .then(() => execa('git', ['commit', '-m', 'Automatischer Build und Push']))

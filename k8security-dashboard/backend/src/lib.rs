@@ -56,13 +56,14 @@ pub fn fetch_receiver_emails(connection: &mut PgConnection) -> Vec<Emails> {
     emails.load::<Emails>(connection).unwrap()
 }
 
-pub fn delete_vuln_entry(connection: &mut PgConnection, to_delete : Vec<String>) -> Result<(), Box<dyn std::error::Error>>{
+pub fn delete_vuln_entry(connection: &mut PgConnection, to_delete : Vec<i32>){
     use self::schema::vulnerability::dsl::vulnerability;
-    diesel::delete(vulnerability.filter(vuln_id
-        .eq_any(to_delete)))
+    println!("Deleting vulnerabilities with IDs: ");
+    //delete vulnerabilities based on the provided IDs
+    diesel::delete(vulnerability)
+        .filter(schema::vulnerability::id.eq_any(to_delete))
         .execute(connection)
         .expect("Unable to delete");
-    Ok(())
 }
 
 
@@ -102,11 +103,8 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
     let reader = BufReader::new(file);
 
     let report: VulnerabilityReport = serde_json::from_reader(reader).expect("Nicht möglich einen JSON Reader zu erstellen.");
-    // if report.ClusterName is Some {
-    // orign = report.ClusterName
-    // else if report.ArtifactName is Some {
-    // orign = report.ArtifactName
-    // else {
+    
+    
 
     
     let vuln_origin = report
@@ -164,7 +162,7 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
 
 }
 
-pub fn get_grouped_by_docker_scan_type(connection: &mut PgConnection)  {
+pub fn get_grouped_by_docker_scan_type(connection: &mut PgConnection) -> GroupedVulnerabilites {
     // if entry has scan_type docker, it then should be further grouped by ArtifactName
     let to_be_grouped = fetch_all_docker_vulns(connection, "docker".to_string());
     let mut grouped: HashMap<String, Vec<Vulnerability>> = HashMap::new();
@@ -172,9 +170,11 @@ pub fn get_grouped_by_docker_scan_type(connection: &mut PgConnection)  {
         let key = format!("{}", vuln.origin);
         grouped.entry(key).or_insert(vec![]).push(vuln);
     }
-    let mut g = GroupedVulnerabilites {
+    let g = GroupedVulnerabilites {
         vulnerabilities: grouped,
     };
+
+    g
 }
 
 

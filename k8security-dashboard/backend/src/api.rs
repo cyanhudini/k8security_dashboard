@@ -1,9 +1,9 @@
 
 use actix_web::{web, HttpResponse, Responder};
 
-use backend::{bulk_add_vulns, create_email_entry, fetch_all_vuln_entries, fetch_receiver_emails, filter_vuln_entries_by_severity, update_email_entry, group_by_pkgid_pkgname};
+use backend::*;
 use serde::Serialize;
-use crate::models::{NewEmail, FilterQuery, SetEmailQuery};
+use crate::models::{NewEmail, FilterQuery, SetEmailQuery,DeleteVulnRequest};
 use crate::DbPool;
 
 pub(crate) async fn get_all_vulns(pool: web::Data<DbPool>) -> actix_web::Result<impl Responder>{
@@ -61,7 +61,22 @@ pub(crate) async fn post_new_email_adress(pool : web::Data<DbPool>, req: web::Js
     Ok(HttpResponse::Ok().json("Successfully inserted"))
 }
 
-pub(crate) async fn delete_vulns(pool : web::Data<DbPool>){}
+pub(crate) async fn delete_vulns(pool : web::Data<DbPool>, req: web::Json<Vec<DeleteVulnRequest>>) -> actix_web::Result<impl Responder>{
+    let pool = pool.clone();
+    
+    let vuln_obj = req.into_inner();
+    print!("Delete vuln request: {:?}", vuln_obj);
+    
+    let response = web::block(move ||{
+
+        let mut connection = pool.get().unwrap();
+        let vuln_ids: Vec<i32> = vuln_obj.into_iter().map(|v| v.id).collect();
+        delete_vuln_entry(&mut connection, vuln_ids)
+    })
+    .await?;
+
+    Ok(HttpResponse::Ok().json(response))
+}
 
 pub(crate) async fn delete_receiver_email(pool : web::Data<DbPool>){}
 
@@ -108,6 +123,7 @@ pub(crate) async fn get_grouped_by_pkgname_pkgid(pool : web::Data<DbPool>) -> ac
     }
 
 
+    
 // generic function für alle Create, Update, Delete Operationen
 pub(crate) async fn run_rud_db_task<F, T>(pool : web::Data<DbPool>, f: F) -> actix_web::Result<impl Responder>
     where F: FnOnce(&mut r2d2::PooledConnection<diesel::r2d2::ConnectionManager<diesel::PgConnection>> ) -> T + Send + 'static,
