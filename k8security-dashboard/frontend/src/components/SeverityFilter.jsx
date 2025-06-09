@@ -24,17 +24,22 @@ export default function SeverityFilter({ onFilter }) {
   }
 
   return (
-    <div>
-      {severities.map((sev) => (
-        <label key={sev}>
-          <input
-            type="checkbox"
-            checked={selected.includes(sev)}
-            onChange={() => toggle(sev)}
-          />
-          {sev}
-        </label>
-      ))}
+    <div className="severity-filter w-full text-left m-1" >
+      <ul>
+        {severities.map((sev) => (
+          <li key={sev} className="flex items-center mb-1">
+            <label className="">
+              <input
+                type="checkbox"
+                checked={selected.includes(sev)}
+                onChange={() => toggle(sev)}
+                className="mr-1"
+              />
+              {sev}
+            </label>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

@@ -84,3 +84,9 @@ pub struct FilterQuery {
 pub struct SetEmailQuery{
     pub email_id : i32,
 }
+
+
+#[derive(Deserialize, Debug)]
+pub struct DeleteVulnRequest {
+    pub id: i32,
+}

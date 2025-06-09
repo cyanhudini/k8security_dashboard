@@ -1,44 +1,48 @@
 import { useEffect, useState } from 'react'
 import { addReceiverEmail, getReceiverEmails, setEmailStatus } from '../lib/api'
-import "../styles/styles.css"
 
 
 export default function EmailBar() {
     const [emails, setEmails] = useState([])
     const [newEmail, setNewEmail] = useState('')
     
-    // Änderung ddd
+
     useEffect(() => {
         getReceiverEmails().then(setEmails)
     }, [])
     
     return (
-        <div className="emailbar">
-            <label for="email"></label>
+        <div className="emailbar w-full text-left m-1">
+            
             <input
                 type="email"
-                id="email"
+                id="email-input"
                 value={newEmail}
                 onChange={e => setNewEmail(e.target.value)}
+                className="m-1 bg-amber-200 rounded-md"
             />
-            <button onClick={async () => {
+                <button className="bg-gray-400"
+                    onClick={async () => {
                         await addReceiverEmail(newEmail);
                         const updatedEmails = await getReceiverEmails();
                         setEmails(updatedEmails);
                         setNewEmail('');
             }}>
-            </button>
-            <div>
-            {emails.map((email) => ( 
-                <li key={email.id}>
-                    <input
-                        type="checkbox"
-                        checked={email.receiving}
-                        onChange={() => setEmailStatus(email.id)}
-                    />
-                    {email.email_adress}
-                </li>
-            ))}
+                    Add Email
+                </button>
+            <div className="email-list mt-4">
+                <ul>
+                {emails.map((email) => ( 
+                    <li key={email.id}>
+                        <input
+                            type="checkbox"
+                            checked={email.receiving}
+                            onChange={() => setEmailStatus(email.id)}
+                        />
+                        {email.email_adress}
+                    </li>
+                ))}
+                </ul>
             </div>
         </div>
     )

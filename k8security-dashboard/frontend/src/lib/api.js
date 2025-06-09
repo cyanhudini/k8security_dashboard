@@ -57,3 +57,20 @@ export async function setEmailStatus(email_id) {
 
   return await res.json()
 }
+
+export async function deleteVulnerabilities(vuln_ids) {
+  console.log("Deleting vulnerabilities with IDs:", JSON.stringify(vuln_ids));
+  
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/delete_vulns`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(vuln_ids)
+  })
+  console.log("Response from deleteVulnerabilities:", res);
+  if (!res.ok) {
+    console.error("Failed to delete vulnerabilities:", res.statusText);
+    throw new Error(`HTTP error! status: ${res.status}`);
+  }
+
+  return await res.json();
+}

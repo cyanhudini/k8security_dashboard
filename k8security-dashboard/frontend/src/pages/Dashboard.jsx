@@ -1,44 +1,61 @@
+import Sidebar from '../components/Sidebar'
+import '../styles/Dashboard.css'
 import { useEffect, useState } from 'react'
 import { getVulnerabilities } from '../lib/api'
-import FilterBar from '../components/SeverityFilter'
-import EmailBar from '../components/EmailBar'
-import '../styles/Dashboard.css'
+
 
 export default function Dashboard() {
     const [vulns, setVulns] = useState([])
+    const [selectedVulns, setSelectedVulns] = useState([])
+    const toggleRow = (id) => {
+        setSelectedVulns((prev) => prev.find((v) => v.id === id) ? prev.filter(v => v !== id) : [...prev, { id }])
+        console.log("Toggled row:", id);
+        console.log(selectedVulns)
+    };
     
-    useEffect(() => {
-        getVulnerabilities().then(setVulns)
-        console.log("Vulnerabilities fetched:", vulns)
-    }, [])
+        useEffect(() => {
+            getVulnerabilities().then(setVulns)
+            console.log("Vulnerabilities fetched:", vulns)
+        }, [])
 
     return (
-        <div className="p-6">
+        <div className="dashboard-container">
             <h1>Kubernetes Security Dashboard</h1>
-            <EmailBar/>
+
             <div className="dashboard" >
-                <FilterBar onFilter={setVulns} />
+                <Sidebar onFilter={setVulns} selected={selectedVulns} />
                 
-                <table className=" ">
-                    <thead>
+                <table className="border-solid border-2 border-gray-300 w-full ">
+                    <thead className="bg-gray-200">
                         <tr>
+                            <th className="p-3">Select</th>
                             <th className="p-3">CVE</th>
-                            <th className="p-3">Title</th>
+                            <th className="p-3">Pkg Name</th>
                             <th className="p-3">installed version</th>
                             <th className="p-3">Severity</th>
+                            <th className="p-3">Origin</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y">
                         {vulns.map((vulns) => (
-                            <tr>
+                            <tr className="h-12 hover:bg-amber-500 cursor-pointer"
+                                onClick={() => {
+                                    console.log("Row clicked:", vulns.id);
+                                    toggleRow(vulns.id)
+                                }}>
                                 <td >
-                                    <input type="checkbox"></input>
+                                    <input
+                                        type="checkbox"
+                                        checked={!!selectedVulns[vulns.id]}
+                                        onChange={() => toggleRow(vulns.id)}
+                                        onClick={(e) => e.stopPropagation()}
+                                    ></input>
                                 </td>
-                                <td className="p-3">{vulns.vuln_id}</td>
-                                <td className="p-3">{vulns.pkg_name}</td>
-                                <td className="p-3">{vulns.installed_version}</td>
-                                <td className="p-3">{vulns.severity}</td>
-                                <td className="p-3">{vulns.origin}</td>
+                                <td className="p-3 truncate">{vulns.vuln_id}</td>
+                                <td className="p-3 truncate">{vulns.pkg_name}</td>
+                                <td className="p-3 truncate">{vulns.installed_version}</td>
+                                <td className="p-3 truncate">{vulns.severity}</td>
+                                <td className="p-3 truncate">{vulns.origin}</td>
                             </tr>
                         ))}
                     </tbody>
