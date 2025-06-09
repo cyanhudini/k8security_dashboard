@@ -165,7 +165,7 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
 
 }
 
-pub fn get_grouped_by_docker_scan_type(connection: &mut PgConnection) -> GroupedVulnerabilites {
+pub fn get_grouped_by_docker_scan_type(connection: &mut PgConnection, filter : Vec<String>) -> GroupedVulnerabilites  {
     // if entry has scan_type docker, it then should be further grouped by ArtifactName
     let to_be_grouped = fetch_all_vuln_filtered_scan_type(connection, filter);
     print!("Fetching vulnerabilities grouped by scan type...");
