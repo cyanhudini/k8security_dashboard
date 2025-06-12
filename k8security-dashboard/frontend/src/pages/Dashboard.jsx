@@ -38,7 +38,7 @@ export default function Dashboard() {
                     </thead>
                     <tbody className="divide-y">
                         {vulns.map((vulns) => (
-                            <tr className="h-12 hover:bg-amber-500 cursor-pointer"
+                            <tr className="h-12 hover:bg-cyan-950 cursor-pointer"
                                 onClick={() => {
                                     console.log("Row clicked:", vulns.id);
                                     toggleRow(vulns.id)
