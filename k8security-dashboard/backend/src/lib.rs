@@ -104,9 +104,6 @@ pub fn bulk_add_vulns(connection: &mut PgConnection) -> Result<(), Box<dyn std::
 
     let report: VulnerabilityReport = serde_json::from_reader(reader).expect("Nicht möglich einen JSON Reader zu erstellen.");
     
-    
-
-    
     let vuln_origin = report
     .ClusterName
     .clone()
@@ -204,8 +201,7 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabi
 }
 
 pub fn filter_grouped_by_severity(groupedVulns : &mut GroupedVulnerabilites) -> HashMap<String, Vec<Vulnerability>>{
-    let f_crit = vec!["CRITICAL.".to_string()];
-    
+
     let f: HashMap<_, _> = groupedVulns.vulnerabilities
     .iter()
     .filter_map(|(k, vulns)| {
