@@ -19,7 +19,7 @@ export default function EmailBar() {
                 id="email-input"
                 value={newEmail}
                 onChange={e => setNewEmail(e.target.value)}
-                className="m-1 bg-amber-200 rounded-md"
+                className="m-1 bg-cyan-900 rounded-md"
             />
                 <button className="bg-gray-400"
                     onClick={async () => {

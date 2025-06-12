@@ -20,7 +20,7 @@ async fn main() -> io::Result<()> {
     components aller filter in eine Filter Komponenten packen
     da dashboard ständig läuft, sollte frontend geupdated werden vom backend ->server side update
      */
-    println!("Hier");
+
     dotenv().ok();
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
     let manager = diesel::r2d2::ConnectionManager::<PgConnection>::new(database_url);
