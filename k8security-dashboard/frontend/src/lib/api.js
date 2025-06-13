@@ -74,7 +74,6 @@ export async function setEmailStatus(email_id) {
 }
 
 export async function deleteVulnerabilities(vuln_ids) {
-  console.log("Deleting vulnerabilities with IDs:", JSON.stringify(vuln_ids));
   
   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/delete_vulns`, {
     method: 'POST',

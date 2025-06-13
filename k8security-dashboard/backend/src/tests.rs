@@ -1,4 +1,5 @@
 // tests for the backend module
+use crate::api::{add_vulns_from_file, create_email_entry, update_email_entry};
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
 use diesel::prelude::*;
 use diesel::r2d2::{ConnectionManager, Pool};
@@ -6,17 +7,19 @@ use diesel::PgConnection;
 use serde::Deserialize;
 use std::sync::Arc;
 use std::sync::Mutex;
-use crate::api::{bulk_add_vulns, create_email_entry, update_email_entry};  
 
 use crate::models::{Emails, NewEmail, SetEmailQuery, Vulnerability};
 use crate::schema::{emails, vulnerability};
+use crate::tests::helpers::{setup_test_db, teardown_test_db};
 use crate::DbPool;
-use crate::tests::helpers::{setup_test_db, teardown_test_db};   
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::api::{delete_receiver_email, delete_vulns, get_all_receiver_emails, post_new_email_adress, post_new_vulns};
+    use crate::api::{
+        delete_receiver_email, delete_vulns, get_all_receiver_emails, post_new_email_adress,
+        post_new_vulns,
+    };
     use crate::models::{NewVulnerability, SetEmailQuery};
 
     #[actix_web::test]
