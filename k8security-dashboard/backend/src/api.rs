@@ -14,7 +14,6 @@ pub(crate) async fn get_all_vulns(pool: web::Data<DbPool>) -> actix_web::Result<
         fetch_all_vuln_entries(&mut connection)
     })
     .await?;
-
     Ok(web::Json(all_vulns))
 }
 
@@ -144,11 +143,11 @@ pub(crate) async fn fetch_all_vulns_then_group_by_pkg(
 ) -> actix_web::Result<impl Responder> {
     let pool = pool.clone();
     let filter = req.into_inner().query.unwrap_or(vec!["ALL".to_string()]);
-
+    print!("Filter.query: {:?}", filter);
     let result = web::block(move || {
         let mut connection = pool.get().unwrap();
 
-        group_by_pkgid_pkgname(&mut connection)
+        group_by_pkgid_pkgname(&mut connection, filter)
     })
     .await?;
 
