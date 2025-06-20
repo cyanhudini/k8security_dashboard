@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Rust (cargo run)",
+      "type": "lldb",
+      "request": "launch",
+      "cargo": {
+        "args": ["run"]
+      },
+      "args": [],
+      "cwd": "/home/nils/Arbeit/k8security-dashboard/k8security_dashboard/backend",
+      "env": {},
+      "sourceLanguages": ["rust"],
+      "terminal": "integrated"
+    }
+  ]
+}

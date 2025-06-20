@@ -8,7 +8,7 @@ use schema::vulnerability::{
     installed_version, origin, pkg_id, pkg_name, scan_type, severity, vuln_id,
 };
 use serde::Serialize;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::fs::File;
 use std::io::BufReader;
 
@@ -51,10 +51,7 @@ pub fn fetch_all_vuln_entries(connection: &mut PgConnection) -> Vec<Vulnerabilit
     vulnerability.load::<Vulnerability>(connection).unwrap()
 }
 
-pub fn fetch_all_vuln_filtered_scan_type(
-    connection: &mut PgConnection,
-    criteria: Vec<String>,
-) -> Vec<Vulnerability> {
+pub fn fetch_all_vuln_filtered_scan_type(connection: &mut PgConnection,criteria: Vec<String>) -> Vec<Vulnerability> {
     use self::schema::vulnerability::dsl::vulnerability;
 
     let query = vulnerability.into_boxed();
@@ -98,10 +95,7 @@ pub fn create_email_entry(connection: &mut PgConnection, email_adr: String) -> E
         .expect("Error creating Email")
 }
 
-pub fn filter_vuln_entries_by_severity(
-    connection: &mut PgConnection,
-    filter_criteria: Vec<String>,
-) -> Vec<Vulnerability> {
+pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection,filter_criteria: Vec<String>,) -> Vec<Vulnerability> {
     use self::schema::vulnerability::dsl::vulnerability;
     let query = vulnerability.into_boxed();
 
@@ -184,10 +178,7 @@ pub fn add_vulns_from_file(
     Ok(())
 }
 
-pub fn group_by_docker_scan_type(
-    connection: &mut PgConnection,
-    filter: Vec<String>,
-) -> GroupedVulnerabilites {
+pub fn group_by_docker_scan_type(connection: &mut PgConnection, filter: Vec<String>) -> GroupedVulnerabilites {
     // if entry has scan_type docker, it then should be further grouped by ArtifactName
     let to_be_grouped = fetch_all_vuln_filtered_scan_type(connection, filter);
     print!("Fetching vulnerabilities grouped by scan type...");
@@ -203,7 +194,7 @@ pub fn group_by_docker_scan_type(
 }
 
 // TODO führe group_by_pkgid_pkgname und group_by_docker_scan_type zusammen
-pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabilites {
+pub fn group_by_pkgid_pkgname(connection: &mut PgConnection, filter: Vec<String>) -> GroupedVulnerabilites {
     let to_be_grouped = fetch_all_vuln_entries(connection);
 
     let mut grouped: HashMap<String, Vec<Vulnerability>> = HashMap::new();
@@ -215,15 +206,15 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection) -> GroupedVulnerabi
     let mut g = GroupedVulnerabilites {
         vulnerabilities: grouped,
     };
-    //TODO: nochmal gucken was ich mir dabei gedacht habe
-    let f = filter_grouped_by_severity(&mut g);
+    //TODO: hier wollen wir auch die Sidebar mit Filterfunktion also muss filter_grouped_by_severity raus
+    let f = filter_grouped2_by_severity(&mut g, filter);
+    print!("Filtered: {:?}", f);
     let g_filtered = GroupedVulnerabilites { vulnerabilities: f };
     g_filtered
 }
 
-pub fn filter_grouped_by_severity(
-    groupedVulns: &mut GroupedVulnerabilites,
-) -> HashMap<String, Vec<Vulnerability>> {
+pub fn filter_grouped_by_severity(groupedVulns: &mut GroupedVulnerabilites) -> HashMap<String, Vec<Vulnerability>> {
+
     let f: HashMap<_, _> = groupedVulns
         .vulnerabilities
         .iter()
@@ -242,6 +233,38 @@ pub fn filter_grouped_by_severity(
         .collect();
     f
 }
+
+
+pub fn filter_grouped2_by_severity(
+    grouped_vulns: &GroupedVulnerabilites,
+    filter_criteria: Vec<String>,
+) -> HashMap<String, Vec<Vulnerability>> {
+    let severity_set: HashSet<_> = filter_criteria.into_iter().collect();
+
+    grouped_vulns
+        .vulnerabilities
+        .iter()
+        .filter_map(|(k, vulns)| {
+            let filtered: Vec<_> = if severity_set.is_empty() {
+                print!("vulns {:?}", vulns);
+                vulns.clone()
+            } else {
+                vulns
+                    .iter()
+                    .filter(|v| severity_set.contains(&v.severity))
+                    .cloned()
+                    .collect()
+            };
+
+            if filtered.is_empty() {
+                None
+            } else {
+                Some((k.clone(), filtered))
+            }
+        })
+        .collect()
+}
+
 
 pub fn update_email_entry(connection: &mut PgConnection, email_id: i32) -> Emails {
     use self::schema::emails::dsl::emails;
