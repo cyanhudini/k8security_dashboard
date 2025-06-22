@@ -179,9 +179,9 @@ pub fn add_vulns_from_file(
 }
 
 pub fn group_by_docker_scan_type(connection: &mut PgConnection, filter: Vec<String>) -> GroupedVulnerabilites {
-    // if entry has scan_type docker, it then should be further grouped by ArtifactName
+
     let to_be_grouped = fetch_all_vuln_filtered_scan_type(connection, filter);
-    print!("Fetching vulnerabilities grouped by scan type...");
+ 
     let mut grouped: HashMap<String, Vec<Vulnerability>> = HashMap::new();
     for vuln in to_be_grouped {
         let key = format!("{}", vuln.origin);
@@ -190,6 +190,7 @@ pub fn group_by_docker_scan_type(connection: &mut PgConnection, filter: Vec<Stri
     let g = GroupedVulnerabilites {
         vulnerabilities: grouped,
     };
+    
     g
 }
 
@@ -206,10 +207,11 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection, filter: Vec<String>
     let mut g = GroupedVulnerabilites {
         vulnerabilities: grouped,
     };
-    //TODO: hier wollen wir auch die Sidebar mit Filterfunktion also muss filter_grouped_by_severity raus
+   
     let f = filter_grouped2_by_severity(&mut g, filter);
-    print!("Filtered: {:?}", f);
+    print!("Filtered vulnerabilities by severity: {:?}", f);
     let g_filtered = GroupedVulnerabilites { vulnerabilities: f };
+    //print!("Grouped and filtered: {:?}", g_filtered);
     g_filtered
 }
 
@@ -245,13 +247,15 @@ pub fn filter_grouped2_by_severity(
         .vulnerabilities
         .iter()
         .filter_map(|(k, vulns)| {
-            let filtered: Vec<_> = if severity_set.is_empty() {
-                print!("vulns {:?}", vulns);
+            // Check if the severity_set is empty or contains "ALL"
+            let is_severity_set = severity_set.is_empty() || severity_set.contains(&"ALL".to_string());
+            let filtered = if is_severity_set {
+                //print!("{:?}", vulns);
                 vulns.clone()
             } else {
                 vulns
                     .iter()
-                    .filter(|v| severity_set.contains(&v.severity))
+                    .filter(|v| severity_set.contains(&v.severity.to_uppercase()))
                     .cloned()
                     .collect()
             };

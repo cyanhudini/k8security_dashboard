@@ -46,7 +46,7 @@ async fn main() -> io::Result<()> {
             .route("/set_email_status", web::post().to(update_status_email))
             .route("/delete_vulns", web::post().to(delete_vulns))
     })
-    .bind(("127.0.0.1", 8080))?
+    .bind(("127.0.0.1", 6234))?
     .run()
     .await
 }
