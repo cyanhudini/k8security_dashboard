@@ -125,8 +125,9 @@ pub(crate) async fn fetch_all_vulns_then_group(
     req: web::Json<FilterQuery>,
 ) -> actix_web::Result<impl Responder> {
     let pool = pool.clone();
+    print!("Request: {:?}", req);
     let filter = req.into_inner().query.unwrap_or(vec!["ALL".to_string()]);
-    print!("Fetching vulnerabilities grouped by scan type...");
+
 
     let result = web::block(move || {
         let mut connection = pool.get().unwrap();
@@ -134,7 +135,7 @@ pub(crate) async fn fetch_all_vulns_then_group(
         group_by_docker_scan_type(&mut connection, filter)
     })
     .await?;
-
+    print!("Result: {:?}", result);
     Ok(HttpResponse::Ok().json(result))
 }
 pub(crate) async fn fetch_all_vulns_then_group_by_pkg(
@@ -143,7 +144,7 @@ pub(crate) async fn fetch_all_vulns_then_group_by_pkg(
 ) -> actix_web::Result<impl Responder> {
     let pool = pool.clone();
     let filter = req.into_inner().query.unwrap_or(vec!["ALL".to_string()]);
-    print!("Filter.query: {:?}", filter);
+
     let result = web::block(move || {
         let mut connection = pool.get().unwrap();
 

@@ -16,7 +16,7 @@ export default function EmailBar() {
     };
 
     return (
-        <div className="emailbar w-full text-left m-1">
+        <div className="emailbar w-full text-left m-1 text-white">
             <input
                 type="email"
                 id="email-input"
