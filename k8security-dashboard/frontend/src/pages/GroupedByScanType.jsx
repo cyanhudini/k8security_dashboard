@@ -5,7 +5,7 @@ export default function GroupedByPkgDashboard() {
     const [grouped, setGrouped] = useState({})
 
     useEffect(() => {
-        getGroupedVulnsByScanType(["docker"]).then(response => {
+        getGroupedVulnsByScanType().then(response => {
             console.log(response)
             setGrouped(response.vulnerabilities)
         })

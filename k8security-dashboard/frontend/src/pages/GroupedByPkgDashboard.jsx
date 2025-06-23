@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react'
 import { getGroupedVulnsByPkg } from '../lib/api'
+import FilterBar from '../components/SeverityFilter'
 
 export default function GroupedByPkgDashboard() {
     const [grouped, setGrouped] = useState({})
 
     useEffect(() => {
         getGroupedVulnsByPkg().then(response => {
-            console.log(response)
+            console.log(response.vulnerabilities)
             setGrouped(response.vulnerabilities)
+            console.log(grouped)
         })
     } ,[])
 
     return (
         <div className="p-4 space-y-6">
-            
+           
             {Object.entries(grouped).map(([key, group]) => (
             <div className = "border rounded p-4 grid grid-cols-3 border-solid border-gray-300 w-full">
                 <h2 className="font-bold text-lg col-span-1 break-all">{key}</h2>

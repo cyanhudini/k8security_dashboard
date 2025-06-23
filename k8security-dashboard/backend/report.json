@@ -2,7 +2,7 @@
   "ClusterName": "minikube",
   "Resources": [
     {
-      "Kind": "ClusterRole",
+      "Kind": "ClusterRolee",
       "Name": "admin",
       "Metadata": [
         {

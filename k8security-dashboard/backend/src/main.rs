@@ -37,7 +37,7 @@ async fn main() -> io::Result<()> {
             )
             .app_data(web::Data::new(pool.clone()))
             .route("/vulns", web::get().to(get_all_vulns))
-            .route("/add_vulns_bulk", web::get().to(post_new_vulns))
+            .route("/add_vulns_from_file", web::get().to(post_new_vulns))
             .route("/receiver_emails", web::get().to(get_all_receiver_emails))
             .route("/add_receiver_email", web::post().to(post_new_email_adress))
             .route("/filter", web::post().to(post_filter_query))
@@ -46,7 +46,7 @@ async fn main() -> io::Result<()> {
             .route("/set_email_status", web::post().to(update_status_email))
             .route("/delete_vulns", web::post().to(delete_vulns))
     })
-    .bind(("127.0.0.1", 8080))?
+    .bind(("127.0.0.1", 6234))?
     .run()
     .await
 }

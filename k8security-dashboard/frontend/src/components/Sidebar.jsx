@@ -16,7 +16,7 @@ export default function Sidebar({onFilter, selected, onDelete}) {
 
     return (
         <div className="sidebar">
-            <h2 className="text-lg font-semibold mb-4">Filter</h2>
+            <h2 className="text-lg font-semibold mb-4 text-white">Filter</h2>
             <div className="actions-bar flex justify-end p-4 ">
                 <button
                     className="bg-yellow-600 px-4 py-2 rounded disabled:opacity-50"
@@ -27,7 +27,7 @@ export default function Sidebar({onFilter, selected, onDelete}) {
                 </button>
             </div>
             <FilterBar onFilter={onFilter} />
-            <h2 className="text-lg font-semibold mt-6 mb-4">Benachrichtigungen</h2>
+            <h2 className="text-lg font-semibold mt-6 mb-4 text-white">Benachrichtigungen</h2>
             <EmailBar />
             
         </div>
