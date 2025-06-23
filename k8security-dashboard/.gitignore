@@ -1,2 +1,2 @@
 *report*.json
-.env
+smtp_server/.env
