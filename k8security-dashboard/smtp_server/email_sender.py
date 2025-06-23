@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 def send_email(report, receiver_emails):
-    sender_email = "nils.rudolphi@trilobyte.berlin"
+    sender_email = ""
     subject = "High Severity Vulnerabilities im Kubernetes CLuster"
 
     msg = MIMEMultipart()
@@ -19,18 +19,18 @@ def send_email(report, receiver_emails):
     attachment.add_header('Content-Disposition', 'attachment', filename="report.json")
     msg.attach(attachment)
     # env
-    server = smtplib.SMTP_SSL('mail.trilobyte.berlin')
-    server.login("nrudolphi", "EndlessInfinite1134")
+    server = smtplib.SMTP_SSL('')
+    server.login("", "")
     server.sendmail(sender_email, receiver_emails, msg.as_string())
     server.quit()
 
 def get_active_emails():
     conn = psycopg2.connect(
-        dbname="vulndb",
-        user="admin",
-        password="123456789",
-        host="localhost",
-        port="5432"
+        dbname="",
+        user="",
+        password="",
+        host="",
+        port=""
 )
     cur = conn.cursor()
     cur.execute("SELECT email_adress FROM emails WHERE receiving = true")
