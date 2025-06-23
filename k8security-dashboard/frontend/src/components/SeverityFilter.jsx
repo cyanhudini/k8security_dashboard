@@ -24,7 +24,7 @@ export default function SeverityFilter({ onFilter }) {
   }
 
   return (
-    <div className="severity-filter w-full text-left m-1" >
+    <div className="severity-filter w-full text-left m-1 text-white" >
       <ul>
         {severities.map((sev) => (
           <li key={sev} className="flex items-center mb-1">

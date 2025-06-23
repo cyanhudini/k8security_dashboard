@@ -31,18 +31,18 @@ export default function Dashboard() {
     return (
         <div className="dashboard-container mx-auto flex flex-col">
            <h1 className="text-2xl font-bold mb-4 text-center ">Kubernetes Security Dashboard</h1>
-            <div className="dashboard w-full">
+            <div className="dashboard w-full bg-slate-800 rounded-lg overflow-hidden">
                 <Sidebar onFilter={setVulns} selected={selectedVulns} onDelete={handleDelete} />
                 <div>
                 <table className="border-solid border-2 border-gray-300 w-full table-fixed">
                     <thead className="bg-emerald-900">
                         <tr>
-                            <th className="p-3">Select</th>
-                            <th className="p-3">CVE</th>
-                            <th className="p-3">Pkg Name</th>
-                            <th className="p-3">Installed Version</th>
-                            <th className="p-3">Severity</th>
-                            <th className="p-3">Origin</th>
+                            <th className="p-3 text-left text-slate-300 font-medium">Select</th>
+                            <th className="p-3 text-left text-slate-300 font-medium">CVE</th>
+                            <th className="p-3 text-left text-slate-300 font-medium">Pkg Name</th>
+                            <th className="p-3 text-left text-slate-300 font-medium">Installed Version</th>
+                            <th className="p-3 text-left text-slate-300 font-medium">Severity</th>
+                            <th className="p-3 text-left text-slate-300 font-medium">Origin</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y">
@@ -63,11 +63,11 @@ export default function Dashboard() {
                                         onClick={(e) => e.stopPropagation()}
                                     />
                                 </td>
-                                <td className="p-3 truncate">{vuln.vuln_id}</td>
-                                <td className="p-3 truncate">{vuln.pkg_name}</td>
-                                <td className="p-3 truncate">{vuln.installed_version}</td>
-                                <td className="p-3 truncate">{vuln.severity}</td>
-                                <td className="p-3 truncate">{vuln.origin}</td>
+                                <td className="p-3 truncate text-white">{vuln.vuln_id}</td>
+                                <td className="p-3 truncate text-white">{vuln.pkg_name}</td>
+                                <td className="p-3 truncate text-white">{vuln.installed_version}</td>
+                                <td className="p-3 truncate text-white">{vuln.severity}</td>
+                                <td className="p-3 truncate text-white">{vuln.origin}</td>
                             </tr>
                         ))}
                     </tbody>
