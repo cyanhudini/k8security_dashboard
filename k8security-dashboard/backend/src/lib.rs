@@ -182,12 +182,15 @@ pub fn add_vulns_from_file(
 pub fn group_by_docker_scan_type(connection: &mut PgConnection, filter: Vec<String>) -> GroupedVulnerabilites {
 
     let to_be_grouped = fetch_all_vuln_filtered_scan_type(connection, filter);
- 
+    /*
     let mut grouped: HashMap<String, Vec<Vulnerability>> = HashMap::new();
     for vuln in to_be_grouped {
         let key = format!("{}", vuln.origin);
         grouped.entry(key).or_insert(vec![]).push(vuln);
     }
+    */
+    let grouped = group_vulnerabilites_by_criteria(to_be_grouped, |v| v.origin.clone());
+
     let g = GroupedVulnerabilites {
         vulnerabilities: grouped,
     };
@@ -198,7 +201,7 @@ pub fn group_by_docker_scan_type(connection: &mut PgConnection, filter: Vec<Stri
 // TODO führe group_by_pkgid_pkgname und group_by_docker_scan_type zusammen
 pub fn group_by_pkgid_pkgname(connection: &mut PgConnection, filter: Vec<String>) -> GroupedVulnerabilites {
     let to_be_grouped = fetch_all_vuln_entries(connection);
-
+    /*
     let mut grouped: HashMap<String, Vec<Vulnerability>> = HashMap::new();
 
     for vuln in to_be_grouped {
@@ -208,12 +211,16 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection, filter: Vec<String>
     let mut g = GroupedVulnerabilites {
         vulnerabilities: grouped,
     };
+    */
+    let g = group_vulnerabilites_by_criteria(to_be_grouped, |v| {
+        format!("{}|{}", v.pkg_id, v.pkg_name)
+    });
    
-    let f = filter_grouped2_by_severity(&mut g, filter);
-    print!("Filtered vulnerabilities by severity: {:?}", f);
-    let g_filtered = GroupedVulnerabilites { vulnerabilities: f };
+
+    let mut grouped_vulns = GroupedVulnerabilites { vulnerabilities: g };
+    let grouped_vulns_then_filtered = filter_grouped2_by_severity(&mut grouped_vulns, filter);
     //print!("Grouped and filtered: {:?}", g_filtered);
-    g_filtered
+    GroupedVulnerabilites { vulnerabilities: grouped_vulns_then_filtered }
 }
 
 pub fn filter_grouped_by_severity(groupedVulns: &mut GroupedVulnerabilites) -> HashMap<String, Vec<Vulnerability>> {

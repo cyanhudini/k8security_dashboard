@@ -82,6 +82,7 @@ pub(crate) async fn delete_vulns(
     Ok(HttpResponse::Ok().json(response))
 }
 
+
 pub(crate) async fn delete_receiver_email(pool: web::Data<DbPool>) {}
 
 pub(crate) async fn get_all_receiver_emails(
