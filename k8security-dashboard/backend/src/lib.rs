@@ -9,6 +9,7 @@ use schema::vulnerability::{
 };
 use serde::Serialize;
 use std::collections::{HashMap, HashSet};
+use std::hash::Hash;
 use std::fs::File;
 use std::io::BufReader;
 
@@ -216,7 +217,7 @@ pub fn group_by_pkgid_pkgname(connection: &mut PgConnection, filter: Vec<String>
 }
 
 pub fn filter_grouped_by_severity(groupedVulns: &mut GroupedVulnerabilites) -> HashMap<String, Vec<Vulnerability>> {
-
+    // TODO: filter muss natürlich noch für alle funktionieren nicht nur CRITICAL
     let f: HashMap<_, _> = groupedVulns
         .vulnerabilities
         .iter()
@@ -279,10 +280,25 @@ pub fn update_email_entry(connection: &mut PgConnection, email_id: i32) -> Email
         .expect("Error updating email status")
 }
 
+pub fn group_vulnerabilites_by_criteria<F, K>(
+    vulnerabilities: Vec<Vulnerability>,
+    criteria_fn: F,
+) -> HashMap<K, Vec<Vulnerability>>
+where
+    F: Fn(&Vulnerability) -> K,
+    K: Eq + Hash,
+{
+    let mut grouped_vulns: HashMap<K, Vec<Vulnerability>> = HashMap::new();
+    for vuln in vulnerabilities {
+        let key = criteria_fn(&vuln);
+        grouped_vulns.entry(key).or_insert_with(Vec::new).push(vuln);
+    }
+    grouped_vulns
+}
 
 #[cfg(test)]
 mod tests {
-    use std::hash::Hash;
+    
 
     use super::*;
     use crate::models::Vulnerability;
@@ -325,4 +341,17 @@ mod tests {
     }
 
     
+    #[test]
+    fn test_generalized_group_vulnerabilites(){
+        let to_be_grouped = vec![
+                create_test_vuln(1, "CRITICAL", "k8s", "pkg-Test-CRITICAL"),
+                create_test_vuln(2, "HIGH", "k8s", "pkg-Test-HIGH"),
+                create_test_vuln(3, "LOW", "k8s", "pkg")
+                ];
+
+        let grouped = group_vulnerabilites_by_criteria(to_be_grouped, |v| v.origin.clone());
+        // Zwei Gruppen, da jede vuln k8s als origin hat
+        assert_eq!(grouped.len(), 1);      
+        
+    }
 }
