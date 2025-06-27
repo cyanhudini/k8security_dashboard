@@ -242,12 +242,12 @@ pub fn filter_grouped2_by_severity(
     filter_criteria: Vec<String>,
 ) -> HashMap<String, Vec<Vulnerability>> {
     let severity_set: HashSet<_> = filter_criteria.into_iter().collect();
-
+    //HashMap eignet sich prima zum Gruppieren, x -> many y's
     grouped_vulns
         .vulnerabilities
         .iter()
         .filter_map(|(k, vulns)| {
-            // Check if the severity_set is empty or contains "ALL"
+            
             let is_severity_set = severity_set.is_empty() || severity_set.contains(&"ALL".to_string());
             let filtered = if is_severity_set {
                 //print!("{:?}", vulns);
@@ -277,4 +277,52 @@ pub fn update_email_entry(connection: &mut PgConnection, email_id: i32) -> Email
         .set(receiving.eq(not(receiving)))
         .get_result(connection)
         .expect("Error updating email status")
+}
+
+
+#[cfg(test)]
+mod tests {
+    use std::hash::Hash;
+
+    use super::*;
+    use crate::models::Vulnerability;
+
+    //Helferfunktion zum Erstellen von Mockdaten
+    fn create_test_vuln(id_string: i32, severity_string: &str, origin_string: &str, pkg_name_string: &str) -> Vulnerability {
+        Vulnerability {
+            id: id_string,
+            vuln_id: "CVE-2024-TEST".to_string(),
+            pkg_name: pkg_name_string.to_string(),
+            pkg_id: "pkg-id".to_string(),
+            installed_version: "1.0.0".to_string(),
+            severity: severity_string.to_string(),
+            origin: origin_string.to_string(),
+            scan_type: "docker".to_string(),
+        }
+    }
+
+    #[test]
+    fn test_filter_grouped2_by_severity_critical(){
+        let mut grouped_vulns = HashMap::new();
+        grouped_vulns.insert(
+            "test_group".to_string(),
+            vec![
+                create_test_vuln(1, "CRITICAL", "k8s", "pkg-Test-CRITICAL"),
+                create_test_vuln(2, "HIGH", "k8s", "pkg-Test-HIGH"),
+                create_test_vuln(3, "LOW", "k8s", "pkg")
+                ],
+            
+        );
+        let grouped_vulns_struct = GroupedVulnerabilites {
+            vulnerabilities: grouped_vulns,
+        };
+        let filter = vec!["CRITICAL".to_string()];
+        let result = filter_grouped2_by_severity(&grouped_vulns_struct, filter);
+        // Erwwartung: Nur eine Vuln ist enthalten
+        assert_eq!(result.len(), 1);
+        assert!(result.get("test_group").unwrap()[0].pkg_name == "pkg-Test-CRITICAL");
+        
+    }
+
+    
 }
