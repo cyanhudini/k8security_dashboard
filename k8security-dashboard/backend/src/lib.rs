@@ -118,7 +118,7 @@ pub fn add_vulns_from_file(
 ) -> Result<(), Box<dyn std::error::Error>> {
     use self::schema::vulnerability::dsl::vulnerability;
 
-    let file = File::open("report.json")?;
+    let file = File::open("/app/report.json")?;
     let reader = BufReader::new(file);
 
     let report: VulnerabilityReport =
@@ -201,17 +201,7 @@ pub fn group_by_docker_scan_type(connection: &mut PgConnection, filter: Vec<Stri
 // TODO führe group_by_pkgid_pkgname und group_by_docker_scan_type zusammen
 pub fn group_by_pkgid_pkgname(connection: &mut PgConnection, filter: Vec<String>) -> GroupedVulnerabilites {
     let to_be_grouped = fetch_all_vuln_entries(connection);
-    /*
-    let mut grouped: HashMap<String, Vec<Vulnerability>> = HashMap::new();
-
-    for vuln in to_be_grouped {
-        let key = format!("{}|{}", vuln.pkg_id, vuln.pkg_name);
-        grouped.entry(key).or_insert(vec![]).push(vuln);
-    }
-    let mut g = GroupedVulnerabilites {
-        vulnerabilities: grouped,
-    };
-    */
+   
     let g = group_vulnerabilites_by_criteria(to_be_grouped, |v| {
         format!("{}|{}", v.pkg_id, v.pkg_name)
     });

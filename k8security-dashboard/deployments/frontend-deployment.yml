@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-frontend-deployment
+  labels:
+    app: web-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-frontend
+  template:
+    metadata:
+      labels:
+        app: web-frontend
+    spec:
+      containers:
+        - name: web-frontend
+          image: web_frontend:latest # Assuming you've built this image and it's accessible
+          ports:
+            - containerPort: 3000
+          env:
+            - name: BACKEND_URL
+              value: http://rust-backend-service:8080 # Frontend connects to backend via its Kubernetes service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-frontend-service
+spec:
+  selector:
+    app: web-frontend
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer # Or NodePort for external access

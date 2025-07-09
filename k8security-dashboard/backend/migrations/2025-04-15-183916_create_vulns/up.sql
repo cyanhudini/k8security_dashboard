@@ -5,6 +5,6 @@ CREATE TABLE vulnerability
     "pkg_name" VARCHAR NOT NULL,
     "pkg_id" VARCHAR NOT NULL,
     "installed_version" VARCHAR NOT NULL,
-    "severity" VARCHAR NOT NULL
-
+    "severity" VARCHAR NOT NULL,
+    "origin" VARCHAR NOT NULL
 )

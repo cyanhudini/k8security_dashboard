@@ -11,7 +11,7 @@
 #### Backend
 
 - cargo run (dies sollte alle Pakete aus cargo.toml installieren)
-- erstelle eine .env mit DATABASE_URL=postgres://nutzer:passwort@localhost:5432/vulndb (nutzer/passwort im docker compose festlegen)
+- erstelle eine .env mit DATABASE_URL=postgres://nutzer:passwort@localhost:5433/vulndb (nutzer/passwort im docker compose festlegen)
 
 - im backend Ordner: diesel setup
 - dann diesel migration run 

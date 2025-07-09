@@ -1,10 +1,10 @@
 services:
   db:
     image: postgres:16
-    container_name: postgres_k8s
+    container_name: host_postgres_k8s
     restart: always
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=123456789
@@ -14,7 +14,7 @@ services:
     networks:
       - postgres
   pgadmin:
-    container_name: pgadmin_container
+    container_name: host_pgadmin_container
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
