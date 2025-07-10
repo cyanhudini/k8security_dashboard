@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: trivy-reports-pvc
+spec:
+  accessModes:
+    - ReadWriteMany # Trivy and backend need to share this
+  resources:
+    requests:
+      storage: 1Gi # Adjust size as needed

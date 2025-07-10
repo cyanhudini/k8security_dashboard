@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: rust_backend
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: postgres://admin:123456789@db:5432/vulndb
+    networks:
+      - postgres
+    volumes:
+      - trivy_reports:/app/trivy_reports
+    depends_on:
+      db:
+        condition: service_healthy
+
+
+  db:
+    image: postgres:16
+    container_name: postgres_k8s
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123456789
+      - POSTGRES_DB=vulndb
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d vulndb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5000:80"
+    restart: always
+    networks:
+      - postgres
+
+  trivy_scanner:
+    image: aquasec/trivy:latest
+    container_name: trivy_scanner_container
+    networks:
+      - postgres
+    entrypoint: >
+      /bin/sh -c "
+        while true; do
+          trivy k8s --format json -o results.json
+          sleep 86400;
+        done
+      "
+    volumes:
+      - ~/.kube:/root/.kube:ro
+      - trivy_cache:/root/.cache/trivy
+      - trivy_reports:/trivy_reports
+
+    depends_on:
+      backend:
+        condition: service_started
+
+  frontend: # New service for your frontend
+    build: ./frontend # Assumes your frontend Dockerfile is in a 'frontend' directory
+    container_name: web_frontend
+    ports:
+      - "3000:3000" # Map host port 3000 to container's port 80 (where Nginx will serve)
+    networks:
+      - postgres # Ensure frontend is on the same network to talk to backend
+ 
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
+  trivy_cache:
+  trivy_reports:

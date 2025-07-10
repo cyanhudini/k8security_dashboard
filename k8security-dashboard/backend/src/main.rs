@@ -45,8 +45,9 @@ async fn main() -> io::Result<()> {
             .route("/group_vulns_by_pkg",  web::post().to(fetch_all_vulns_then_group_by_pkg))
             .route("/set_email_status", web::post().to(update_status_email))
             .route("/delete_vulns", web::post().to(delete_vulns))
+            .route("/health", web::get().to(|| async { "OK" }))
     })
-    .bind(("127.0.0.1", 6234))?
+    .bind(("0.0.0.0", 8080))?
     .run()
     .await
 }
