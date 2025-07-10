@@ -2,3 +2,4 @@ aiosmtpd
 schedule
 asyncio
 psycopg2
+dotenv
