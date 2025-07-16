@@ -21,7 +21,7 @@ spec:
         io.kompose.service: frontend
     spec:
       containers:
-        - image: 35t467utzjgd/k8security-dashboard-frontend:v3
+        - image: 35t467utzjgd/k8security-dashboard-frontend:v4
           name: web-frontend
           ports:
             - containerPort: 3000
