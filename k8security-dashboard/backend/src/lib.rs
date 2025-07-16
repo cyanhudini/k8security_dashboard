@@ -115,10 +115,10 @@ pub fn filter_vuln_entries_by_severity(connection: &mut PgConnection,filter_crit
 
 pub fn add_vulns_from_file(
     connection: &mut PgConnection,
-) -> Result<(), Box<dyn std::error::Error>> {
+) -> usize {
     use self::schema::vulnerability::dsl::vulnerability;
 
-    let file = File::open("/app/trivy_reports/report.json")?;
+    let file = File::open("/app/trivy_reports/report.json").expect("Fehler beim Öffnen der Datei");
     let reader = BufReader::new(file);
 
     let report: VulnerabilityReport =
@@ -174,9 +174,8 @@ pub fn add_vulns_from_file(
         .on_conflict((vuln_id, pkg_name, pkg_id, installed_version))
         .do_nothing()
         .execute(connection)
-        .expect("Error inserting new vulnerabilities");
+        .expect("Error inserting new vulnerabilities")
 
-    Ok(())
 }
 
 pub fn group_by_docker_scan_type(connection: &mut PgConnection, filter: Vec<String>) -> GroupedVulnerabilites {

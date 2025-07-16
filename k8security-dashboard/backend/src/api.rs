@@ -35,15 +35,19 @@ pub(crate) async fn post_filter_query(
 
 pub(crate) async fn post_new_vulns(pool: web::Data<DbPool>) -> actix_web::Result<impl Responder> {
     let pool = pool.clone();
-    web::block(move || {
+    let result = web::block(move || {
         let mut connection = pool.get().unwrap();
 
         // TODO: Result muss besser genutzt werden
-        let _ = add_vulns_from_file(&mut connection);
+        add_vulns_from_file(&mut connection)
     })
     .await?;
 
-    Ok(HttpResponse::Ok().json("Successfully inserted"))
+    if result > 0 {
+        Ok(HttpResponse::Ok().json(format!("Successfully inserted {} vulnerabilities", result)))
+    } else {
+        Ok(HttpResponse::InternalServerError().json("No vulnerabilities were inserted"))
+    }
 }
 
 pub(crate) async fn post_new_email_adress(
