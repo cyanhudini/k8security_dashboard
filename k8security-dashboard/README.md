@@ -30,3 +30,23 @@
 
 Generiere einen Trivy Report mittels trivy k8s --format json -o results.json und rufe dann den Endpunkt localhost:8080/add_vulns_bulk.
 Dies ist der vorläufige Weg, später wird dies durch ein Skript ersetzt welches einmal pro Tag den Trivy Scanner laufen lässt um diesen dann später in die Datenbank einzuführen.
+
+## Deployment
+
+#### Starte minikube
+- minikube start
+
+#### Sicherstellen das Ingress aktiviert ist
+- minikube addons enable ingress
+
+#### Wende Kubernetes Manifest an
+- kubectl apply -f ./kompose-deployment
+
+#### Minikube IP
+- minikube ip
+
+#### Frontend URL
+- http://<minikube-ip>/
+
+#### Backend URL
+- http://<minikube-ip>/api/vulns
