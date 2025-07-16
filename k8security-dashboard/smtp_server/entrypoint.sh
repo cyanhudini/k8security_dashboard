@@ -1,6 +1,5 @@
 #!/bin/sh
 while true; do
-    
 
   if [ $? -eq 0 ]; then
      

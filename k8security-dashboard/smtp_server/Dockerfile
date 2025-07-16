@@ -10,7 +10,7 @@ RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/
 
 
 COPY entrypoint.sh /home/entrypoint.sh
-COPY html.tpl /home/html.tpl
+
 COPY cronjob /etc/cron.d/cron
 RUN chmod 0644 /etc/cron.d/cron
 RUN chmod +x /home/entrypoint.sh

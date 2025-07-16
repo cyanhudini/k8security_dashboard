@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   backend:
-    build: ./backend
+    
+    image: 35t467utzjgd/k8s_dashboard-backend:backend
     container_name: rust_backend
     ports:
       - "8080:8080"
@@ -22,7 +23,7 @@ services:
     container_name: postgres_k8s
     restart: always
     ports:
-      - "5432:5432"
+      - "1987:1987"
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=123456789
@@ -39,7 +40,7 @@ services:
       start_period: 10s
 
   pgadmin:
-    container_name: pgadmin_container
+    container_name: pgadmin_container_dashboard
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
@@ -48,7 +49,7 @@ services:
     volumes:
       - pgadmin:/var/lib/pgadmin
     ports:
-      - "5000:80"
+      - "4567:80"
     restart: always
     networks:
       - postgres
@@ -74,13 +75,13 @@ services:
       backend:
         condition: service_started
 
-  frontend: # New service for your frontend
-    build: ./frontend # Assumes your frontend Dockerfile is in a 'frontend' directory
+  frontend:
+    image: 35t467utzjgd/k8security-dashboard-frontend:frontend
     container_name: web_frontend
     ports:
-      - "3000:3000" # Map host port 3000 to container's port 80 (where Nginx will serve)
+      - "3000:3000" 
     networks:
-      - postgres # Ensure frontend is on the same network to talk to backend
+      - postgres
  
 networks:
   postgres:
