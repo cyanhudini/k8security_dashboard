@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: trivy-cluster-scan
+spec:
+  # Runs once every day at 2:00 AM server time
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: trivy-sa
+          containers:
+          - name: trivy-scanner
+            image: aquasec/trivy:latest
+            args:
+            - "k8s"
+            - "--all-namespaces"
+            - "cluster"
+            - "--format"
+            - "json"
+            - "-o"
+            - "/trivy_reports/results.json"
+            volumeMounts:
+            - name: trivy-cache
+              mountPath: /root/.cache/
+            - name: trivy-reports
+              mountPath: /trivy_reports
+          restartPolicy: OnFailure
+          volumes:
+          - name: trivy-cache
+            emptyDir: {}
+          - name: trivy-reports
+            persistentVolumeClaim:
+              claimName: trivy-reports

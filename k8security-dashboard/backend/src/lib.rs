@@ -118,7 +118,7 @@ pub fn add_vulns_from_file(
 ) -> Result<(), Box<dyn std::error::Error>> {
     use self::schema::vulnerability::dsl::vulnerability;
 
-    let file = File::open("/app/report.json")?;
+    let file = File::open("/app/trivy_reports/report.json")?;
     let reader = BufReader::new(file);
 
     let report: VulnerabilityReport =
