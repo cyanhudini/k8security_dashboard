@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: web-frontend
-          image: web_frontend:latest # Assuming you've built this image and it's accessible
+          image: 35t467utzjgd/k8security-dashboard-frontend:frontend # Assuming you've built this image and it's accessible
           ports:
             - containerPort: 3000
           env:

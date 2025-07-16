@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.36.0 (ae2a39403)
+  labels:
+    io.kompose.service: backend
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: backend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.36.0 (ae2a39403)
+      labels:
+        io.kompose.service: backend
+    spec:
+      containers:
+        - env:
+            - name: DATABASE_URL
+              value: postgres://admin:123456789@db:5432/vulndb
+          image: 35t467utzjgd/k8s_dashboard-backend:v2
+          name: rust-backend
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /app/trivy_reports
+              name: trivy-reports
+      restartPolicy: Always
+      volumes:
+        - name: trivy-reports
+          persistentVolumeClaim:
+            claimName: trivy-reports

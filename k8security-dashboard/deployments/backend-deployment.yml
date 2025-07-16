@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: rust-backend
-          image: rust_backend:latest # Assuming you've built this image and it's accessible in your cluster (e.g., private registry, or pre-built)
+          image: 35t467utzjgd/k8s_dashboard-backend:backend # Assuming you've built this image and it's accessible in your cluster (e.g., private registry, or pre-built)
           ports:
             - containerPort: 8080
           env:

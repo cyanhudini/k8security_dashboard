@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.36.0 (ae2a39403)
+  labels:
+    io.kompose.service: db
+  name: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.36.0 (ae2a39403)
+      labels:
+        io.kompose.service: db
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: vulndb
+            - name: POSTGRES_PASSWORD
+              value: "123456789"
+            - name: POSTGRES_USER
+              value: admin
+          image: postgres:16
+          livenessProbe:
+            exec:
+              command:
+                - pg_isready -U admin -d vulndb
+            failureThreshold: 5
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 5
+          name: postgres-k8s
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgres
+      restartPolicy: Always
+      volumes:
+        - name: postgres
+          persistentVolumeClaim:
+            claimName: postgres

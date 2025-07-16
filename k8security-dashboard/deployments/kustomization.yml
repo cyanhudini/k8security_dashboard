@@ -1,0 +1,16 @@
+# kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - db-pvc.yaml
+  - db-secret.yaml
+  - db-statefulset.yaml
+  - backend-deployment.yaml
+  - trivy-reports-pvc.yaml
+  - pgadmin-secret.yaml
+  - pgadmin-pvc.yaml
+  - pgadmin-deployment.yaml
+  - trivy-scanner-rbac.yaml
+  - trivy-scanner-pvc.yaml
+  - trivy-scanner-deployment.yaml
+  - frontend-deployment.yaml
