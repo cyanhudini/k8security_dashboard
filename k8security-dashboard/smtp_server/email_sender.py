@@ -27,7 +27,7 @@ def get_db_connection():
             user=DB_USER,
             password=DB_PASS,
             host=DB_HOST,
-            port=5432,
+            port=DB_PORT,
             connect_timeout=15  
         )
         
