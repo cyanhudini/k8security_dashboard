@@ -34,7 +34,7 @@ Dies ist der vorläufige Weg, später wird dies durch ein Skript ersetzt welches
 ## Deployment
 
 #### .env Datei erstellen
-- im smtp Ordner befindet sich eine .env.example Datei, die fehlenden Werte müssen ausgefüllt werden
+- im smtp Ordner befindet sich eine .example.env Datei, die fehlenden Werte müssen ausgefüllt werden
 - kubectl create secret smtpsecret --from-env-file=./smtp_server/.env
 
 #### Starte minikube
