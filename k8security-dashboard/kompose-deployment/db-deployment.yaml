@@ -43,7 +43,7 @@ spec:
             periodSeconds: 20
           name: postgres-k8s
           ports:
-            - containerPort: 5432
+            - containerPort: 80
               protocol: TCP
           volumeMounts:
             - mountPath: /var/lib/postgresql/data

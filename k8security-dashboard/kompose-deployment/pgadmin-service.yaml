@@ -1,16 +1,13 @@
+# pgadmin-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.36.0 (ae2a39403)
-  labels:
-    io.kompose.service: pgadmin
-  name: pgadmin
+  name: pgadmin-service
 spec:
+  type: NodePort 
   ports:
-    - name: "5000"
-      port: 5000
-      targetPort: 80
+    - protocol: TCP
+      port: 80
+      targetPort: 80 
   selector:
     io.kompose.service: pgadmin

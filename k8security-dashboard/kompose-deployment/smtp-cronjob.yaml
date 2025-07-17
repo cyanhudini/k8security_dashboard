@@ -1,0 +1,66 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: email-sender-cronjob
+spec:
+  schedule: "*/1 * * * *"
+
+  concurrencyPolicy: Forbid
+
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 300
+      backoffLimit: 2
+
+      template:
+        spec:
+          containers:
+          - name: smtp
+            image: 35t467utzjgd/smtp-server:v07
+            env:
+              - name: HOST
+                value: "db-service"
+              - name: POSTGRESQL_DB_NAME
+                valueFrom:
+                  secretKeyRef:
+                    name: smtpsecret
+                    key: POSTGRESQL_DB_NAME
+              - name: POSTGRESQL_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: smtpsecret
+                    key: POSTGRESQL_PASSWORD
+              - name: POSTGRESQL_USERNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: smtpsecret
+                    key: POSTGRESQL_USERNAME
+              - name: PORT
+                valueFrom:
+                  secretKeyRef:
+                    name: smtpsecret
+                    key: PORT
+              - name: EMAIL_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: smtpsecret
+                    key: EMAIL_PASSWORD
+              - name: EMAIL_USERNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: smtpsecret
+                    key: EMAIL_USERNAME
+              - name: SENDER_EMAIL
+                valueFrom:
+                  secretKeyRef:
+                    name: smtpsecret
+                    key: SENDER_EMAIL
+              - name: SMTP_SERVER_NAME
+                valueFrom:
+                  secretKeyRef:
+                    name: smtpsecret
+                    key: SMTP_SERVER_NAME
+          restartPolicy: OnFailure

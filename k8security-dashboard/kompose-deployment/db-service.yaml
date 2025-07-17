@@ -1,13 +1,12 @@
+# db-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.36.0 (ae2a39403)
+  name: db-service
   labels:
     io.kompose.service: db
-  name: db
 spec:
+  type: ClusterIP
   ports:
     - name: "5432"
       port: 5432

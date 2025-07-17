@@ -49,4 +49,4 @@ Dies ist der vorläufige Weg, später wird dies durch ein Skript ersetzt welches
 - http://<minikube-ip>/
 
 #### Backend URL
-- http://<minikube-ip>/api/vulns
+- http://<minikube-ip>/api

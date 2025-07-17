@@ -6,24 +6,15 @@ RUN apt-get -y update && apt-get install -y \
     curl \
     python3-pip
 
-RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.60.0
 
+WORKDIR /app
 
-COPY entrypoint.sh /home/entrypoint.sh
-
-COPY cronjob /etc/cron.d/cron
-RUN chmod 0644 /etc/cron.d/cron
-RUN chmod +x /home/entrypoint.sh
-
-COPY email_sender.py ./
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN touch /var/log/cron.log
 
-ENTRYPOINT ["/bin/sh", "/home/entrypoint.sh"]
+COPY email_sender.py .
 
-EXPOSE 1234
 
-CMD ["cron", "-f"]
+CMD ["python", "email_sender.py"]
